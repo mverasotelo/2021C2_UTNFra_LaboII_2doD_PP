@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace VeraSotelo.Mercedes.PrimerParcial
 {
-    public partial class Form1 : Form
+    public partial class FormEstadisticas : Form
     {
-        public Form1()
+        public FormEstadisticas()
         {
             InitializeComponent();
         }
-
     }
 }
