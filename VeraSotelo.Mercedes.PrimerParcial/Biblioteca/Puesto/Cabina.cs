@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Biblioteca
 {
-    public sealed class Cabina : Servicio
+    public sealed class Cabina : Puesto
     {
         #region Enumerados
         public enum ETipoTelefono
@@ -30,7 +30,7 @@ namespace Biblioteca
         /// <param name="tipo"></param>
         /// <param name="marca"></param>
         public Cabina(string identificador, ETipoTelefono tipo, string marca) 
-            : base()
+            : base(identificador)
         {
             this.listaDeLlamadas = new List<Llamada>();
             this.tipo = ETipo.Cabina;
@@ -49,11 +49,11 @@ namespace Biblioteca
             }
         }
 
-        public string Id
+        public ETipoTelefono TipoTelefono
         {
             get
             {
-                return identificador;
+                return tipoTelefono;
             }
         }
 
@@ -71,7 +71,7 @@ namespace Biblioteca
 
             foreach (Llamada llamada in listaDeLlamadas)
             {
-                usoTotal += llamada.DuracionLlamada;
+                usoTotal += llamada.DuracionServicio;
             }
 
             return usoTotal;
@@ -88,11 +88,10 @@ namespace Biblioteca
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($" CABINA {identificador.ToUpper()}");
+            sb.AppendLine($" CABINA {identificador.ToUpper()}\n");
             sb.AppendLine($" Tipo teléfono: {tipoTelefono}");
             sb.AppendLine($" Marca: {marca}");
-            sb.AppendLine($" Minutos de uso:{MinutosDeUso}");
-            sb.AppendLine("====================================");
+            sb.AppendLine($" Minutos de uso: {MinutosDeUso}");
 
             return sb.ToString();
         }

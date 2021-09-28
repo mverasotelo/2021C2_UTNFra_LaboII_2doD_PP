@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace VeraSotelo.Mercedes.PrimerParcial
 {
-    public partial class FormEstadisticas : Base
+    public partial class Base : Form
     {
-        public FormEstadisticas()
+        public Base()
         {
             InitializeComponent();
         }
 
-        private void FormEstadisticas_Load(object sender, EventArgs e)
+        private void Base_Load(object sender, EventArgs e)
         {
-
+            lblFecha.Text = DateTime.Now.ToString("dd-MM-yyyy");
         }
     }
 }

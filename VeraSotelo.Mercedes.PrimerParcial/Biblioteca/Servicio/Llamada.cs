@@ -1,12 +1,11 @@
 ﻿using System;
 
-
 namespace Biblioteca
 {
-    public class Llamada
+    public sealed class Llamada : Servicio
     {
         #region Enumerados
-        public enum ETipo
+        public enum ETipoLlamada
         {
             Local = 100, LargaDistancia = 250, Internacional = 500
         }
@@ -14,31 +13,52 @@ namespace Biblioteca
 
         #region Atributos
 
-        private int identificador;
-        private short codigoPais;
-        private short prefijoLocalidad;
-        private short numero;
-        private ETipo tipo;
-        private int duracionEnMinutos;
+        private int codigoPais;
+        private int prefijoLocalidad;
+        private int numero;
 
         #endregion
 
         #region Constructores
-        public Llamada(short codigoPais, short prefijoLocalidad, short numero)
+
+        public Llamada()
+        {
+            this.tipoServicio = Servicio.ETipoServicio.Llamada;
+
+        }
+
+        /// <summary>
+        /// Constructor de la clase Llamada
+        /// </summary>
+        /// <param name="codigoPais"></param>
+        /// <param name="prefijoLocalidad"></param>
+        /// <param name="numero"></param>
+        public Llamada(int codigoPais, int prefijoLocalidad, int numero)
+            :this()
         {
             this.codigoPais = codigoPais;
             this.prefijoLocalidad = prefijoLocalidad;
             this.numero = numero;
-            this.tipo = TipoLlamada;
         }
         #endregion
 
         #region Propiedades
 
         /// <summary>
+        /// Solo lectura = Devuelve el numero de destino
+        /// </summary>
+        public string NroDestino
+        {
+            get
+            {
+                return $"+{codigoPais} ({prefijoLocalidad}) {numero}";
+            }
+        }
+
+        /// <summary>
         /// Solo lectura = retorna el tipo de llamada
         /// </summary>
-        public ETipo TipoLlamada
+        public ETipoLlamada TipoLlamada
         {
             get
             {
@@ -47,9 +67,20 @@ namespace Biblioteca
         }
 
         /// <summary>
+        /// Solo lectura = Devuelve el costo de la llamada
+        /// </summary>
+        public float CostoLlamada
+        {
+            get
+            {
+                return CalcularCosto();
+            }
+        }
+
+        /// <summary>
         /// Lectura/Escritura = Para establecer la duracion de una llamada una vez finalizada 
         /// </summary>
-        public int DuracionLlamada
+        public override int DuracionServicio
         {
             get
             {
@@ -61,16 +92,6 @@ namespace Biblioteca
             }
         }
 
-        /// <summary>
-        /// Solo lectura = Devuelve el costo de la llamada
-        /// </summary>
-        public float CostoLlamada
-        {
-            get
-            {
-                return CalcularCostoLlamada();
-            }
-        }
         #endregion
 
         #region Métodos
@@ -79,32 +100,32 @@ namespace Biblioteca
         /// Analiza el número de la llamada a fin de determinar si es local, larga distancia o internacional
         /// </summary>
         /// <returns>Tipo de llamada</returns>
-        private ETipo IdentificarTipoLlamada()
+        private ETipoLlamada IdentificarTipoLlamada()
         {
             if(codigoPais != 54)
             {
-                return ETipo.Internacional;
+                return ETipoLlamada.Internacional;
             }
             else
             {
                 if(prefijoLocalidad == 11)
                 {
-                    return ETipo.Local;
+                    return ETipoLlamada.Local;
                 }
                 else
                 {
-                    return ETipo.LargaDistancia;
+                    return ETipoLlamada.LargaDistancia;
                 }
             }
         }
 
         /// <summary>
-        /// Calcula el costo de una llamada segun su duracion y el valor del minuto
+        /// Sobreescribe el metodo y calcula el costo de una llamada segun su duracion y el valor del minuto
         /// </summary>
         /// <returns></returns>
-        private float CalcularCostoLlamada()
+        protected override float CalcularCosto()
         {
-            return (DuracionLlamada * (int) tipo)/100;
+            return (DuracionServicio * (int) TipoLlamada)/100;
         }
 
         #endregion
@@ -121,7 +142,7 @@ namespace Biblioteca
         {
             if (ll1 is not null && ll2 is not null)
             {
-                return ll1.identificador == ll2.identificador;
+                return ll1.GetHashCode() == ll2.GetHashCode();
             }
             return false;
         }
@@ -153,7 +174,8 @@ namespace Biblioteca
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return identificador.GetHashCode();
+            string telefono = $"{codigoPais}{prefijoLocalidad}{numero}";
+            return telefono.GetHashCode() + DuracionServicio.GetHashCode();
         }
 
         /// <summary>
@@ -161,8 +183,8 @@ namespace Biblioteca
         /// </summary>
         /// <returns></returns>
         public override string ToString()
-        {
-            return $"{codigoPais} - {prefijoLocalidad} - {numero}";
+        { 
+            return $"{codigoPais} - {prefijoLocalidad} - {numero} | Duración: {DuracionServicio} min";
         }
 
         #endregion

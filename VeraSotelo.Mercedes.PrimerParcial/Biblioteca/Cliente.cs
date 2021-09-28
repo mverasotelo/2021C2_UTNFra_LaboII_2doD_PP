@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Biblioteca;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Biblioteca
 {
@@ -12,7 +11,15 @@ namespace Biblioteca
         private string nombre;
         private string apellido;
         private short edad;
+        private Servicio servicio;
 
+        /// <summary>
+        /// Constructor la clase cliente
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="edad"></param>
         public Cliente(int dni, string nombre, string apellido, short edad)
         {
             this.dni = dni;
@@ -21,7 +28,36 @@ namespace Biblioteca
             this.edad = edad;
         }
 
+        #region Propiedades
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Servicio Servicio
+        {
+            get
+            {
+                return servicio;
+            }
+        }
+
+        #endregion
+
         #region Sobrecargas
+
+        public static Cliente operator +(Cliente cliente, Servicio servicio)
+        {
+            if (servicio.TipoServicio == Servicio.ETipoServicio.Llamada)
+            {
+                cliente.servicio = (Llamada)servicio;
+            }
+            else
+            {
+                cliente.servicio = (Sesion)servicio;
+
+            }
+            return cliente;
+        }
 
         /// <summary>
         /// Sobrecarga del operador ==
@@ -76,7 +112,7 @@ namespace Biblioteca
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"{nombre} {apellido}");
+            sb.AppendLine($" {nombre} {apellido}");
             sb.AppendLine($" DNI: {dni}");
             sb.AppendLine($" ({edad} años)");
             return sb.ToString();

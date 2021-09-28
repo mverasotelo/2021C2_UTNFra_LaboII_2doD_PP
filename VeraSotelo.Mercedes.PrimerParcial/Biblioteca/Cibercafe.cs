@@ -1,129 +1,84 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Biblioteca
 {
-    public class Cibercafe
+    public static class Cibercafe
     {
-
-        private List<Computadora> computadoras;
-        private List<Cabina> cabinas;
-        private Queue<Cliente> clientesEnEspera;
+        private static List<Puesto> puestos;
+        private static Queue<Cliente> clientesEnEspera;
 
         /// <summary>
-        /// Constructor de la clase Cibercafe
+        /// Constructor estatico de la clase Cibercafe
         /// </summary>
-        public Cibercafe()
+        static Cibercafe()
         {
-            this.computadoras = new List<Computadora>();
-            this.cabinas = new List<Cabina>();
-            this.clientesEnEspera = new Queue<Cliente>();
+            puestos = new List<Puesto>();
+            clientesEnEspera = new Queue<Cliente>();
         }
 
+        #region Propiedades
+
         /// <summary>
-        /// Solo Lectura = devuelva lista de computadoras
+        /// Solo Lectura = devuelve lista de cabinas
         /// </summary>
-        public List<Computadora> ListaComputadoras
+        public static List<Puesto> ListaPuestos
         {
             get
             {
-                return computadoras;
+                return puestos;
             }
         }
 
         /// <summary>
         /// Solo Lectura = devuelva lista de cabinas
         /// </summary>
-        public List<Cabina> ListaCabinas
-        {
-            get
-            {
-                return cabinas;
-            }
-        }
-
-                /// <summary>
-        /// Solo Lectura = devuelva lista de cabinas
-        /// </summary>
-        public Queue<Cliente> ClientesEnEspera
+        public static Queue<Cliente> ClientesEnEspera
         {
             get
             {
                 return clientesEnEspera;
             }
         }
+        #endregion
 
-        #region Operadores
+        #region Metodos estaticos
 
         /// <summary>
-        /// Agrega un servicio al cibercafe. 
+        /// Agrega un puesto al cibercafe. 
         /// </summary>
-        /// <param name="cibercafe"></param>
-        /// <param name="servicio"></param>
+        /// <param name="puesto"></param>
         /// <returns>True si se pudo cargar / false si ya existia el servicio con ese identificador</returns>
-        public static Cibercafe operator +(Cibercafe cibercafe, Servicio servicio)
+        public static bool AgregarPuesto(Puesto puesto)
         {
-            if(servicio.TipoServicio == Servicio.ETipo.Computadora)
+            foreach (Puesto p in ListaPuestos)
             {
-                if(cibercafe.computadoras.Count != 0)
+                if (p == puesto)
                 {
-                    foreach (Computadora c in cibercafe.computadoras)
-                    {
-                        if (c == (Computadora)servicio)
-                        {
-                            return cibercafe;
-                        }
-                    }
+                    return false;
                 }
-                cibercafe.computadoras.Add((Computadora)servicio);
             }
-            else
-            {
-                if (cibercafe.cabinas.Count != 0)
-                {
-                    foreach (Cabina c in cibercafe.cabinas)
-                    {
-                        if (c == (Cabina)servicio)
-                        {
-                            return cibercafe;
-                        }
-                    }
-                }
-                cibercafe.cabinas.Add((Cabina)servicio);
-            }
-            return cibercafe;
+            puestos.Add(puesto);
+            return true;
         }
 
-        public static Cibercafe operator +(Cibercafe cibercafe, Cliente cliente)
+        /// <summary>
+        /// Agrega un cliente a la lista, si ya no se encuentra en la misma 
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns>true si se agrega, false sino se pudo agregar o ya estaba en la lista</returns>
+        public static bool IngresarCliente(Cliente cliente)
         {
-            foreach (Cliente c in cibercafe.clientesEnEspera)
+            foreach (Cliente c in ClientesEnEspera)
             {
                 if (c == cliente)
                 {
-                    return cibercafe;
+                    return false;
                 }
             }
-            cibercafe.clientesEnEspera.Enqueue(cliente);
-
-            return cibercafe;
+            ClientesEnEspera.Enqueue(cliente);
+            return true;
         }
-
-        //public static Cibercafe operator -(Cibercafe cibercafe, Cliente cliente)
-        //{
-        //    foreach (Cliente c in cibercafe.clientesEnEspera)
-        //    {
-        //        if (c == cliente)
-        //        {
-        //            cibercafe.clientesEnEspera.Dequeue();
-        //            return cibercafe;
-        //        }
-        //    }
-        //    return cibercafe;
-        //}
-
         #endregion
+
     }
 }

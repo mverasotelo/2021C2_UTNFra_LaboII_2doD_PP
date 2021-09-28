@@ -11,7 +11,7 @@ using Biblioteca;
 
 namespace VeraSotelo.Mercedes.PrimerParcial
 {
-    public partial class FormCibercafe : System.Windows.Forms.Form
+    public partial class FormCibercafe : Base
     {
         public FormCibercafe()
         {
@@ -20,8 +20,91 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         }
 
         private void FormCibercafe_Load(object sender, EventArgs e)
-        {
-            Cibercafe elVicio = new Cibercafe();
+        {            
+            
+            //Agregar puestos al Cibercafé
+            List<Puesto> listaPuestos = new List<Puesto>()
+            {
+                //cabinas
+                new Cabina("T01", Cabina.ETipoTelefono.ConTeclado, "Siemens"),
+                new Cabina("T02", Cabina.ETipoTelefono.ADisco, "Panasonic"),
+                new Cabina("T03", Cabina.ETipoTelefono.ConTeclado, "Philips"),
+                new Cabina("T04", Cabina.ETipoTelefono.ADisco, "Panasonic"),
+                new Cabina("T05", Cabina.ETipoTelefono.ConTeclado, "Panasonic"),
+                
+                //computadoras
+                new Computadora("C01",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Ares, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Microfono},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.AgeOfEmpiresII, Enumerados.EJuegos.MuOnline},
+                new Dictionary<string,string>{ {"RAM","4GB"}, {"Procesador","Intel Pentium 4"}, {"Placa de video", "486 DLC" }}),
+                
+                new Computadora("C02",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike},
+                new Dictionary<string,string>{ {"RAM","2GB"}, {"Procesador","Intel Pentium 2"}, {"Placa de video", "Geforce 4" } }),
+
+                new Computadora("C03",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike},
+                new Dictionary<string,string>{ {"RAM","4GB"}, {"Procesador","Intel Pentium 2"}, {"Placa de video", "9600GT" } }),
+
+                new Computadora("C04",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Joystick},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.MuOnline, Enumerados.EJuegos.CounterStrike},
+                new Dictionary<string,string>{ {"RAM","2GB"}, {"Procesador","Intel Pentium"}, {"Placa de video", "486 DLC" } }),
+
+                new Computadora("C05",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Joystick},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.MuOnline, Enumerados.EJuegos.CounterStrike},
+                new Dictionary<string,string>{ {"RAM","1GB"}, {"Procesador", "Intel 4004" }, {"Placa de video", "9600GT" } }),
+
+                new Computadora("C06",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Ares, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Microfono},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.AgeOfEmpiresII, Enumerados.EJuegos.MuOnline},
+                new Dictionary<string,string>{ {"RAM","4GB"}, {"Procesador","Intel Pentium 4"}, {"Placa de video", "486 DLC" }}),
+
+                new Computadora("C07",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Auriculares},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike},
+                new Dictionary<string,string>{ {"RAM","2GB"}, {"Procesador","Intel Pentium 2"}, {"Placa de video", "Geforce 4" } }),
+
+                new Computadora("C08",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike},
+                new Dictionary<string,string>{ {"RAM","4GB"}, {"Procesador","Intel Pentium 2"}, {"Placa de video", "9600GT" } }),
+
+                new Computadora("C09",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Joystick},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.MuOnline},
+                new Dictionary<string,string>{ {"RAM","2GB"}, {"Procesador","Intel Pentium"}, {"Placa de video", "486 DLC" } }),
+
+                new Computadora("C10",
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Joystick},
+                new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.MuOnline, Enumerados.EJuegos.CounterStrike},
+                new Dictionary<string,string>{ {"RAM","1GB"}, {"Procesador", "Intel 4004" }, {"Placa de video", "9600GT" } }),
+            };
+
+            foreach(Puesto p in listaPuestos)
+            {
+                Cibercafe.AgregarPuesto(p);
+            }
+
+            Cibercafe.ListaPuestos[1].Estado = Puesto.EEstado.Ocupado;
+            Cibercafe.ListaPuestos[5].Estado = Puesto.EEstado.Ocupado;
+            Cibercafe.ListaPuestos[7].Estado = Puesto.EEstado.Ocupado;
+            Cibercafe.ListaPuestos[4].Estado = Puesto.EEstado.Ocupado;
+            ActualizarEstadoPuestos();
+
 
             //Agrega clientes
             Cliente c1 = new Cliente(34398757, "Mercedes", "Vera", 32);
@@ -30,62 +113,58 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             Cliente c4 = new Cliente(34567890, "Alicia", "Sotelo", 35);
             Cliente c5 = new Cliente(41123456, "Julian", "Meroni", 18);
 
-            elVicio += c1;
-            elVicio += c2;
-            elVicio += c3;
-            elVicio += c4;
-            elVicio += c5;
+            //Agrega servicios a los clientes
+            c1 += new Llamada(54, 11, 95659565);
+            c2 += new Sesion(Sesion.ETipoSesion.Libre);
+            c1 += new Llamada(34, 567, 1234567);
+            c1 += new Llamada(54, 351, 56565415);
+            c2 += new Sesion(60);
 
-            foreach (Cliente c in elVicio.ClientesEnEspera)
+            Cibercafe.IngresarCliente(c1);
+            Cibercafe.IngresarCliente(c2);
+            Cibercafe.IngresarCliente(c3);
+            Cibercafe.IngresarCliente(c4);
+            Cibercafe.IngresarCliente(c5);
+
+
+            ActualizarListadoClientes();
+
+        }
+
+        private void ActualizarListadoClientes()
+        {
+            lstCliente.Items.Clear();
+            foreach (Cliente c in Cibercafe.ClientesEnEspera)
             {
                 lstCliente.Items.Add(c.ToString());
             }
+        }
 
-            //Agrega computadoras
-            Computadora pc1 = new Computadora("C01");
-            Computadora pc2 = new Computadora("C02");
-            Computadora pc3 = new Computadora("C03");
-            Computadora pc4 = new Computadora("C04");
-            Computadora pc5 = new Computadora("C05");
-            Computadora pc6 = new Computadora("C06");
-            Computadora pc7 = new Computadora("C07");
-            Computadora pc8 = new Computadora("C08");
-            Computadora pc9 = new Computadora("C09");
-            Computadora pc10 = new Computadora("C10");
-            elVicio += pc1;
-            elVicio += pc2;
-            elVicio += pc3;
-            elVicio += pc4;
-            elVicio += pc5;
-            elVicio += pc6;
-            elVicio += pc7;
-            elVicio += pc8;
-            elVicio += pc9;
-            elVicio += pc10;
-
-            //Agregar cabinas
-            Cabina t1 = new Cabina("T01", Cabina.ETipoTelefono.ConTeclado, "Panasonic");
-            Cabina t2 = new Cabina("T02", Cabina.ETipoTelefono.ConTeclado, "Panasonic");
-            Cabina t3 = new Cabina("T03", Cabina.ETipoTelefono.ConTeclado, "Philips");
-            Cabina t4 = new Cabina("T04", Cabina.ETipoTelefono.ConTeclado, "Panasonic");
-            Cabina t5 = new Cabina("T05", Cabina.ETipoTelefono.ConTeclado, "Panasonic");
-            elVicio += t1;
-            elVicio += t2;
-            elVicio += t3;
-            elVicio += t4;
-            elVicio += t5;
-
-            List<Control> cabinas = new List<Control>();
-
-            foreach (Control c in gpbCabinas.Controls)
+        private void ActualizarEstadoPuestos()
+        {
+            for (int i = 0; i < gpbPuestos.Controls.Count; i++)
             {
-                if (c is Label)
+                if (gpbPuestos.Controls[i] is Label)
                 {
-                    cabinas.Add(c);
+                    foreach (Puesto p in Cibercafe.ListaPuestos)
+                    {
+                        if (gpbPuestos.Controls[i].Text == p.Id)
+                        {
+                            if(p.Estado == Puesto.EEstado.Libre)
+                            {
+                                gpbPuestos.Controls[i].BackColor = Color.DarkSeaGreen;
+                            }
+                            else
+                            {
+                                gpbPuestos.Controls[i].BackColor = Color.DarkSalmon;
+                            }
+                        }
+                    }
                 }
             }
         }
 
+        #region Eventos
         /// <summary>
         /// Pide confirmacion para salir cuando se cierra el formulario
         /// </summary>
@@ -116,7 +195,52 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         private void lstCliente_DoubleClick(object sender, EventArgs e)
         {
             MessageBox.Show(((ListBox)sender).SelectedItem.ToString());
-
         }
+        /// <summary>
+        /// Muestra la informacion del puesto al hacer click en el
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblPuesto_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Cibercafe.ListaPuestos.Count; i++)
+            {
+                if (((Label)sender).Text == Cibercafe.ListaPuestos[i].Id)
+                {
+                    Puesto p = Cibercafe.ListaPuestos[i];
+                    FormInformacion frmInfo = new FormInformacion();
+                    frmInfo.Text = $"Información Puesto {p.Id}";
+                    frmInfo.rctInfo.Text = p.ToString();
+                    frmInfo.Show();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Abre una FormIngreso para asignar un puesto al cliente de acuerdo a sus requerimientos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAsignar_Click(object sender, EventArgs e)
+        {
+            if (Cibercafe.ClientesEnEspera.Count > 0)
+            {
+                //Cliente clienteActual = Cibercafe.ClientesEnEspera.Peek();
+                //if (clienteActual.Servicio is Llamada)
+                //{
+                //    FormIngresoLlamada frmIngreso = new FormIngresoLlamada(clienteActual);
+                //    frmIngreso.Show();
+                //}
+                //else
+                //{
+                //    FormIngresoPC frmIngreso = new FormIngresoPC(clienteActual);
+                //    frmIngreso.Show();
+
+                //}
+                ActualizarListadoClientes();
+            }
+        }
+
+        #endregion
     }
 }

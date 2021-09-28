@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Biblioteca
 {
-    public abstract class Servicio
+    public abstract class Puesto
     {
         #region Enumeradores
         public enum ETipo { Cabina, Computadora };
@@ -15,18 +16,48 @@ namespace Biblioteca
         protected ETipo tipo;
         
         #region Constructores
-        protected Servicio()
+        protected Puesto(string identificador)
         {
+            this.identificador = identificador;
             this.estado = EEstado.Libre;
         }
         #endregion
 
         #region Propiedades
-        public ETipo TipoServicio
+        /// <summary>
+        /// Solo lectura.
+        /// </summary>
+        public string Id
+        {
+            get
+            {
+                return identificador;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad solo lectura del tipo de puesto
+        /// </summary>
+        public ETipo TipoPuesto
         {
             get
             {
                 return tipo;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad solo lectura del estado
+        /// </summary>
+        public EEstado Estado
+        {
+            get
+            {
+                return estado;
+            }
+            set
+            {
+                this.estado = value;
             }
         }
         #endregion
@@ -34,7 +65,7 @@ namespace Biblioteca
         #region Metodos 
 
         /// <summary>
-        /// Calcula los minutos de uso del servicio
+        /// Calcula los minutos de uso del puesto
         /// </summary>
         /// <returns>Minutos de uso</returns>
         protected abstract int CalcularMinutosDeUso();
@@ -46,14 +77,14 @@ namespace Biblioteca
         /// <summary>
         /// Sobrecarga del operador ==
         /// </summary>
-        /// <param name="s1"></param>
-        /// <param name="s2"></param>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
         /// <returns></returns>
-        public static bool operator ==(Servicio s1, Servicio s2)
+        public static bool operator ==(Puesto p1, Puesto p2)
         {
-            if (s1 is not null && s2 is not null)
+            if (p1 is not null && p2 is not null)
             {
-                return s1.identificador == s2.identificador;
+                return p1.identificador == p2.identificador;
             }
             return false;
         }
@@ -61,12 +92,12 @@ namespace Biblioteca
         /// <summary>
         /// Sobrecarga del operador !=
         /// </summary>
-        /// <param name="s1"></param>
-        /// <param name="s2"></param>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
         /// <returns></returns>
-        public static bool operator !=(Servicio s1, Servicio s2)
+        public static bool operator !=(Puesto p1, Puesto p2)
         {
-            return !(s1 == s2);
+            return !(p1 == p2);
         }
 
         /// <summary>
@@ -75,8 +106,8 @@ namespace Biblioteca
         /// <returns></returns>
         public override bool Equals(Object obj)
         {
-            Servicio servicio = obj as Servicio;
-            return servicio != null && this == servicio;
+            Puesto puesto = obj as Puesto;
+            return puesto != null && this == puesto;
         }
 
         /// <summary>
@@ -96,7 +127,6 @@ namespace Biblioteca
         {
             return $"{identificador}";
         }
-
         #endregion
     }
 }
