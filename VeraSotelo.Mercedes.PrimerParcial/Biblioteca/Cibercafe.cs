@@ -19,7 +19,7 @@ namespace Biblioteca
         #region Propiedades
 
         /// <summary>
-        /// Solo Lectura = devuelve lista de cabinas
+        /// Propiedad solo lectura de lista de puestos
         /// </summary>
         public static List<Puesto> ListaPuestos
         {
@@ -30,7 +30,18 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Solo Lectura = devuelva lista de cabinas
+        /// Propiedad solo lectura de puestos disponibles
+        /// </summary>
+        public static List<Puesto> ListaPuestosDisponibles
+        {
+            get
+            {
+                return ChequearPuestosDisponibles();
+            }
+        }
+
+        /// <summary>
+        /// Propiedad solo lectura de lista de clientes en espera
         /// </summary>
         public static Queue<Cliente> ClientesEnEspera
         {
@@ -42,6 +53,55 @@ namespace Biblioteca
         #endregion
 
         #region Metodos estaticos
+
+        /// <summary>
+        /// Chequea que los requisitos solicitado en una sesion esten disponibles en una PC pasada por parametro
+        /// </summary>
+        /// <param name="sesion"></param>
+        /// <param name="computadora"></param>
+        /// <returns>True si todo se cumple, False si algo no se cumple</returns>
+        public static bool ChequearRequisitosPC(Sesion sesion, Computadora computadora)
+        {
+            foreach (Enumerados.ESoftware software in sesion.SoftwareRequerido)
+            {
+                if (computadora != software)
+                {
+                    return false;
+                }
+            }
+            foreach (Enumerados.EJuegos juego in sesion.JuegosRequeridos)
+            {
+                if (computadora != juego)
+                {
+                    return false;
+                }
+            }
+            foreach (Enumerados.EPerifericos periferico in sesion.PerifericosRequeridos)
+            {
+                if (computadora != periferico)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Chequea los puestos disponibles
+        /// </summary>
+        /// <returns>Devuelve una lista de los puestos disponibles</returns>
+        private static List<Puesto> ChequearPuestosDisponibles()
+        {
+            List<Puesto> puestosDisponibles = new List<Puesto>();
+            foreach(Puesto p in ListaPuestos)
+            {
+                if(p.Estado == Puesto.EEstado.Disponible)
+                {
+                    puestosDisponibles.Add(p);
+                }
+            }
+            return puestosDisponibles;
+        }
 
         /// <summary>
         /// Agrega un puesto al cibercafe. 

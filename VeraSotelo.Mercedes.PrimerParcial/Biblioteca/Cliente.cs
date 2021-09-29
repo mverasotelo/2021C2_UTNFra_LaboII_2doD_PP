@@ -47,7 +47,7 @@ namespace Biblioteca
 
         public static Cliente operator +(Cliente cliente, Servicio servicio)
         {
-            if (servicio.TipoServicio == Servicio.ETipoServicio.Llamada)
+            if (servicio is Llamada)
             {
                 cliente.servicio = (Llamada)servicio;
             }

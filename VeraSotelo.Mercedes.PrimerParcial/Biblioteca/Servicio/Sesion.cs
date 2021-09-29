@@ -24,6 +24,7 @@ namespace Biblioteca
         private List<Enumerados.ESoftware> softwareRequerido;
         private List<Enumerados.EPerifericos> perifericosRequeridos;
         private List<Enumerados.EJuegos> juegosRequeridos;
+
         #endregion
 
         #region Constructores
@@ -33,37 +34,36 @@ namespace Biblioteca
         /// </summary>
         private Sesion()
         {
-            tipoServicio = ETipoServicio.Sesion;
             softwareRequerido = new List<Enumerados.ESoftware>();
             perifericosRequeridos = new List<Enumerados.EPerifericos>();
             juegosRequeridos = new List<Enumerados.EJuegos>();
         }
 
         /// <summary>
-        /// Constructor de sesion libre 
+        /// Constructor de la clase Sesion
         /// </summary>
         /// <param name="tipoSesion"></param>
-        public Sesion(ETipoSesion tipoSesion)
+        /// <param name="softwareRequerido"></param>
+        /// <param name="perifericosRequeridos"></param>
+        /// <param name="juegosRequeridos"></param>
+        public Sesion(ETipoSesion tipoSesion, 
+            List<Enumerados.ESoftware> softwareRequerido,
+            List<Enumerados.EPerifericos> perifericosRequeridos, 
+            List<Enumerados.EJuegos> juegosRequeridos)
             :this()
         {
             this.tipoSesion = tipoSesion;
-        }
-
-        /// <summary>
-        /// Constructor de sesion por tiempo fijo
-        /// </summary>
-        /// <param name="tiempo"></param>
-        public Sesion(int tiempo)
-            :this()
-        {
-            this.duracionEnMinutos = tiempo;
+            this.softwareRequerido = softwareRequerido;
+            this.perifericosRequeridos = perifericosRequeridos;
+            this.juegosRequeridos = juegosRequeridos;
         }
 
         #endregion
 
         #region Propiedades
+
         /// <summary>
-        /// Lectura-escrritura
+        /// Lectura-escrritura DuracionServicio
         /// </summary>
         public override int DuracionServicio
         {
@@ -74,6 +74,39 @@ namespace Biblioteca
             set
             {
                 this.duracionEnMinutos = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad de solo letura SoftwareRequerido
+        /// </summary>
+        public List<Enumerados.ESoftware> SoftwareRequerido
+        {
+            get
+            {
+                return softwareRequerido;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad de solo letura PerifericosRequeridos
+        /// </summary>
+        public List<Enumerados.EPerifericos> PerifericosRequeridos
+        {
+            get
+            {
+                return perifericosRequeridos;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad de solo letura JuegosRequeridos
+        /// </summary>
+        public List<Enumerados.EJuegos> JuegosRequeridos
+        {
+            get
+            {
+                return juegosRequeridos;
             }
         }
 
@@ -93,6 +126,37 @@ namespace Biblioteca
                 return (float) Math.Ceiling(duracion) * COSTO;
             }
             return (DuracionServicio/30) * COSTO;
+        }
+
+        /// <summary>
+        /// Sobrescribe el metodo ToString()
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Sesión {tipoSesion}\n");
+            if(tipoSesion != ETipoSesion.Libre)
+            {
+                sb.AppendLine($"Minutos solicitados: 0");
+            }
+            sb.AppendLine($" Software requerido:");
+            foreach (Enumerados.ESoftware software in softwareRequerido)
+            {
+                sb.AppendLine($"- {software} ");
+            }
+            sb.AppendLine($"\n Perifericos requeridos:");
+            foreach (Enumerados.EPerifericos periferico in perifericosRequeridos)
+            {
+                sb.AppendLine($"- {periferico} ");
+            }
+            sb.AppendLine($"\n Juegos requeridos:");
+            foreach (Enumerados.EJuegos juego in juegosRequeridos)
+            {
+                sb.AppendLine($"- {juego} ");
+            }
+            return sb.ToString();
         }
 
         #endregion

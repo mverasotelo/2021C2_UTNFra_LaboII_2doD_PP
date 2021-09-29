@@ -54,9 +54,16 @@
             this.lblCab2 = new System.Windows.Forms.Label();
             this.lblCab1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pnlBarraInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gpbPuestos.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Location = new System.Drawing.Point(1046, 6);
+            this.lblFecha.Size = new System.Drawing.Size(124, 28);
+            this.lblFecha.Text = "28-09-2021";
             // 
             // lblClientes
             // 
@@ -180,6 +187,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.DarkSalmon;
+            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(14, 179);
@@ -194,6 +202,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.DarkSalmon;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(14, 377);
@@ -208,6 +217,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.DarkSalmon;
+            this.label10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.Location = new System.Drawing.Point(167, 179);
@@ -222,6 +232,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.DarkSalmon;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(14, 277);
@@ -236,6 +247,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.DarkSalmon;
+            this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label9.Location = new System.Drawing.Point(167, 377);
@@ -265,6 +277,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.DarkSalmon;
+            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.Location = new System.Drawing.Point(167, 277);
@@ -451,8 +464,10 @@
             this.Controls.Add(this.lblClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormCibercafe";
+            this.Activated += new System.EventHandler(this.FormCibercafe_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCibercafe_FormClosing);
             this.Load += new System.EventHandler(this.FormCibercafe_Load);
+            this.Controls.SetChildIndex(this.pnlBarraInfo, 0);
             this.Controls.SetChildIndex(this.lblClientes, 0);
             this.Controls.SetChildIndex(this.lstCliente, 0);
             this.Controls.SetChildIndex(this.gpbPuestos, 0);
@@ -460,6 +475,8 @@
             this.Controls.SetChildIndex(this.btnAsignar, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.button1, 0);
+            this.pnlBarraInfo.ResumeLayout(false);
+            this.pnlBarraInfo.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gpbPuestos.ResumeLayout(false);

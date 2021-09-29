@@ -7,7 +7,7 @@ namespace Biblioteca
     {
         #region Enumeradores
         public enum ETipo { Cabina, Computadora };
-        public enum EEstado { Libre, Ocupado };
+        public enum EEstado { Disponible, Ocupado };
         #endregion
 
         //atributos
@@ -19,7 +19,7 @@ namespace Biblioteca
         protected Puesto(string identificador)
         {
             this.identificador = identificador;
-            this.estado = EEstado.Libre;
+            this.estado = EEstado.Disponible;
         }
         #endregion
 

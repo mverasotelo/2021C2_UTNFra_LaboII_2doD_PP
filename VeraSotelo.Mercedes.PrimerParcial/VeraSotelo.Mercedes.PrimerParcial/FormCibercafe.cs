@@ -20,8 +20,8 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         }
 
         private void FormCibercafe_Load(object sender, EventArgs e)
-        {            
-            
+        {
+
             //Agregar puestos al Cibercafé
             List<Puesto> listaPuestos = new List<Puesto>()
             {
@@ -34,19 +34,19 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 
                 //computadoras
                 new Computadora("C01",
-                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Ares, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Ares, Enumerados.ESoftware.Office},
                 new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Microfono},
                 new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.AgeOfEmpiresII, Enumerados.EJuegos.MuOnline},
                 new Dictionary<string,string>{ {"RAM","4GB"}, {"Procesador","Intel Pentium 4"}, {"Placa de video", "486 DLC" }}),
                 
                 new Computadora("C02",
-                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.Messenger },
                 new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono},
                 new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike},
-                new Dictionary<string,string>{ {"RAM","2GB"}, {"Procesador","Intel Pentium 2"}, {"Placa de video", "Geforce 4" } }),
+                new Dictionary<string,string>{ {"RAM","2GB"}, {"Procesador","Intel Pentium 2"}, {"Placa de video", "Geforce 4" }}),
 
                 new Computadora("C03",
-                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.Ares },
                 new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono},
                 new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike},
                 new Dictionary<string,string>{ {"RAM","4GB"}, {"Procesador","Intel Pentium 2"}, {"Placa de video", "9600GT" } }),
@@ -58,7 +58,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 new Dictionary<string,string>{ {"RAM","2GB"}, {"Procesador","Intel Pentium"}, {"Placa de video", "486 DLC" } }),
 
                 new Computadora("C05",
-                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Ares, Enumerados.ESoftware.ICQ},
                 new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Joystick},
                 new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.MuOnline, Enumerados.EJuegos.CounterStrike},
                 new Dictionary<string,string>{ {"RAM","1GB"}, {"Procesador", "Intel 4004" }, {"Placa de video", "9600GT" } }),
@@ -70,7 +70,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 new Dictionary<string,string>{ {"RAM","4GB"}, {"Procesador","Intel Pentium 4"}, {"Placa de video", "486 DLC" }}),
 
                 new Computadora("C07",
-                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Messenger,Enumerados.ESoftware.Winamp},
                 new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Auriculares},
                 new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike},
                 new Dictionary<string,string>{ {"RAM","2GB"}, {"Procesador","Intel Pentium 2"}, {"Placa de video", "Geforce 4" } }),
@@ -82,13 +82,13 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 new Dictionary<string,string>{ {"RAM","4GB"}, {"Procesador","Intel Pentium 2"}, {"Placa de video", "9600GT" } }),
 
                 new Computadora("C09",
-                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.Messenger},
                 new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Joystick},
                 new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.MuOnline},
                 new Dictionary<string,string>{ {"RAM","2GB"}, {"Procesador","Intel Pentium"}, {"Placa de video", "486 DLC" } }),
 
                 new Computadora("C10",
-                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ},
+                new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Office, Enumerados.ESoftware.Office},
                 new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Joystick},
                 new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.MuOnline, Enumerados.EJuegos.CounterStrike},
                 new Dictionary<string,string>{ {"RAM","1GB"}, {"Procesador", "Intel 4004" }, {"Placa de video", "9600GT" } }),
@@ -114,11 +114,21 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             Cliente c5 = new Cliente(41123456, "Julian", "Meroni", 18);
 
             //Agrega servicios a los clientes
-            c1 += new Llamada(54, 11, 95659565);
-            c2 += new Sesion(Sesion.ETipoSesion.Libre);
-            c1 += new Llamada(34, 567, 1234567);
-            c1 += new Llamada(54, 351, 56565415);
-            c2 += new Sesion(60);
+            c1 += new Sesion(Sesion.ETipoSesion.Libre,
+            new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
+            new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono },
+            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike });
+            c2 += new Llamada(34, 567, 1234567);
+            c3 += new Llamada(54, 351, 56565415);
+            c4 += new Sesion(Sesion.ETipoSesion.Libre,
+            new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Ares, Enumerados.ESoftware.ICQ },
+            new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Microfono, Enumerados.EPerifericos.Microfono },
+            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.MuOnline });
+            c5 += new Sesion(Sesion.ETipoSesion.Libre,
+            new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
+            new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Joystick, Enumerados.EPerifericos.Microfono },
+            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.LineageII, Enumerados.EJuegos.CounterStrike });
+
 
             Cibercafe.IngresarCliente(c1);
             Cibercafe.IngresarCliente(c2);
@@ -150,7 +160,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                     {
                         if (gpbPuestos.Controls[i].Text == p.Id)
                         {
-                            if(p.Estado == Puesto.EEstado.Libre)
+                            if(p.Estado == Puesto.EEstado.Disponible)
                             {
                                 gpbPuestos.Controls[i].BackColor = Color.DarkSeaGreen;
                             }
@@ -191,11 +201,16 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             f.Show();
         }
 
-        ///
+       /// <summary>
+       /// Muestra información del usuario
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void lstCliente_DoubleClick(object sender, EventArgs e)
         {
             MessageBox.Show(((ListBox)sender).SelectedItem.ToString());
         }
+
         /// <summary>
         /// Muestra la informacion del puesto al hacer click en el
         /// </summary>
@@ -223,24 +238,24 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// <param name="e"></param>
         private void btnAsignar_Click(object sender, EventArgs e)
         {
+
             if (Cibercafe.ClientesEnEspera.Count > 0)
             {
-                //Cliente clienteActual = Cibercafe.ClientesEnEspera.Peek();
-                //if (clienteActual.Servicio is Llamada)
-                //{
-                //    FormIngresoLlamada frmIngreso = new FormIngresoLlamada(clienteActual);
-                //    frmIngreso.Show();
-                //}
-                //else
-                //{
-                //    FormIngresoPC frmIngreso = new FormIngresoPC(clienteActual);
-                //    frmIngreso.Show();
-
-                //}
-                ActualizarListadoClientes();
+                Cliente cliente = Cibercafe.ClientesEnEspera.Peek();
+                FormIngreso frmIngreso = new FormIngreso(cliente);
+                frmIngreso.Show();
             }
         }
-
         #endregion
+        /// <summary>
+        /// Actualiza el estado de los puestos y la lista de clientes una vez que el form vuelve a tomar foco 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormCibercafe_Activated(object sender, EventArgs e)
+        {
+            ActualizarEstadoPuestos(); 
+            ActualizarListadoClientes();
+        }
     }
 }

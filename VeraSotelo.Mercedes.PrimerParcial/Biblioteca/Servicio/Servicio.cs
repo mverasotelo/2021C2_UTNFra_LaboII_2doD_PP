@@ -24,15 +24,6 @@ namespace Biblioteca
         #endregion
 
         #region Propiedades
-        public ETipoServicio TipoServicio
-        {
-            get
-            {
-                return tipoServicio;
-            }
-        }
-
-
         /// <summary>
         /// Propiedad lectura-escritura
         /// </summary>

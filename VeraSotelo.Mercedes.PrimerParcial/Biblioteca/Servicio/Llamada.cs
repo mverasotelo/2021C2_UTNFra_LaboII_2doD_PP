@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Text;
 namespace Biblioteca
 {
     public sealed class Llamada : Servicio
@@ -21,12 +21,6 @@ namespace Biblioteca
 
         #region Constructores
 
-        public Llamada()
-        {
-            this.tipoServicio = Servicio.ETipoServicio.Llamada;
-
-        }
-
         /// <summary>
         /// Constructor de la clase Llamada
         /// </summary>
@@ -34,12 +28,12 @@ namespace Biblioteca
         /// <param name="prefijoLocalidad"></param>
         /// <param name="numero"></param>
         public Llamada(int codigoPais, int prefijoLocalidad, int numero)
-            :this()
         {
             this.codigoPais = codigoPais;
             this.prefijoLocalidad = prefijoLocalidad;
             this.numero = numero;
         }
+
         #endregion
 
         #region Propiedades
@@ -183,8 +177,12 @@ namespace Biblioteca
         /// </summary>
         /// <returns></returns>
         public override string ToString()
-        { 
-            return $"{codigoPais} - {prefijoLocalidad} - {numero} | Duración: {DuracionServicio} min";
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Llamada {TipoLlamada}\n");
+            sb.AppendLine($"Nro Destino: +{codigoPais} ({prefijoLocalidad}) {numero}\n");
+            return sb.ToString();
         }
 
         #endregion
