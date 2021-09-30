@@ -16,7 +16,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         protected Cliente cliente;
 
         /// <summary>
-        /// Constructor del FormIngreso
+        /// Constructor de FormIngreso
         /// </summary>
         public FormIngreso()
         {
@@ -33,6 +33,12 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.cliente = cliente;
         }
 
+        /// <summary>
+        /// Al cargar el formulario, muestra info del cliente, del servicio requerido 
+        /// y los puestos disponibles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Ingreso_Load(object sender, EventArgs e)
         {
             lblDatosCliente.Text = $"{cliente.ToString()}";
@@ -40,13 +46,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             MostrarPuestosDisponibles();
         }
 
-        private void btnIngresar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         /// <summary>
-        /// Muestra puestos disponibles en un combobox, filtrando por puesto disponible
+        /// Muestra puestos disponibles en un combobox, filtrando por puesto disponible 
+        /// y segun los requerimientos del cliente. Si no hay puestos disponibles, deshabilita el boton 
+        /// AsignarPuesto
         /// </summary>
         private void MostrarPuestosDisponibles()
         {
@@ -73,7 +77,49 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                     }
                 }
             }
-            cmbPuestosDisponibles.DataSource = puestosDisponibles;
+
+            if (puestosDisponibles.Count > 0)
+            {
+                cmbPuestosDisponibles.DataSource = puestosDisponibles;
+            }
+            else
+            {
+                cmbPuestosDisponibles.Items.Add("No hay puestos disponibles");
+                cmbPuestosDisponibles.SelectedIndex = 0;
+                btnAsignarPuesto.Enabled = false;
+                btnAsignarPuesto.BackColor = Color.Gray;
+            }
+        }
+
+        /// <summary>
+        /// Asigna un puesto al usuario, lo marca como ocupado y quita al cliente de la cola
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            foreach(Puesto puesto in Cibercafe.ListaPuestosDisponibles)
+            {
+                if(puesto.Id == (string)cmbPuestosDisponibles.SelectedItem)
+                {
+                    if(Cibercafe.AgregarServicio(puesto, cliente.Servicio))
+                    {
+                        puesto.Estado = Puesto.EEstado.Ocupado;
+                        Cibercafe.ClientesEnEspera.Dequeue();
+                    }
+                }
+            }
+            this.Close();
+        }
+
+        /// <summary>
+        /// Cierra el formulario, cancelando la operacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

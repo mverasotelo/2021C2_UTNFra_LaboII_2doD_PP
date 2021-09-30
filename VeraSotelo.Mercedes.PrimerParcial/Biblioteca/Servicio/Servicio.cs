@@ -8,14 +8,9 @@ namespace Biblioteca
 {
     public abstract class Servicio
     {
-        #region Enumeradores
-        public enum ETipoServicio { Llamada, Sesion };
-        #endregion
-
         //atributos
         protected int identificador;
         protected int duracionEnMinutos;
-        protected ETipoServicio tipoServicio;
 
         #region Constructores
         protected Servicio()
@@ -28,6 +23,7 @@ namespace Biblioteca
         /// Propiedad lectura-escritura
         /// </summary>
         abstract public int DuracionServicio { get; set; }
+
         #endregion
 
         #region Metodos 

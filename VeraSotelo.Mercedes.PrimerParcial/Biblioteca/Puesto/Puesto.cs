@@ -14,16 +14,19 @@ namespace Biblioteca
         protected string identificador;
         protected EEstado estado;
         protected ETipo tipo;
+        protected List<Servicio> listaServicios;
         
         #region Constructores
         protected Puesto(string identificador)
         {
             this.identificador = identificador;
+            this.listaServicios = new List<Servicio>();
             this.estado = EEstado.Disponible;
         }
         #endregion
 
         #region Propiedades
+
         /// <summary>
         /// Solo lectura.
         /// </summary>
@@ -43,6 +46,17 @@ namespace Biblioteca
             get
             {
                 return tipo;
+            }
+        }
+
+        /// <summary>
+        /// Solo lectura
+        /// </summary>
+        public List<Servicio> ListaServicios
+        {
+            get
+            {
+                return listaServicios;
             }
         }
 

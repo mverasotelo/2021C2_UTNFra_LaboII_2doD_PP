@@ -19,6 +19,8 @@ namespace VeraSotelo.Mercedes.PrimerParcial
 
         }
 
+        #region Eventos
+
         private void FormCibercafe_Load(object sender, EventArgs e)
         {
 
@@ -38,7 +40,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Camara, Enumerados.EPerifericos.Microfono},
                 new List<Enumerados.EJuegos>(){ Enumerados.EJuegos.AgeOfEmpiresII, Enumerados.EJuegos.MuOnline},
                 new Dictionary<string,string>{ {"RAM","4GB"}, {"Procesador","Intel Pentium 4"}, {"Placa de video", "486 DLC" }}),
-                
+
                 new Computadora("C02",
                 new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Winamp, Enumerados.ESoftware.Messenger },
                 new List<Enumerados.EPerifericos>(){ Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono},
@@ -94,7 +96,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 new Dictionary<string,string>{ {"RAM","1GB"}, {"Procesador", "Intel 4004" }, {"Placa de video", "9600GT" } }),
             };
 
-            foreach(Puesto p in listaPuestos)
+            foreach (Puesto p in listaPuestos)
             {
                 Cibercafe.AgregarPuesto(p);
             }
@@ -103,78 +105,40 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             Cibercafe.ListaPuestos[5].Estado = Puesto.EEstado.Ocupado;
             Cibercafe.ListaPuestos[7].Estado = Puesto.EEstado.Ocupado;
             Cibercafe.ListaPuestos[4].Estado = Puesto.EEstado.Ocupado;
+
             ActualizarEstadoPuestos();
 
 
             //Agrega clientes
-            Cliente c1 = new Cliente(34398757, "Mercedes", "Vera", 32);
-            Cliente c2 = new Cliente(12345678, "Juan", "Perez", 50);
-            Cliente c3 = new Cliente(23456789, "Raul", "Garcia", 41);
-            Cliente c4 = new Cliente(34567890, "Alicia", "Sotelo", 35);
-            Cliente c5 = new Cliente(41123456, "Julian", "Meroni", 18);
-
-            //Agrega servicios a los clientes
-            c1 += new Sesion(Sesion.ETipoSesion.Libre,
+            List<Cliente> listaClientes = new List<Cliente>()
+            {
+            new Cliente(34398757, "Mercedes", "Vera", 32, new Sesion(Sesion.ETipoSesion.Libre,
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
             new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono },
-            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike });
-            c2 += new Llamada(34, 567, 1234567);
-            c3 += new Llamada(54, 351, 56565415);
-            c4 += new Sesion(Sesion.ETipoSesion.Libre,
+            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike })),
+
+            new Cliente(12345678, "Juan", "Perez", 50, new Llamada(34, 567, 1234567)),
+
+            new Cliente(23456789, "Raul", "Garcia", 41, new Llamada(54, 351, 56565415)),
+
+            new Cliente(34567890, "Alicia", "Sotelo", 35, new Sesion(Sesion.ETipoSesion.Libre,
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Ares, Enumerados.ESoftware.ICQ },
             new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Microfono, Enumerados.EPerifericos.Microfono },
-            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.MuOnline });
-            c5 += new Sesion(Sesion.ETipoSesion.Libre,
+            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.MuOnline })),
+
+            new Cliente(41123456, "Julian", "Meroni", 18, new Sesion(Sesion.ETipoSesion.Libre,
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
             new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Joystick, Enumerados.EPerifericos.Microfono },
-            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.LineageII, Enumerados.EJuegos.CounterStrike });
+            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.LineageII, Enumerados.EJuegos.CounterStrike }))};
 
-
-            Cibercafe.IngresarCliente(c1);
-            Cibercafe.IngresarCliente(c2);
-            Cibercafe.IngresarCliente(c3);
-            Cibercafe.IngresarCliente(c4);
-            Cibercafe.IngresarCliente(c5);
-
+            foreach (Cliente c in listaClientes)
+            {
+                Cibercafe.IngresarCliente(c);
+            }
 
             ActualizarListadoClientes();
 
         }
-
-        private void ActualizarListadoClientes()
-        {
-            lstCliente.Items.Clear();
-            foreach (Cliente c in Cibercafe.ClientesEnEspera)
-            {
-                lstCliente.Items.Add(c.ToString());
-            }
-        }
-
-        private void ActualizarEstadoPuestos()
-        {
-            for (int i = 0; i < gpbPuestos.Controls.Count; i++)
-            {
-                if (gpbPuestos.Controls[i] is Label)
-                {
-                    foreach (Puesto p in Cibercafe.ListaPuestos)
-                    {
-                        if (gpbPuestos.Controls[i].Text == p.Id)
-                        {
-                            if(p.Estado == Puesto.EEstado.Disponible)
-                            {
-                                gpbPuestos.Controls[i].BackColor = Color.DarkSeaGreen;
-                            }
-                            else
-                            {
-                                gpbPuestos.Controls[i].BackColor = Color.DarkSalmon;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        #region Eventos
         /// <summary>
         /// Pide confirmacion para salir cuando se cierra el formulario
         /// </summary>
@@ -212,7 +176,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         }
 
         /// <summary>
-        /// Muestra la informacion del puesto al hacer click en el
+        /// Muestra la informacion del puesto al hacer click en él
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -246,7 +210,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 frmIngreso.Show();
             }
         }
-        #endregion
+
         /// <summary>
         /// Actualiza el estado de los puestos y la lista de clientes una vez que el form vuelve a tomar foco 
         /// </summary>
@@ -254,8 +218,53 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// <param name="e"></param>
         private void FormCibercafe_Activated(object sender, EventArgs e)
         {
-            ActualizarEstadoPuestos(); 
+            ActualizarEstadoPuestos();
             ActualizarListadoClientes();
         }
+
+        #endregion
+
+        #region Metodos
+
+        /// <summary>
+        /// Actualiza el listado de clientes 
+        /// </summary>
+        private void ActualizarListadoClientes()
+        {
+            lstCliente.Items.Clear();
+            foreach (Cliente c in Cibercafe.ClientesEnEspera)
+            {
+                lstCliente.Items.Add(c.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Actualiza listado puestos asignandole el color rojo si esta ocupado y verde si esta disponible
+        /// </summary>
+        private void ActualizarEstadoPuestos()
+        {
+            for (int i = 0; i < gpbPuestos.Controls.Count; i++)
+            {
+                if (gpbPuestos.Controls[i] is Label)
+                {
+                    foreach (Puesto p in Cibercafe.ListaPuestos)
+                    {
+                        if (gpbPuestos.Controls[i].Text == p.Id)
+                        {
+                            if (p.Estado == Puesto.EEstado.Disponible)
+                            {
+                                gpbPuestos.Controls[i].BackColor = Color.DarkSeaGreen;
+                            }
+                            else
+                            {
+                                gpbPuestos.Controls[i].BackColor = Color.DarkSalmon;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
 }

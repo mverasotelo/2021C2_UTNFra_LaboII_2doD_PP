@@ -29,24 +29,25 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// </summary>
         protected void InitializeComponent()
         {
-            this.btnIngresar = new System.Windows.Forms.Button();
+            this.btnAsignarPuesto = new System.Windows.Forms.Button();
             this.lblDatosCliente = new System.Windows.Forms.Label();
             this.rctInfoSesion = new System.Windows.Forms.RichTextBox();
             this.lblServicio = new System.Windows.Forms.Label();
             this.lblPuestosDisponibles = new System.Windows.Forms.Label();
             this.cmbPuestosDisponibles = new System.Windows.Forms.ComboBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.pnlBarraInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBarraInfo
             // 
-            this.pnlBarraInfo.Location = new System.Drawing.Point(0, 761);
+            this.pnlBarraInfo.Location = new System.Drawing.Point(0, 899);
             this.pnlBarraInfo.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlBarraInfo.Size = new System.Drawing.Size(63, 55);
+            this.pnlBarraInfo.Size = new System.Drawing.Size(0, 55);
             // 
             // lblFecha
             // 
-            this.lblFecha.Location = new System.Drawing.Point(-166, 8);
+            this.lblFecha.Location = new System.Drawing.Point(-229, 8);
             this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFecha.Size = new System.Drawing.Size(124, 28);
             this.lblFecha.Text = "28-09-2021";
@@ -56,19 +57,19 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.lblOperador.Location = new System.Drawing.Point(15, 8);
             this.lblOperador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             // 
-            // btnIngresar
+            // btnAsignarPuesto
             // 
-            this.btnIngresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIngresar.BackColor = System.Drawing.Color.CadetBlue;
-            this.btnIngresar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnIngresar.Location = new System.Drawing.Point(279, 607);
-            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(253, 52);
-            this.btnIngresar.TabIndex = 3;
-            this.btnIngresar.Text = "ASIGNAR PUESTO";
-            this.btnIngresar.UseVisualStyleBackColor = false;
-            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            this.btnAsignarPuesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAsignarPuesto.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnAsignarPuesto.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAsignarPuesto.Location = new System.Drawing.Point(316, 607);
+            this.btnAsignarPuesto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAsignarPuesto.Name = "btnAsignarPuesto";
+            this.btnAsignarPuesto.Size = new System.Drawing.Size(216, 49);
+            this.btnAsignarPuesto.TabIndex = 3;
+            this.btnAsignarPuesto.Text = "ASIGNAR PUESTO";
+            this.btnAsignarPuesto.UseVisualStyleBackColor = false;
+            this.btnAsignarPuesto.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // lblDatosCliente
             // 
@@ -95,7 +96,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.rctInfoSesion.ReadOnly = true;
             this.rctInfoSesion.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.rctInfoSesion.Size = new System.Drawing.Size(505, 273);
-            this.rctInfoSesion.TabIndex = 5;
+            this.rctInfoSesion.TabIndex = 1;
             this.rctInfoSesion.Text = "";
             // 
             // lblServicio
@@ -131,33 +132,49 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.cmbPuestosDisponibles.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPuestosDisponibles.Name = "cmbPuestosDisponibles";
             this.cmbPuestosDisponibles.Size = new System.Drawing.Size(505, 33);
-            this.cmbPuestosDisponibles.TabIndex = 8;
+            this.cmbPuestosDisponibles.TabIndex = 2;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancelar.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.Location = new System.Drawing.Point(31, 607);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(216, 49);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FormIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 691);
+            this.ClientSize = new System.Drawing.Size(560, 691);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.cmbPuestosDisponibles);
             this.Controls.Add(this.lblPuestosDisponibles);
             this.Controls.Add(this.lblServicio);
             this.Controls.Add(this.rctInfoSesion);
             this.Controls.Add(this.lblDatosCliente);
-            this.Controls.Add(this.btnIngresar);
+            this.Controls.Add(this.btnAsignarPuesto);
             this.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(400, 738);
+            this.MinimumSize = new System.Drawing.Size(578, 738);
             this.Name = "FormIngreso";
             this.Text = "Asignar Puesto";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Ingreso_Load);
             this.Controls.SetChildIndex(this.pnlBarraInfo, 0);
-            this.Controls.SetChildIndex(this.btnIngresar, 0);
+            this.Controls.SetChildIndex(this.btnAsignarPuesto, 0);
             this.Controls.SetChildIndex(this.lblDatosCliente, 0);
             this.Controls.SetChildIndex(this.rctInfoSesion, 0);
             this.Controls.SetChildIndex(this.lblServicio, 0);
             this.Controls.SetChildIndex(this.lblPuestosDisponibles, 0);
             this.Controls.SetChildIndex(this.cmbPuestosDisponibles, 0);
+            this.Controls.SetChildIndex(this.btnCancelar, 0);
             this.pnlBarraInfo.ResumeLayout(false);
             this.pnlBarraInfo.PerformLayout();
             this.ResumeLayout(false);
@@ -167,10 +184,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
 
         #endregion
         internal System.Windows.Forms.Label lblDatosCliente;
-        internal System.Windows.Forms.Button btnIngresar;
+        internal System.Windows.Forms.Button btnAsignarPuesto;
         internal System.Windows.Forms.Label lblServicio;
         internal System.Windows.Forms.Label lblPuestosDisponibles;
         private System.Windows.Forms.RichTextBox rctInfoSesion;
         private System.Windows.Forms.ComboBox cmbPuestosDisponibles;
+        internal System.Windows.Forms.Button btnCancelar;
     }
 }

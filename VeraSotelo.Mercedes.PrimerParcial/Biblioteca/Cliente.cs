@@ -13,19 +13,22 @@ namespace Biblioteca
         private short edad;
         private Servicio servicio;
 
+
         /// <summary>
-        /// Constructor la clase cliente
+        /// Constructor de la clase Cliente
         /// </summary>
         /// <param name="dni"></param>
         /// <param name="nombre"></param>
         /// <param name="apellido"></param>
         /// <param name="edad"></param>
-        public Cliente(int dni, string nombre, string apellido, short edad)
+        /// <param name="servicio"></param>
+        public Cliente(int dni, string nombre, string apellido, short edad, Servicio servicio)
         {
             this.dni = dni;
             this.nombre = nombre;
             this.apellido = apellido;
             this.edad = edad;
+            this.servicio = servicio;
         }
 
         #region Propiedades

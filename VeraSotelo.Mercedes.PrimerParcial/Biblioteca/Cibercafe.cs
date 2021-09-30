@@ -122,6 +122,22 @@ namespace Biblioteca
         }
 
         /// <summary>
+        /// Agrega un servicio a un determinado puesto
+        /// </summary>
+        /// <param name="puesto"></param>
+        /// <param name="servicio"></param>
+        /// <returns>true si sale todo bien</returns>
+        public static bool AgregarServicio(Puesto puesto, Servicio servicio)
+        {
+            if(puesto.Estado == Puesto.EEstado.Disponible)
+            {
+                puesto.ListaServicios.Add(servicio);
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Agrega un cliente a la lista, si ya no se encuentra en la misma 
         /// </summary>
         /// <param name="cliente"></param>

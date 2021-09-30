@@ -15,7 +15,6 @@ namespace Biblioteca
         private List<Enumerados.EPerifericos> perifericosDisponibles;
         private List<Enumerados.EJuegos> juegosDisponibles;
         private Dictionary<string, string> especificacionesHardware;
-        private List<Sesion> listaDeSesiones;
 
         #endregion
 
@@ -31,7 +30,6 @@ namespace Biblioteca
             perifericosDisponibles = new List<Enumerados.EPerifericos>();
             juegosDisponibles = new List<Enumerados.EJuegos>();
             especificacionesHardware = new Dictionary<string, string>();
-            listaDeSesiones = new List<Sesion>();
         }
 
         /// <summary>
@@ -114,9 +112,9 @@ namespace Biblioteca
         {
             int usoTotal = 0;
 
-            if(listaDeSesiones.Count > 0)
+            if(ListaServicios.Count > 0)
             {
-                foreach (Sesion sesion in listaDeSesiones)
+                foreach (Sesion sesion in ListaServicios)
                 {
                     usoTotal += sesion.DuracionServicio;
                 }
