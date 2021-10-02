@@ -46,13 +46,11 @@ namespace Biblioteca
         /// <param name="softwareRequerido"></param>
         /// <param name="perifericosRequeridos"></param>
         /// <param name="juegosRequeridos"></param>
-        public Sesion(ETipoSesion tipoSesion, 
-            List<Enumerados.ESoftware> softwareRequerido,
+        public Sesion(List<Enumerados.ESoftware> softwareRequerido,
             List<Enumerados.EPerifericos> perifericosRequeridos, 
             List<Enumerados.EJuegos> juegosRequeridos)
             :this()
         {
-            this.tipoSesion = tipoSesion;
             this.softwareRequerido = softwareRequerido;
             this.perifericosRequeridos = perifericosRequeridos;
             this.juegosRequeridos = juegosRequeridos;
@@ -61,6 +59,21 @@ namespace Biblioteca
         #endregion
 
         #region Propiedades
+
+        /// <summary>
+        /// Propiedad escritura tipo sesion
+        /// </summary>
+        public ETipoSesion TipoSesion
+        {
+            get
+            {
+                return tipoSesion;
+            }
+            set
+            {
+                this.tipoSesion = value;
+            }
+        }
 
         /// <summary>
         /// Lectura-escrritura DuracionServicio
@@ -110,6 +123,7 @@ namespace Biblioteca
             }
         }
 
+
         #endregion
 
         #region Metodos
@@ -141,6 +155,13 @@ namespace Biblioteca
             {
                 sb.AppendLine($"Minutos solicitados: 0");
             }
+            sb.AppendLine(MostrarRequerimientosCliente());
+            return sb.ToString();
+        }
+
+        public string MostrarRequerimientosCliente()
+        {
+            StringBuilder sb = new StringBuilder();
             sb.AppendLine($" Software requerido:");
             foreach (Enumerados.ESoftware software in softwareRequerido)
             {

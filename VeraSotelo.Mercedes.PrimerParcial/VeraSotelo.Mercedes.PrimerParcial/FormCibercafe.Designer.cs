@@ -473,9 +473,6 @@
         private System.Windows.Forms.ListBox lstCliente;
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.Button btnAsignar;
-        private System.Windows.Forms.GroupBox gpbServicio;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label lblComputadoras;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

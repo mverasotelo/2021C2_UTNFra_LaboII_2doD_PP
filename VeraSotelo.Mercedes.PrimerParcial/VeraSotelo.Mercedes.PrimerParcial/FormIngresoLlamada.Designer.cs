@@ -47,6 +47,10 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.btnIngresar.Location = new System.Drawing.Point(392, 449);
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
+            // lblDatosCliente
+            // 
+            this.lblDatosCliente.Text = "Nombre y Apellido\r\nDNI XXXXXXXX\r\n(XX años)\r\n";
+            // 
             // cmbPuestosDisponibles
             // 
             this.cmbPuestosDisponibles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -97,9 +101,9 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.lblPuestosDisponibles.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPuestosDisponibles.Location = new System.Drawing.Point(55, 326);
             this.lblPuestosDisponibles.Name = "lblPuestosDisponibles";
-            this.lblPuestosDisponibles.Size = new System.Drawing.Size(201, 29);
+            this.lblPuestosDisponibles.Size = new System.Drawing.Size(203, 29);
             this.lblPuestosDisponibles.TabIndex = 9;
-            this.lblPuestosDisponibles.Text = "Puestos Disponibles";
+            this.lblPuestosDisponibles.Text = "Cabinas Disponibles";
             // 
             // FormIngresoLlamada
             // 
@@ -115,15 +119,15 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Name = "FormIngresoLlamada";
             this.Text = "FormIngresoLlamada";
             this.Load += new System.EventHandler(this.IngresoLlamada_Load);
-            this.Controls.SetChildIndex(this.btnCancelar, 0);
-            this.Controls.SetChildIndex(this.btnIngresar, 0);
-            this.Controls.SetChildIndex(this.lblDatosCliente, 0);
-            this.Controls.SetChildIndex(this.cmbPuestosDisponibles, 0);
             this.Controls.SetChildIndex(this.txtCodigoPais, 0);
             this.Controls.SetChildIndex(this.txtPrefijo, 0);
             this.Controls.SetChildIndex(this.txtNumero, 0);
             this.Controls.SetChildIndex(this.lblNumeroDestino, 0);
             this.Controls.SetChildIndex(this.lblPuestosDisponibles, 0);
+            this.Controls.SetChildIndex(this.btnCancelar, 0);
+            this.Controls.SetChildIndex(this.btnIngresar, 0);
+            this.Controls.SetChildIndex(this.lblDatosCliente, 0);
+            this.Controls.SetChildIndex(this.cmbPuestosDisponibles, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

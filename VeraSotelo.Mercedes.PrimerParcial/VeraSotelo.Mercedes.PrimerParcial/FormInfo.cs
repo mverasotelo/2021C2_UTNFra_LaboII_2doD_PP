@@ -5,20 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Biblioteca;
+using System.Windows.Forms;
 
 namespace VeraSotelo.Mercedes.PrimerParcial
 {
-    public partial class FormInformacion : Base
+    public partial class FormInfo : Form
     {
         private Puesto puesto;
 
-        /// <summary>
-        /// Constructor privado del FormInformacion
-        /// </summary>
-        private FormInformacion()
+        public FormInfo()
         {
             InitializeComponent();
         }
@@ -26,14 +22,13 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// <summary>
         /// Sobrecarga del constructor del FormInformacion
         /// </summary>
-        public FormInformacion(Puesto puesto)
-            :this()
+        public FormInfo(Puesto puesto)
+            : this()
         {
             this.puesto = puesto;
         }
 
-
-        private void FormInformacion_Load(object sender, EventArgs e)
+        private void FormInfo_Load(object sender, EventArgs e)
         {
             this.Text = $"Información Puesto {puesto.Id}";
             this.rctInfo.Text = puesto.ToString();
@@ -43,11 +38,18 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Libera el puesto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLiberar_Click(object sender, EventArgs e)
         {
-            if(puesto.Estado == Puesto.EEstado.Ocupado)
+            if (puesto.Estado == Puesto.EEstado.Ocupado)
             {
                 Cibercafe.LiberarPuesto(puesto);
+                FormInfoServicio formInfoServicio = new FormInfoServicio(puesto.ListaServicios.Last());
+                formInfoServicio.ShowDialog();
                 this.Close();
             }
         }
@@ -57,7 +59,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnInfo_Click(object sender, EventArgs e)
+        protected void btnOK_Click(object sender, EventArgs e)
         {
             this.Close();
         }

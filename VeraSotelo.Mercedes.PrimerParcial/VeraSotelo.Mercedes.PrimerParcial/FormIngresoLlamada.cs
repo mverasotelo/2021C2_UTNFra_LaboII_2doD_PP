@@ -15,8 +15,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
     public partial class FormIngresoLlamada : FormIngreso
     {
 
-        private Cliente cliente;
-
         public FormIngresoLlamada()
         {
             InitializeComponent();

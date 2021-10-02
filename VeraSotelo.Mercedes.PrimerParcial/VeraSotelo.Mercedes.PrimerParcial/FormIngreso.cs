@@ -9,6 +9,9 @@ namespace VeraSotelo.Mercedes.PrimerParcial
     public partial class FormIngreso : Form
     {
 
+
+        protected Cliente cliente;
+
         /// <summary>
         /// Constructor de FormIngreso
         /// </summary>

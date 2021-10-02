@@ -25,6 +25,17 @@ namespace Biblioteca
         /// </summary>
         abstract public int DuracionServicio { get; set; }
 
+        /// <summary>
+        /// Solo lectura = Devuelve el costo de la llamada
+        /// </summary>
+        public float Costo
+        {
+            get
+            {
+                return CalcularCosto();
+            }
+        }
+
         public DateTime HoraInicio
         {
             get
@@ -47,6 +58,10 @@ namespace Biblioteca
         /// <returns></returns>
         abstract protected float CalcularCosto();
 
+        public float AgregarIVA()
+        {
+            return Costo * 1.21F;
+        }
 
         #endregion
 

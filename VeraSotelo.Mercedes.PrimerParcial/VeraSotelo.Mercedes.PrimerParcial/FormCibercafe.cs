@@ -108,19 +108,19 @@ namespace VeraSotelo.Mercedes.PrimerParcial
 
             new Cliente(12345678, "Juan", "Perez", 50, new Llamada()),
 
-            new Cliente(34398757, "Mercedes", "Vera", 32, new Sesion(Sesion.ETipoSesion.Libre,
+            new Cliente(34398757, "Mercedes", "Vera", 32, new Sesion(
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
             new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono },
             new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike })),
 
             new Cliente(23456789, "Raul", "Garcia", 41, new Llamada()),
 
-            new Cliente(34567890, "Alicia", "Sotelo", 35, new Sesion(Sesion.ETipoSesion.Libre,
+            new Cliente(34567890, "Alicia", "Sotelo", 35, new Sesion(
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Ares, Enumerados.ESoftware.ICQ },
             new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Microfono, Enumerados.EPerifericos.Microfono },
             new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.MuOnline })),
 
-            new Cliente(41123456, "Julian", "Meroni", 18, new Sesion(Sesion.ETipoSesion.Libre,
+            new Cliente(41123456, "Julian", "Meroni", 18, new Sesion(
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
             new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Joystick, Enumerados.EPerifericos.Microfono },
             new List<Enumerados.EJuegos>() { Enumerados.EJuegos.LineageII, Enumerados.EJuegos.CounterStrike }))};
@@ -136,6 +136,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        
         private void FormCibercafe_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("¿Seguro de querer salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -179,7 +180,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 if (((Label)sender).Text == Cibercafe.ListaPuestos[i].Id)
                 {
                     Puesto p = Cibercafe.ListaPuestos[i];
-                    FormInformacion frmInfo = new FormInformacion(p);
+                    FormInfo frmInfo = new FormInfo(p);
                     frmInfo.Show();
                 }
             }

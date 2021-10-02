@@ -100,17 +100,6 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Solo lectura = Devuelve el costo de la llamada
-        /// </summary>
-        public float CostoLlamada
-        {
-            get
-            {
-                return CalcularCosto();
-            }
-        }
-
-        /// <summary>
         /// Lectura/Escritura = Para establecer la duracion de una llamada una vez finalizada 
         /// </summary>
         public override int DuracionServicio
