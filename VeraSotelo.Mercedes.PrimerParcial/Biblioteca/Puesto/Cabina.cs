@@ -17,7 +17,6 @@ namespace Biblioteca
 
         private ETipoTelefono tipoTelefono;
         private string marca;
-        private List<Llamada> listaDeLlamadas;
 
         #endregion
 
@@ -32,7 +31,6 @@ namespace Biblioteca
         public Cabina(string identificador, ETipoTelefono tipo, string marca) 
             : base(identificador)
         {
-            this.listaDeLlamadas = new List<Llamada>();
             this.tipo = ETipo.Cabina;
             this.identificador = identificador;
             this.tipoTelefono = tipo;
@@ -40,46 +38,12 @@ namespace Biblioteca
         }
         #endregion
 
-        #region Propiedades
-        public int MinutosDeUso
-        {
-            get
-            {
-                return CalcularMinutosDeUso();
-            }
-        }
-
-        public ETipoTelefono TipoTelefono
-        {
-            get
-            {
-                return tipoTelefono;
-            }
-        }
-
-        #endregion
-
         #region Metodos
-
-        /// <summary>
-        /// Sobrescribe el metodo abstracto CalcularMinutosDeUso()
-        /// </summary>
-        /// <returns>Minutos de uso</returns>
-        protected override int CalcularMinutosDeUso()
-        {
-            int usoTotal = 0;
-
-            foreach (Llamada llamada in listaDeLlamadas)
-            {
-                usoTotal += llamada.DuracionServicio;
-            }
-
-            return usoTotal;
-        }
 
         #endregion
 
         #region Sobrecargas
+
         /// <summary>
         /// Sobrescribe el metodo ToString()
         /// </summary>

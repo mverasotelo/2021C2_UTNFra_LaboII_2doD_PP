@@ -10,6 +10,7 @@ namespace Biblioteca
     {
         //atributos
         protected int identificador;
+        protected DateTime horaInicio;
         protected int duracionEnMinutos;
 
         #region Constructores
@@ -24,6 +25,18 @@ namespace Biblioteca
         /// </summary>
         abstract public int DuracionServicio { get; set; }
 
+        public DateTime HoraInicio
+        {
+            get
+            {
+                return horaInicio;
+            }
+            set
+            {
+                horaInicio = value;
+            }
+        }
+
         #endregion
 
         #region Metodos 
@@ -33,6 +46,7 @@ namespace Biblioteca
         /// </summary>
         /// <returns></returns>
         abstract protected float CalcularCosto();
+
 
         #endregion
 
@@ -89,7 +103,7 @@ namespace Biblioteca
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{identificador}";
+            return $"Servicio";
         }
 
         #endregion

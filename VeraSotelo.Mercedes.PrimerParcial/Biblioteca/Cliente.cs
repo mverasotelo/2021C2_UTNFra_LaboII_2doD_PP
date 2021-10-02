@@ -36,6 +36,21 @@ namespace Biblioteca
         /// <summary>
         /// 
         /// </summary>
+        public string Nombre
+        {
+            get
+            {
+                return nombre;
+            }
+            set
+            {
+                nombre = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad solo lectura Servicio
+        /// </summary>
         public Servicio Servicio
         {
             get

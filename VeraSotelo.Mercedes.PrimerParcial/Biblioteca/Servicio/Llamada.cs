@@ -13,9 +13,9 @@ namespace Biblioteca
 
         #region Atributos
 
-        private int codigoPais;
-        private int prefijoLocalidad;
-        private int numero;
+        private string codigoPais;
+        private string prefijoLocalidad;
+        private string numero;
 
         #endregion
 
@@ -24,14 +24,8 @@ namespace Biblioteca
         /// <summary>
         /// Constructor de la clase Llamada
         /// </summary>
-        /// <param name="codigoPais"></param>
-        /// <param name="prefijoLocalidad"></param>
-        /// <param name="numero"></param>
-        public Llamada(int codigoPais, int prefijoLocalidad, int numero)
+        public Llamada()
         {
-            this.codigoPais = codigoPais;
-            this.prefijoLocalidad = prefijoLocalidad;
-            this.numero = numero;
         }
 
         #endregion
@@ -46,6 +40,51 @@ namespace Biblioteca
             get
             {
                 return $"+{codigoPais} ({prefijoLocalidad}) {numero}";
+            }
+        }
+
+        /// <summary>
+        /// Propiedad lectura escritura
+        /// </summary>
+        public string CodigoPais
+        {
+            get
+            {
+                return codigoPais;
+            }
+            set
+            {
+                codigoPais = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad lectura escritura
+        /// </summary>
+        public string PrefijoLocalidad
+        {
+            get
+            {
+                return prefijoLocalidad;
+            }
+            set
+            {
+                prefijoLocalidad = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad lectura escritura
+        /// </summary>
+        public string Numero
+        {
+            get
+            {
+                return numero;
+            }
+            set
+            {
+                numero = value;
             }
         }
 
@@ -96,13 +135,13 @@ namespace Biblioteca
         /// <returns>Tipo de llamada</returns>
         private ETipoLlamada IdentificarTipoLlamada()
         {
-            if(codigoPais != 54)
+            if(codigoPais != "54")
             {
                 return ETipoLlamada.Internacional;
             }
             else
             {
-                if(prefijoLocalidad == 11)
+                if(prefijoLocalidad == "11" || prefijoLocalidad == "011")
                 {
                     return ETipoLlamada.Local;
                 }

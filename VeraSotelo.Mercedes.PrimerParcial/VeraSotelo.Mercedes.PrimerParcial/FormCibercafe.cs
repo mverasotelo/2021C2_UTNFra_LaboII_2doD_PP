@@ -25,7 +25,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         {
 
             //Agregar puestos al Cibercafé
-            List<Puesto> listaPuestos = new List<Puesto>()
+            List<Puesto> listaPuestos = new()
             {
                 //cabinas
                 new Cabina("T01", Cabina.ETipoTelefono.ConTeclado, "Siemens"),
@@ -34,6 +34,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 new Cabina("T04", Cabina.ETipoTelefono.ADisco, "Panasonic"),
                 new Cabina("T05", Cabina.ETipoTelefono.ConTeclado, "Panasonic"),
                 
+
                 //computadoras
                 new Computadora("C01",
                 new List<Enumerados.ESoftware>(){ Enumerados.ESoftware.Ares, Enumerados.ESoftware.Office},
@@ -101,25 +102,18 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 Cibercafe.AgregarPuesto(p);
             }
 
-            Cibercafe.ListaPuestos[1].Estado = Puesto.EEstado.Ocupado;
-            Cibercafe.ListaPuestos[5].Estado = Puesto.EEstado.Ocupado;
-            Cibercafe.ListaPuestos[7].Estado = Puesto.EEstado.Ocupado;
-            Cibercafe.ListaPuestos[4].Estado = Puesto.EEstado.Ocupado;
-
-            ActualizarEstadoPuestos();
-
-
-            //Agrega clientes
-            List<Cliente> listaClientes = new List<Cliente>()
+            //Agrega clientes al Cibercafé
+            List<Cliente> listaClientes = new()
             {
+
+            new Cliente(12345678, "Juan", "Perez", 50, new Llamada()),
+
             new Cliente(34398757, "Mercedes", "Vera", 32, new Sesion(Sesion.ETipoSesion.Libre,
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
             new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono },
             new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike })),
 
-            new Cliente(12345678, "Juan", "Perez", 50, new Llamada(34, 567, 1234567)),
-
-            new Cliente(23456789, "Raul", "Garcia", 41, new Llamada(54, 351, 56565415)),
+            new Cliente(23456789, "Raul", "Garcia", 41, new Llamada()),
 
             new Cliente(34567890, "Alicia", "Sotelo", 35, new Sesion(Sesion.ETipoSesion.Libre,
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Ares, Enumerados.ESoftware.ICQ },
@@ -135,8 +129,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             {
                 Cibercafe.IngresarCliente(c);
             }
-
-            ActualizarListadoClientes();
 
         }
         /// <summary>
@@ -187,9 +179,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 if (((Label)sender).Text == Cibercafe.ListaPuestos[i].Id)
                 {
                     Puesto p = Cibercafe.ListaPuestos[i];
-                    FormInformacion frmInfo = new FormInformacion();
-                    frmInfo.Text = $"Información Puesto {p.Id}";
-                    frmInfo.rctInfo.Text = p.ToString();
+                    FormInformacion frmInfo = new FormInformacion(p);
                     frmInfo.Show();
                 }
             }
@@ -202,11 +192,19 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// <param name="e"></param>
         private void btnAsignar_Click(object sender, EventArgs e)
         {
-
+            FormIngreso frmIngreso;
             if (Cibercafe.ClientesEnEspera.Count > 0)
             {
-                Cliente cliente = Cibercafe.ClientesEnEspera.Peek();
-                FormIngreso frmIngreso = new FormIngreso(cliente);
+                Cliente c = Cibercafe.ClientesEnEspera.Peek();
+                if (c.Servicio is Llamada)
+                {
+                    frmIngreso = new FormIngresoLlamada();
+                }
+                else
+                {
+                    frmIngreso = new FormIngresoPC();
+                }
+
                 frmIngreso.Show();
             }
         }

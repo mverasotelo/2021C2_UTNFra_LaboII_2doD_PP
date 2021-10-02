@@ -61,7 +61,7 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Propiedad solo lectura del estado
+        /// Propiedad lectura escritura del estado
         /// </summary>
         public EEstado Estado
         {
@@ -74,15 +74,38 @@ namespace Biblioteca
                 this.estado = value;
             }
         }
+
+
+        /// <summary>
+        /// Solo lectura
+        /// </summary>
+        public int MinutosDeUso
+        {
+            get
+            {
+                return CalcularMinutosDeUso();
+            }
+        }
+
         #endregion
 
         #region Metodos 
 
         /// <summary>
-        /// Calcula los minutos de uso del puesto
+        /// Sobrescribe el metodo abstracto CalcularMinutosDeUso()
         /// </summary>
         /// <returns>Minutos de uso</returns>
-        protected abstract int CalcularMinutosDeUso();
+        protected int CalcularMinutosDeUso()
+        {
+            int usoTotal = 0;
+
+            foreach (Servicio servicio in listaServicios)
+            {
+                usoTotal += servicio.DuracionServicio;
+            }
+
+            return usoTotal;
+        }
 
         #endregion
 

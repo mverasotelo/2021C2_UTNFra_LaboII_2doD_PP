@@ -7,18 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="FormIngreso - Copia.cs" />
-    <Compile Remove="FormIngreso - Copia.Designer.cs" />
-    <Compile Remove="FormIngresoLlamada.cs" />
-    <Compile Remove="FormIngresoLlamada.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="FormIngreso - Copia.resx" />
-    <EmbeddedResource Remove="FormIngresoLlamada.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Biblioteca\Biblioteca.csproj" />
   </ItemGroup>
 

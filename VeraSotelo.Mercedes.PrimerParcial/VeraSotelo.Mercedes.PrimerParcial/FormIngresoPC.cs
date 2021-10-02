@@ -6,19 +6,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Biblioteca;
 
 namespace VeraSotelo.Mercedes.PrimerParcial
 {
-    public partial class FormEstadisticas : Base
+    public partial class FormIngresoPC : FormIngreso
     {
-        public FormEstadisticas()
+
+
+        public FormIngresoPC()
         {
             InitializeComponent();
         }
 
-        private void FormEstadisticas_Load(object sender, EventArgs e)
-        {
+        private void FormIngresoPC_Load(object sender, EventArgs e)
+        { 
 
         }
     }

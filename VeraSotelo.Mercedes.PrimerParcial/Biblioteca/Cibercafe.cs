@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Text;
+using System.Linq;
+using System;
 
 namespace Biblioteca
 {
@@ -131,8 +134,31 @@ namespace Biblioteca
         {
             if(puesto.Estado == Puesto.EEstado.Disponible)
             {
+                puesto.Estado = Puesto.EEstado.Ocupado;
+                servicio.HoraInicio = DateTime.Now;
                 puesto.ListaServicios.Add(servicio);
                 return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Finaliza un servicio, establece su duracion en minutos y libera el puesto
+        /// </summary>
+        /// <param name="puesto"></param>
+        /// <param name="servicio"></param>
+        /// <returns>true si sale todo bien, false si algo sale mal o el puesto estaba disponible</returns>
+        public static bool LiberarPuesto(Puesto puesto)
+        {
+            if(puesto.Estado == Puesto.EEstado.Ocupado)
+            {
+                if (puesto.ListaServicios.Count > 0)
+                {
+                    Servicio servicioActivo = puesto.ListaServicios.Last();
+                    servicioActivo.DuracionServicio = CalcularDuracionEnMinutos(servicioActivo.HoraInicio);
+                    puesto.Estado = Puesto.EEstado.Disponible;
+                    return true;
+                }
             }
             return false;
         }
@@ -154,7 +180,36 @@ namespace Biblioteca
             ClientesEnEspera.Enqueue(cliente);
             return true;
         }
-        #endregion
 
+        /// <summary>
+        /// Calcula la diferencia en minutos entre una hora dada y la hora actual
+        /// Por fines prácticos de la evaluación un segundo de la vida real será equivalente a un minuto del ciber.
+        /// </summary>
+        /// <param name="horaInicio"></param>
+        /// <returns>Diferencia en minutos</returns>
+        private static int CalcularDuracionEnMinutos(DateTime horaInicio)
+        {
+            TimeSpan diferencia = DateTime.Now - horaInicio;
+            return (int)diferencia.TotalSeconds; 
+        }
+
+        public static string MostrarHistorial()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (Puesto p in ListaPuestosDisponibles)
+            {
+                foreach (Servicio s in p.ListaServicios)
+                {
+                    if (s is Llamada)
+                    {
+                        sb.AppendLine(((Llamada)s).ToString());
+                    }
+                }
+            }
+            return sb.ToString();
+        }
+
+        #endregion
     }
 }

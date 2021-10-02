@@ -59,17 +59,6 @@ namespace Biblioteca
         /// <summary>
         /// Solo lectura
         /// </summary>
-        public int MinutosDeUso
-        {
-            get
-            {
-                return CalcularMinutosDeUso();
-            }
-        }
-
-        /// <summary>
-        /// Solo lectura
-        /// </summary>
         public List<Enumerados.ESoftware> SoftwareInstalado
         {
             get
@@ -103,25 +92,6 @@ namespace Biblioteca
         #endregion
 
         #region Metodos
-
-        /// <summary>
-        /// Sobrescribe el metodo abstracto CalcularMinutosDeUso()
-        /// </summary>
-        /// <returns>Minutos de uso</returns>
-        protected override int CalcularMinutosDeUso()
-        {
-            int usoTotal = 0;
-
-            if(ListaServicios.Count > 0)
-            {
-                foreach (Sesion sesion in ListaServicios)
-                {
-                    usoTotal += sesion.DuracionServicio;
-                }
-            }
-
-            return usoTotal;
-        }
 
         /// <summary>
         /// Sobrescribe el metodo ToString()
