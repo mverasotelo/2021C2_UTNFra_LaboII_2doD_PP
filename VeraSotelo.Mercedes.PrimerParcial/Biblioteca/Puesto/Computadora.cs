@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Biblioteca
 {
     public sealed class Computadora : Puesto
     {   
-
         #region Atributos
 
         private List<Enumerados.ESoftware> softwareInstalado;
@@ -96,12 +92,12 @@ namespace Biblioteca
         /// <summary>
         /// Sobrescribe el metodo ToString()
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Información de la computadora</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($" COMPUTADORA {identificador.ToUpper()}\n");
+            sb.AppendLine(base.ToString());
 
             sb.AppendLine($"Especificaciones de Hardware:");
             foreach (KeyValuePair<string, string> e in especificacionesHardware)
@@ -124,9 +120,27 @@ namespace Biblioteca
             {
                 sb.AppendLine($"- {juego} ");
             }
-            sb.AppendLine($"\n Minutos de uso: {MinutosDeUso}");
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Sobreescribe Equals() usando el método de la clase base Puesto
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>True si los identificadores son iguales, false si no</returns>
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        /// <summary>
+        /// Sobreescribe GetHashCode() usando el de la clase base Puesto
+        /// </summary>
+        /// <returns>HashCode generado a partir del identificador</returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         #endregion

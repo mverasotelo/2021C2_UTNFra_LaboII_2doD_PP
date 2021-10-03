@@ -19,17 +19,6 @@ namespace Biblioteca
 
         #endregion
 
-        #region Constructores
-
-        /// <summary>
-        /// Constructor de la clase Llamada
-        /// </summary>
-        public Llamada()
-        {
-        }
-
-        #endregion
-
         #region Propiedades
 
         /// <summary>
@@ -196,8 +185,7 @@ namespace Biblioteca
         /// <returns></returns>
         public override int GetHashCode()
         {
-            string telefono = $"{codigoPais}{prefijoLocalidad}{numero}";
-            return telefono.GetHashCode() + DuracionServicio.GetHashCode();
+            return base.GetHashCode() + NroDestino.GetHashCode();
         }
 
         /// <summary>

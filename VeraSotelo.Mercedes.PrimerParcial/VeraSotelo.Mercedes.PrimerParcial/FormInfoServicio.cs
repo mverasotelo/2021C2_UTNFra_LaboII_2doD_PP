@@ -29,7 +29,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
 
         private void FormInfoServicio_Load(object sender, EventArgs e)
         {
-            rctInfoServicio.Text = $"\n{servicio}";
+            rctInfoServicio.Text = $"{servicio}";
             lblTiempoUso.Text = $"Tiempo de uso: {servicio.DuracionServicio} minutos";
             lblSaldoBruto.Text = $"Saldo bruto: ${servicio.Costo}";
             lblSaldoIVA.Text = $"Saldo con IVA: ${servicio.AgregarIVA()}";

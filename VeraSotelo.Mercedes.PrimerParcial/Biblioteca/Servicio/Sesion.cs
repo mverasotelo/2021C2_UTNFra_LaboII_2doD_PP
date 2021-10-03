@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using Biblioteca;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Biblioteca
 {
     public sealed class Sesion : Servicio
     {
-
         #region Enumerados
         public enum ETipoSesion
         {
-            Libre
+            Libre, Fija        
         }
         #endregion
 
@@ -61,7 +57,7 @@ namespace Biblioteca
         #region Propiedades
 
         /// <summary>
-        /// Propiedad escritura tipo sesion
+        /// Propiedad lectura-escritura tipo sesion
         /// </summary>
         public ETipoSesion TipoSesion
         {
@@ -72,21 +68,6 @@ namespace Biblioteca
             set
             {
                 this.tipoSesion = value;
-            }
-        }
-
-        /// <summary>
-        /// Lectura-escrritura DuracionServicio
-        /// </summary>
-        public override int DuracionServicio
-        {
-            get
-            {
-                return duracionEnMinutos;
-            }
-            set
-            {
-                this.duracionEnMinutos = value;
             }
         }
 
@@ -123,6 +104,20 @@ namespace Biblioteca
             }
         }
 
+        /// <summary>
+        /// Propiedad lectura-escritura DuracionServicio
+        /// </summary>
+        public override int DuracionServicio
+        {
+            get
+            {
+                return duracionEnMinutos;
+            }
+            set
+            {
+                duracionEnMinutos = value;
+            }
+        }
 
         #endregion
 
@@ -133,13 +128,8 @@ namespace Biblioteca
         /// </summary>
         /// <returns></returns>
         protected override float CalcularCosto()
-        {
-            if (DuracionServicio % 30 > 0) //caso para PC de uso libre
-            {
-                double duracion = DuracionServicio / 30;
-                return (float) Math.Ceiling(duracion) * COSTO;
-            }
-            return (DuracionServicio/30) * COSTO;
+        {   
+            return (float) Math.Ceiling(DuracionServicio / 30F) * COSTO;
         }
 
         /// <summary>
@@ -159,6 +149,10 @@ namespace Biblioteca
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Muestra los requerimientos de la PC
+        /// </summary>
+        /// <returns></returns>
         public string MostrarRequerimientosCliente()
         {
             StringBuilder sb = new StringBuilder();

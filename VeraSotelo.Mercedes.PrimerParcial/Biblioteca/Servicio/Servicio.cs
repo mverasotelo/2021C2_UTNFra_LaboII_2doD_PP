@@ -1,25 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Biblioteca
 {
     public abstract class Servicio
     {
-        //atributos
-        protected int identificador;
+        #region Atributos
+
         protected DateTime horaInicio;
         protected int duracionEnMinutos;
 
-        #region Constructores
-        protected Servicio()
-        {
-        }
         #endregion
 
         #region Propiedades
+
         /// <summary>
         /// Propiedad lectura-escritura
         /// </summary>
@@ -50,7 +44,7 @@ namespace Biblioteca
 
         #endregion
 
-        #region Metodos 
+        #region Métodos 
 
         /// <summary>
         /// Calcula el costo de un servicio
@@ -58,39 +52,13 @@ namespace Biblioteca
         /// <returns></returns>
         abstract protected float CalcularCosto();
 
+        /// <summary>
+        /// Le agrega un 21% en concepto de IVA al costo del servicio.
+        /// </summary>
+        /// <returns></returns>
         public float AgregarIVA()
         {
             return Costo * 1.21F;
-        }
-
-        #endregion
-
-        #region Sobrecargas
-
-        /// <summary>
-        /// Sobrecarga del operador ==
-        /// </summary>
-        /// <param name="s1"></param>
-        /// <param name="s2"></param>
-        /// <returns></returns>
-        public static bool operator ==(Servicio s1, Servicio s2)
-        {
-            if (s1 is not null && s2 is not null)
-            {
-                return s1.identificador == s2.identificador;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Sobrecarga del operador !=
-        /// </summary>
-        /// <param name="s1"></param>
-        /// <param name="s2"></param>
-        /// <returns></returns>
-        public static bool operator !=(Servicio s1, Servicio s2)
-        {
-            return !(s1 == s2);
         }
 
         /// <summary>
@@ -109,7 +77,7 @@ namespace Biblioteca
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return identificador.GetHashCode();
+            return HoraInicio.GetHashCode() + GetType().GetHashCode() + DuracionServicio.GetHashCode();
         }
 
         /// <summary>
@@ -118,10 +86,44 @@ namespace Biblioteca
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Servicio";
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Tipo de Servicio: {GetType()}");
+            sb.AppendLine($"Hora Inicio: {HoraInicio}");
+            sb.AppendLine($"Duración del Servicio: {DuracionServicio} minutos");
+            return sb.ToString();
+        }
+
+        #endregion
+
+        #region Sobrecargas
+
+        /// <summary>
+        /// Sobrecarga del operador ==
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns></returns>
+        public static bool operator ==(Servicio s1, Servicio s2)
+        {
+            if (s1 is not null && s2 is not null)
+            {
+                return s1.GetHashCode() == s2.GetHashCode();
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador !=
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns></returns>
+        public static bool operator !=(Servicio s1, Servicio s2)
+        {
+            return !(s1 == s2);
         }
 
         #endregion
     }
-
 }

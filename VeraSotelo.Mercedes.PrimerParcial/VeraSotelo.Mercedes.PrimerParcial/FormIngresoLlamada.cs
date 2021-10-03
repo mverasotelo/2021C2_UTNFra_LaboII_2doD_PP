@@ -14,11 +14,13 @@ namespace VeraSotelo.Mercedes.PrimerParcial
 {
     public partial class FormIngresoLlamada : FormIngreso
     {
+        private Llamada llamada;
 
         public FormIngresoLlamada()
         {
             InitializeComponent();
             cliente = Cibercafe.ClientesEnEspera.Peek();
+            llamada = (Llamada)cliente.Servicio;
         }
 
         private void IngresoLlamada_Load(object sender, EventArgs e)
@@ -57,14 +59,12 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         }
 
         /// <summary>
-        /// Asigna un puesto al usuario, lo marca como ocupado y quita al cliente de la cola
+        /// Asigna la llamada a la cabina seleccionada, la marca como ocupado y quita al cliente de la cola
         /// </summary>
         /// <param name="sender"></param>
         ///// <param name="e"></param>
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Llamada llamada = (Llamada)cliente.Servicio;
-
             llamada.CodigoPais = txtCodigoPais.Text;
             llamada.PrefijoLocalidad = txtPrefijo.Text;
             llamada.Numero = txtNumero.Text;

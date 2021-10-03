@@ -13,6 +13,9 @@ namespace VeraSotelo.Mercedes.PrimerParcial
 {
     public partial class FormCibercafe : Base
     {
+        /// <summary>
+        /// Constructor de FormCibercafe
+        /// </summary>
         public FormCibercafe()
         {
             InitializeComponent();
@@ -21,6 +24,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
 
         #region Eventos
 
+        /// <summary>
+        /// Evento load. Agrega puestos y clientes al cibercafe.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCibercafe_Load(object sender, EventArgs e)
         {
 
@@ -105,25 +113,24 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             //Agrega clientes al Cibercafé
             List<Cliente> listaClientes = new()
             {
-
-            new Cliente(12345678, "Juan", "Perez", 50, new Llamada()),
-
             new Cliente(34398757, "Mercedes", "Vera", 32, new Sesion(
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
             new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Auriculares, Enumerados.EPerifericos.Microfono },
             new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.CounterStrike })),
 
+            new Cliente(41123456, "Julian", "Meroni", 18, new Sesion(
+            new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
+            new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Camara},
+            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.CounterStrike })),
+
             new Cliente(23456789, "Raul", "Garcia", 41, new Llamada()),
+
+            new Cliente(12345678, "Juan", "Perez", 50, new Llamada()),
 
             new Cliente(34567890, "Alicia", "Sotelo", 35, new Sesion(
             new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Ares, Enumerados.ESoftware.ICQ },
             new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Microfono, Enumerados.EPerifericos.Microfono },
-            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.MuOnline })),
-
-            new Cliente(41123456, "Julian", "Meroni", 18, new Sesion(
-            new List<Enumerados.ESoftware>() { Enumerados.ESoftware.Winamp, Enumerados.ESoftware.ICQ },
-            new List<Enumerados.EPerifericos>() { Enumerados.EPerifericos.Joystick, Enumerados.EPerifericos.Microfono },
-            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.LineageII, Enumerados.EJuegos.CounterStrike }))};
+            new List<Enumerados.EJuegos>() { Enumerados.EJuegos.TheSims, Enumerados.EJuegos.MuOnline }))};
 
             foreach (Cliente c in listaClientes)
             {
@@ -131,6 +138,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             }
 
         }
+
         /// <summary>
         /// Pide confirmacion para salir cuando se cierra el formulario
         /// </summary>

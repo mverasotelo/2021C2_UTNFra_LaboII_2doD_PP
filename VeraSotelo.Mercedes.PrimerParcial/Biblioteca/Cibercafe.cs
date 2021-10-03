@@ -7,8 +7,14 @@ namespace Biblioteca
 {
     public static class Cibercafe
     {
+        #region Atributos estáticos
+
         private static List<Puesto> puestos;
         private static Queue<Cliente> clientesEnEspera;
+
+        #endregion
+
+        #region Constructor estático
 
         /// <summary>
         /// Constructor estatico de la clase Cibercafe
@@ -18,6 +24,8 @@ namespace Biblioteca
             puestos = new List<Puesto>();
             clientesEnEspera = new Queue<Cliente>();
         }
+
+        #endregion
 
         #region Propiedades
 
@@ -53,9 +61,10 @@ namespace Biblioteca
                 return clientesEnEspera;
             }
         }
+
         #endregion
 
-        #region Metodos estaticos
+        #region Métodos estáticos
 
         /// <summary>
         /// Chequea que los requisitos solicitado en una sesion esten disponibles en una PC pasada por parametro
@@ -155,7 +164,7 @@ namespace Biblioteca
                 if (puesto.ListaServicios.Count > 0)
                 {
                     Servicio servicioActivo = puesto.ListaServicios.Last();
-                    servicioActivo.DuracionServicio = CalcularDuracionEnMinutos(servicioActivo.HoraInicio);
+                    servicioActivo.DuracionServicio = CalcularDiferenciaEnMinutos(servicioActivo.HoraInicio);
                     puesto.Estado = Puesto.EEstado.Disponible;
                     return true;
                 }
@@ -181,18 +190,6 @@ namespace Biblioteca
             return true;
         }
 
-        /// <summary>
-        /// Calcula la diferencia en minutos entre una hora dada y la hora actual
-        /// Por fines prácticos de la evaluación un segundo de la vida real será equivalente a un minuto del ciber.
-        /// </summary>
-        /// <param name="horaInicio"></param>
-        /// <returns>Diferencia en minutos</returns>
-        private static int CalcularDuracionEnMinutos(DateTime horaInicio)
-        {
-            TimeSpan diferencia = DateTime.Now - horaInicio;
-            return (int)diferencia.TotalSeconds; 
-        }
-
         public static string MostrarHistorial()
         {
             StringBuilder sb = new StringBuilder();
@@ -210,6 +207,17 @@ namespace Biblioteca
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Calcula la diferencia en minutos entre una hora dada y la hora actual
+        /// Por fines prácticos de la evaluación un segundo de la vida real será equivalente a un minuto del ciber.
+        /// </summary>
+        /// <param name="horaInicio"></param>
+        /// <returns>Diferencia en minutos</returns>
+        private static int CalcularDiferenciaEnMinutos(DateTime horaInicio)
+        {
+            TimeSpan diferencia = DateTime.Now - horaInicio;
+            return (int)diferencia.TotalSeconds;
+        }
         #endregion
     }
 }

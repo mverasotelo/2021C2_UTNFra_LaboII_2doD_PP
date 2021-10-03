@@ -14,13 +14,16 @@ namespace VeraSotelo.Mercedes.PrimerParcial
     {
         private Puesto puesto;
 
-        public FormInfo()
+        /// <summary>
+        /// Constructor privado de FormInfo
+        /// </summary>
+        private FormInfo()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// Sobrecarga del constructor del FormInformacion
+        /// Sobrecarga del constructor del FormInfo
         /// </summary>
         public FormInfo(Puesto puesto)
             : this()
@@ -28,6 +31,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.puesto = puesto;
         }
 
+        /// <summary>
+        /// Evento Load. Se muestra la informacion del puesto.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormInfo_Load(object sender, EventArgs e)
         {
             this.Text = $"Información Puesto {puesto.Id}";

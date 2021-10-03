@@ -38,11 +38,7 @@ namespace Biblioteca
         }
         #endregion
 
-        #region Metodos
-
-        #endregion
-
-        #region Sobrecargas
+        #region Métodos
 
         /// <summary>
         /// Sobrescribe el metodo ToString()
@@ -52,10 +48,9 @@ namespace Biblioteca
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($" CABINA {identificador.ToUpper()}\n");
-            sb.AppendLine($" Tipo teléfono: {tipoTelefono}");
-            sb.AppendLine($" Marca: {marca}");
-            sb.AppendLine($" Minutos de uso: {MinutosDeUso}");
+            sb.AppendLine(base.ToString());
+            sb.AppendLine($"Tipo teléfono: {tipoTelefono}");
+            sb.AppendLine($"Marca: {marca}");
 
             return sb.ToString();
         }

@@ -9,7 +9,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
     public partial class FormIngreso : Form
     {
 
-
         protected Cliente cliente;
 
         /// <summary>
@@ -19,17 +18,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         {
             InitializeComponent();
         }
-
-        /// <summary>
-        /// Al cargar el formulario, muestra info del cliente, del servicio requerido 
-        /// y los puestos disponibles
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void Ingreso_Load(object sender, EventArgs e)
-        {
-        }
-        
 
         /// <summary>
         /// Cierra el formulario, cancelando la operacion

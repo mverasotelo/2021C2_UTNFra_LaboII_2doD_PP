@@ -7,12 +7,17 @@ namespace Biblioteca
 {
     public class Cliente
     {
+        #region Atributos
+
         private int dni;
         private string nombre;
         private string apellido;
         private short edad;
         private Servicio servicio;
 
+        #endregion
+
+        #region Constructor
 
         /// <summary>
         /// Constructor de la clase Cliente
@@ -31,22 +36,9 @@ namespace Biblioteca
             this.servicio = servicio;
         }
 
-        #region Propiedades
+        #endregion
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Nombre
-        {
-            get
-            {
-                return nombre;
-            }
-            set
-            {
-                nombre = value;
-            }
-        }
+        #region Propiedades
 
         /// <summary>
         /// Propiedad solo lectura Servicio

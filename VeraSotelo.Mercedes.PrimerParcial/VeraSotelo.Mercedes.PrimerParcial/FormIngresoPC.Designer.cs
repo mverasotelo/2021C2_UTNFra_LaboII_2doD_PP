@@ -30,12 +30,13 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         protected new void InitializeComponent()
         {
             this.lblPuestosDisponibles = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbtLibre = new System.Windows.Forms.RadioButton();
+            this.rbtFija = new System.Windows.Forms.RadioButton();
             this.gpbTipoSesion = new System.Windows.Forms.GroupBox();
             this.numTiempo = new System.Windows.Forms.NumericUpDown();
             this.rctRequerimientos = new System.Windows.Forms.RichTextBox();
             this.lblRequerimientos = new System.Windows.Forms.Label();
+            this.lblTiempo = new System.Windows.Forms.Label();
             this.gpbTipoSesion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTiempo)).BeginInit();
             this.SuspendLayout();
@@ -48,10 +49,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             this.btnIngresar.Location = new System.Drawing.Point(422, 575);
             this.btnIngresar.Size = new System.Drawing.Size(232, 44);
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // lblDatosCliente
             // 
-            this.lblDatosCliente.Location = new System.Drawing.Point(229, 22);
+            this.lblDatosCliente.Location = new System.Drawing.Point(252, 26);
             this.lblDatosCliente.Text = "Nombre y Apellido\r\nDNI XXXXXXXX\r\n(XX años)\r\n";
             // 
             // cmbPuestosDisponibles
@@ -69,33 +71,34 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.lblPuestosDisponibles.TabIndex = 5;
             this.lblPuestosDisponibles.Text = "Computadoras disponibles";
             // 
-            // radioButton1
+            // rbtLibre
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(19, 33);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(71, 27);
-            this.radioButton1.TabIndex = 6;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Libre";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbtLibre.AutoSize = true;
+            this.rbtLibre.Location = new System.Drawing.Point(19, 33);
+            this.rbtLibre.Name = "rbtLibre";
+            this.rbtLibre.Size = new System.Drawing.Size(71, 27);
+            this.rbtLibre.TabIndex = 6;
+            this.rbtLibre.TabStop = true;
+            this.rbtLibre.Text = "Libre";
+            this.rbtLibre.UseVisualStyleBackColor = true;
+            this.rbtLibre.CheckedChanged += new System.EventHandler(this.rbtLibre_CheckedChanged);
             // 
-            // radioButton2
+            // rbtFija
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(19, 66);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(121, 27);
-            this.radioButton2.TabIndex = 7;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Por Tiempo";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbtFija.AutoSize = true;
+            this.rbtFija.Location = new System.Drawing.Point(19, 66);
+            this.rbtFija.Name = "rbtFija";
+            this.rbtFija.Size = new System.Drawing.Size(59, 27);
+            this.rbtFija.TabIndex = 7;
+            this.rbtFija.TabStop = true;
+            this.rbtFija.Text = "Fija";
+            this.rbtFija.UseVisualStyleBackColor = true;
+            this.rbtFija.CheckedChanged += new System.EventHandler(this.rbtFija_CheckedChanged);
             // 
             // gpbTipoSesion
             // 
-            this.gpbTipoSesion.Controls.Add(this.numTiempo);
-            this.gpbTipoSesion.Controls.Add(this.radioButton2);
-            this.gpbTipoSesion.Controls.Add(this.radioButton1);
+            this.gpbTipoSesion.Controls.Add(this.rbtFija);
+            this.gpbTipoSesion.Controls.Add(this.rbtLibre);
             this.gpbTipoSesion.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gpbTipoSesion.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.gpbTipoSesion.Location = new System.Drawing.Point(387, 164);
@@ -107,10 +110,32 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             // numTiempo
             // 
-            this.numTiempo.Location = new System.Drawing.Point(160, 64);
+            this.numTiempo.Increment = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.numTiempo.Location = new System.Drawing.Point(550, 309);
+            this.numTiempo.Maximum = new decimal(new int[] {
+            240,
+            0,
+            0,
+            0});
+            this.numTiempo.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             this.numTiempo.Name = "numTiempo";
-            this.numTiempo.Size = new System.Drawing.Size(95, 29);
+            this.numTiempo.Size = new System.Drawing.Size(104, 29);
             this.numTiempo.TabIndex = 8;
+            this.numTiempo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numTiempo.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.numTiempo.Visible = false;
             // 
             // rctRequerimientos
             // 
@@ -130,11 +155,23 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.lblRequerimientos.TabIndex = 10;
             this.lblRequerimientos.Text = "Requerimientos";
             // 
+            // lblTiempo
+            // 
+            this.lblTiempo.AutoSize = true;
+            this.lblTiempo.Location = new System.Drawing.Point(387, 309);
+            this.lblTiempo.Name = "lblTiempo";
+            this.lblTiempo.Size = new System.Drawing.Size(157, 23);
+            this.lblTiempo.TabIndex = 11;
+            this.lblTiempo.Text = "Tiempo en minutos:";
+            this.lblTiempo.Visible = false;
+            // 
             // FormIngresoPC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 679);
+            this.Controls.Add(this.lblTiempo);
+            this.Controls.Add(this.numTiempo);
             this.Controls.Add(this.lblRequerimientos);
             this.Controls.Add(this.rctRequerimientos);
             this.Controls.Add(this.gpbTipoSesion);
@@ -151,6 +188,8 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Controls.SetChildIndex(this.gpbTipoSesion, 0);
             this.Controls.SetChildIndex(this.rctRequerimientos, 0);
             this.Controls.SetChildIndex(this.lblRequerimientos, 0);
+            this.Controls.SetChildIndex(this.numTiempo, 0);
+            this.Controls.SetChildIndex(this.lblTiempo, 0);
             this.gpbTipoSesion.ResumeLayout(false);
             this.gpbTipoSesion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTiempo)).EndInit();
@@ -161,8 +200,8 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         #endregion
 
         private System.Windows.Forms.Label lblPuestosDisponibles;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbtLibre;
+        private System.Windows.Forms.RadioButton rbtFija;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -170,5 +209,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         private System.Windows.Forms.NumericUpDown numTiempo;
         private System.Windows.Forms.RichTextBox rctRequerimientos;
         private System.Windows.Forms.Label lblRequerimientos;
+        private System.Windows.Forms.Label lblTiempo;
     }
 }

@@ -1,21 +1,25 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 
 namespace Biblioteca
 {
     public abstract class Puesto
     {
-        #region Enumeradores
+        #region Enumerados
         public enum ETipo { Cabina, Computadora };
         public enum EEstado { Disponible, Ocupado };
         #endregion
 
-        //atributos
+        #region Atributos
+
         protected string identificador;
         protected EEstado estado;
         protected ETipo tipo;
         protected List<Servicio> listaServicios;
-        
+
+        #endregion
+
         #region Constructores
         protected Puesto(string identificador)
         {
@@ -28,7 +32,7 @@ namespace Biblioteca
         #region Propiedades
 
         /// <summary>
-        /// Solo lectura.
+        /// Propiedad solo lectura del ID.
         /// </summary>
         public string Id
         {
@@ -50,7 +54,7 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Solo lectura
+        /// Propiedad solo lectura de ListaServicios
         /// </summary>
         public List<Servicio> ListaServicios
         {
@@ -61,7 +65,7 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Propiedad lectura escritura del estado
+        /// Propiedad lectura/escritura del estado
         /// </summary>
         public EEstado Estado
         {
@@ -74,7 +78,6 @@ namespace Biblioteca
                 this.estado = value;
             }
         }
-
 
         /// <summary>
         /// Solo lectura
@@ -92,7 +95,7 @@ namespace Biblioteca
         #region Metodos 
 
         /// <summary>
-        /// Sobrescribe el metodo abstracto CalcularMinutosDeUso()
+        /// Calcula los minutos de uso del puesto sumando la duración de los servicios 
         /// </summary>
         /// <returns>Minutos de uso</returns>
         protected int CalcularMinutosDeUso()
@@ -107,16 +110,12 @@ namespace Biblioteca
             return usoTotal;
         }
 
-        #endregion
-
-        #region Sobrecargas
-
         /// <summary>
-        /// Sobrecarga del operador ==
+        /// Sobrecarga del operador ==, comparando por identificador
         /// </summary>
         /// <param name="p1"></param>
         /// <param name="p2"></param>
-        /// <returns></returns>
+        /// <returns>True si tienen el mismo identificador, false si no</returns>
         public static bool operator ==(Puesto p1, Puesto p2)
         {
             if (p1 is not null && p2 is not null)
@@ -131,14 +130,14 @@ namespace Biblioteca
         /// </summary>
         /// <param name="p1"></param>
         /// <param name="p2"></param>
-        /// <returns></returns>
+        /// <returns>False si tienen el mismo identificador, true si no</returns>
         public static bool operator !=(Puesto p1, Puesto p2)
         {
             return !(p1 == p2);
         }
 
         /// <summary>
-        /// Sobrescribe el metodo Equals()
+        /// Sobrescribe el metodo Equals(), comparando por identificador
         /// </summary>
         /// <returns></returns>
         public override bool Equals(Object obj)
@@ -162,7 +161,13 @@ namespace Biblioteca
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{identificador}";
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{tipo.ToString().ToUpper()} {identificador.ToUpper()}\n");
+            sb.AppendLine($"Estado: {estado}");
+            sb.AppendLine($"Minutos de uso: {MinutosDeUso}");
+
+            return sb.ToString();
         }
         #endregion
     }
