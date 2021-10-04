@@ -15,7 +15,7 @@ Mercedes Vera Sotelo
 
 ## Diagrama de clases
 
-!![Diagrama de Clases](https://github.com/mverasotelo/2021C2_UTNFra_LaboII_2doD_PP/tree/master/VeraSotelo.Mercedes.PrimerParcial/DiagramaClases.png "Diagrama de Clases")
+![Diagrama de Clases](https://github.com/mverasotelo/2021C2_UTNFra_LaboII_2doD_PP/blob/master/VeraSotelo.Mercedes.PrimerParcial/Biblioteca/DiagramaClases.png)
 
 ## Justificación técnica
 
