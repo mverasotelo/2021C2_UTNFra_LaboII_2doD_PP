@@ -49,7 +49,7 @@ El proyecto está diseñado bajo el paradigma de la Programación Orientada a Ob
 ### Clase 5 - Windows Forms
 
 La aplicación es un proyecto de **Windows Forms**, el cual nos brinda un entorno gráfico para que sea más amigable para el usuario (también llamado "el pibe que atiende el ciber").
-Para ello, se separó físicamente la capa de presentación (proyecto CibercafeElVicio) de la lógica de negocio (proyecto Biblioteca).
+Para ello, se separó físicamente la capa de presentación (proyecto VeraSotelo.Mercedes.PrimerParcial) de la lógica de negocio (proyecto Biblioteca).
 
 Para ello se utiliza todo tipo de controles y eventos:
 - Se eligió un Listbox para la visualizar la lista de clientes en espera.
