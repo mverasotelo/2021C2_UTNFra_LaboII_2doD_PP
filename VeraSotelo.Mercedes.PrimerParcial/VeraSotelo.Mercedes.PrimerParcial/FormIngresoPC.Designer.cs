@@ -202,9 +202,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         private System.Windows.Forms.Label lblPuestosDisponibles;
         private System.Windows.Forms.RadioButton rbtLibre;
         private System.Windows.Forms.RadioButton rbtFija;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox gpbTipoSesion;
         private System.Windows.Forms.NumericUpDown numTiempo;
         private System.Windows.Forms.RichTextBox rctRequerimientos;

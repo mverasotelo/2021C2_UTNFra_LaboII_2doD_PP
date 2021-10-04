@@ -25,7 +25,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
 
         private void IngresoLlamada_Load(object sender, EventArgs e)
         {
-            lblDatosCliente.Text = $"{cliente}";
             MostrarCabinasDisponibles();
         }
 

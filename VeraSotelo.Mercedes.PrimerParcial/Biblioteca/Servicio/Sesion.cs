@@ -143,7 +143,7 @@ namespace Biblioteca
             sb.AppendLine($"Sesión {tipoSesion}\n");
             if(tipoSesion != ETipoSesion.Libre)
             {
-                sb.AppendLine($"Minutos solicitados: 0");
+                sb.AppendLine($"Minutos solicitados: {DuracionServicio}\n");
             }
             sb.AppendLine(MostrarRequerimientosCliente());
             return sb.ToString();

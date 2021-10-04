@@ -20,7 +20,7 @@ namespace Biblioteca
         abstract public int DuracionServicio { get; set; }
 
         /// <summary>
-        /// Solo lectura = Devuelve el costo de la llamada
+        /// Solo lectura = Devuelve el costo del servicio
         /// </summary>
         public float Costo
         {

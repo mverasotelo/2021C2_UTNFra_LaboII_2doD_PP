@@ -17,7 +17,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// <summary>
         /// Constructor privado de FormInfo
         /// </summary>
-        private FormInfo()
+        public FormInfo()
         {
             InitializeComponent();
         }

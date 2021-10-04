@@ -4,7 +4,7 @@ using System.Text;
 namespace Biblioteca
 {
     public sealed class Computadora : Puesto
-    {   
+    {
         #region Atributos
 
         private List<Enumerados.ESoftware> softwareInstalado;
@@ -20,7 +20,7 @@ namespace Biblioteca
         /// Constructor privado de Computadora
         /// </summary>
         private Computadora(string identificador)
-            :base(identificador)
+            : base(identificador)
         {
             softwareInstalado = new List<Enumerados.ESoftware>();
             perifericosDisponibles = new List<Enumerados.EPerifericos>();
@@ -36,10 +36,10 @@ namespace Biblioteca
         /// <param name="perifericosDisponibles"></param>
         /// <param name="juegosDisponibles"></param>
         /// <param name="especificacionesHardware"></param>
-        public Computadora(string identificador, List<Enumerados.ESoftware> softwareInstalado, 
-        List<Enumerados.EPerifericos> perifericosDisponibles, List<Enumerados.EJuegos> juegosDisponibles, 
-        Dictionary<string, string> especificacionesHardware) 
-            :this(identificador)
+        public Computadora(string identificador, List<Enumerados.ESoftware> softwareInstalado,
+        List<Enumerados.EPerifericos> perifericosDisponibles, List<Enumerados.EJuegos> juegosDisponibles,
+        Dictionary<string, string> especificacionesHardware)
+            : this(identificador)
         {
             this.identificador = identificador;
             this.tipo = ETipo.Computadora;
@@ -88,6 +88,66 @@ namespace Biblioteca
         #endregion
 
         #region Metodos
+
+        /// <summary>
+        /// Chequea que un software este instalado en una PC
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public bool EstaDisponible(Enumerados.ESoftware s)
+        {
+            if (SoftwareInstalado.Count > 0)
+            {
+                foreach (Enumerados.ESoftware software in SoftwareInstalado)
+                {
+                    if (software == s)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Chequea que un software este instalado en una PC
+        /// </summary>
+        /// <param name="j"></param>
+        /// <returns></returns>
+        public bool EstaDisponible(Enumerados.EJuegos j)
+        {
+            if (JuegosDisponibles.Count > 0)
+            {
+                foreach (Enumerados.EJuegos juego in JuegosDisponibles)
+                {
+                    if (juego == j)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Chequea que un periferico este disponible en una PC
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public bool EstaDisponible(Enumerados.EPerifericos p)
+        {
+            if (PerifericosDisponibles.Count > 0)
+            {
+                foreach (Enumerados.EPerifericos periferico in PerifericosDisponibles)
+                {
+                    if (periferico == p)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
         /// <summary>
         /// Sobrescribe el metodo ToString()
@@ -141,106 +201,6 @@ namespace Biblioteca
         public override int GetHashCode()
         {
             return base.GetHashCode();
-        }
-
-        #endregion
-
-        #region Sobrecargas
-
-        /// <summary>
-        /// Chequea que un software este instalado en una PC
-        /// </summary>
-        /// <param name="c"></param>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static bool operator ==(Computadora c, Enumerados.ESoftware s)
-        {
-            if(c.SoftwareInstalado.Count > 0)
-            {
-                foreach(Enumerados.ESoftware software in c.SoftwareInstalado)
-                {
-                    if(software == s)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Chequea que un software NO este instalado en una PC
-        /// </summary>
-        /// <param name="c"></param>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static bool operator !=(Computadora c, Enumerados.ESoftware s)
-        {
-            return !(c == s);
-        }
-
-        /// <summary>
-        /// Chequea que un software este instalado en una PC
-        /// </summary>
-        /// <param name="c"></param>
-        /// <param name="j"></param>
-        /// <returns></returns>
-        public static bool operator ==(Computadora c, Enumerados.EJuegos j)
-        {
-            if (c.JuegosDisponibles.Count > 0)
-            {
-                foreach (Enumerados.EJuegos juego in c.JuegosDisponibles)
-                {
-                    if (juego == j)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Chequea que un software NO este instalado en una PC
-        /// </summary>
-        /// <param name="c"></param>
-        /// <param name="j"></param>
-        /// <returns></returns>
-        public static bool operator !=(Computadora c, Enumerados.EJuegos j)
-        {
-            return !(c == j);
-        }
-
-        /// <summary>
-        /// Chequea que un periferico este disponible en una PC
-        /// </summary>
-        /// <param name="c"></param>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        public static bool operator ==(Computadora c, Enumerados.EPerifericos p)
-        {
-            if (c.PerifericosDisponibles.Count > 0)
-            {
-                foreach (Enumerados.EPerifericos periferico in c.PerifericosDisponibles)
-                {
-                    if (periferico == p)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Chequea que un periferico NO este disponible en una PC
-        /// </summary>
-        /// <param name="c"></param>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        public static bool operator !=(Computadora c, Enumerados.EPerifericos p)
-        {
-            return !(c == p);
         }
 
         #endregion

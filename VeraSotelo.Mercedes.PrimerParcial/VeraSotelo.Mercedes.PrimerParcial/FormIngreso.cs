@@ -14,9 +14,18 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// <summary>
         /// Constructor de FormIngreso
         /// </summary>
-        public FormIngreso()
+        protected FormIngreso()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Evento Load.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormIngreso_Load(object sender, EventArgs e)
+        {
         }
 
         /// <summary>
@@ -28,5 +37,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         {
             this.Close();
         }
+
     }
 }

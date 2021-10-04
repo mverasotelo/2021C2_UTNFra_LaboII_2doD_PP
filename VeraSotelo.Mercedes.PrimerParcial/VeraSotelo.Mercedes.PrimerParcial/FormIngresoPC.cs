@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca;
 
@@ -33,7 +33,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// <param name="e"></param>
         private void FormIngresoPC_Load(object sender, EventArgs e)
         {
-            lblDatosCliente.Text = $"{cliente}";
+            lblDatosCliente.Text = cliente.ToString();
             rctRequerimientos.Text = sesion.MostrarRequerimientosCliente();
             rbtLibre.Checked = true;
             MostrarComputadorasCompatibles();
@@ -104,8 +104,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         ///// <param name="e"></param>
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
-            if (rbtFija.Checked == true && numTiempo.Value < 30 && numTiempo.Value % 30 != 0)
+            if (rbtFija.Checked == true && numTiempo.Value % 30 != 0)
             {
                 MessageBox.Show("La duración de usa sesión fija debe fijarse en bloques de media hora", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -117,8 +116,8 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                 }
                 else
                 {
-                    sesion.TipoSesion = Sesion.ETipoSesion.Fija;
                     sesion.DuracionServicio = (int)numTiempo.Value;
+                    sesion.TipoSesion = Sesion.ETipoSesion.Fija;
                 }
 
                 foreach (Puesto puesto in Cibercafe.ListaPuestosDisponibles)
@@ -127,8 +126,8 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                     {
                         if (Cibercafe.AgregarServicio(puesto, sesion))
                         {
-                            Cibercafe.ClientesEnEspera.Dequeue();
                             this.Close();
+                            Cibercafe.ClientesEnEspera.Dequeue();
                         }
                     }
                 }

@@ -1,13 +1,8 @@
-﻿using System;
+﻿using Biblioteca;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Biblioteca;
 
 namespace VeraSotelo.Mercedes.PrimerParcial
 {
@@ -140,22 +135,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         }
 
         /// <summary>
-        /// Pide confirmacion para salir cuando se cierra el formulario
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        
-        private void FormCibercafe_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("¿Seguro de querer salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dialogResult == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-        }
-
-        /// <summary>
         /// Escuchador de eventos del evento click del boton Estadisticas. Muestra de forma no modal un Form con estadisticas historicas 
         /// </summary>
         /// <param name="sender"></param>
@@ -229,6 +208,31 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             ActualizarListadoClientes();
         }
 
+        /// <summary>
+        /// Pide confirmacion para salir cuando se cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormCibercafe_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Seguro de querer salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        /// <summary>
+        /// Cierra el programa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion
 
         #region Metodos
@@ -236,7 +240,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// <summary>
         /// Actualiza el listado de clientes 
         /// </summary>
-        private void ActualizarListadoClientes()
+        internal void ActualizarListadoClientes()
         {
             lstCliente.Items.Clear();
             foreach (Cliente c in Cibercafe.ClientesEnEspera)

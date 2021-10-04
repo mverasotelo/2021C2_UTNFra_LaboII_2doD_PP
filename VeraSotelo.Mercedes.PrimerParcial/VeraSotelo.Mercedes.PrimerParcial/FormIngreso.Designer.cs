@@ -95,7 +95,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Name = "FormIngreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignar puesto";
-            this.Load += new System.EventHandler(this.Ingreso_Load);
+            this.Load += new System.EventHandler(this.FormIngreso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

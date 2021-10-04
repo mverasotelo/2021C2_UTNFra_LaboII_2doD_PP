@@ -76,21 +76,21 @@ namespace Biblioteca
         {
             foreach (Enumerados.ESoftware software in sesion.SoftwareRequerido)
             {
-                if (computadora != software)
+                if (!computadora.EstaDisponible(software))
                 {
                     return false;
                 }
             }
             foreach (Enumerados.EJuegos juego in sesion.JuegosRequeridos)
             {
-                if (computadora != juego)
+                if (!computadora.EstaDisponible(juego))
                 {
                     return false;
                 }
             }
             foreach (Enumerados.EPerifericos periferico in sesion.PerifericosRequeridos)
             {
-                if (computadora != periferico)
+                if (!computadora.EstaDisponible(periferico))
                 {
                     return false;
                 }
@@ -164,12 +164,27 @@ namespace Biblioteca
                 if (puesto.ListaServicios.Count > 0)
                 {
                     Servicio servicioActivo = puesto.ListaServicios.Last();
-                    servicioActivo.DuracionServicio = CalcularDiferenciaEnMinutos(servicioActivo.HoraInicio);
+                    if(servicioActivo is Llamada || (servicioActivo is Sesion && ((Sesion)servicioActivo).TipoSesion == Sesion.ETipoSesion.Libre))
+                    {
+                        servicioActivo.DuracionServicio = CalcularDiferenciaEnMinutos(servicioActivo.HoraInicio);
+                    }
                     puesto.Estado = Puesto.EEstado.Disponible;
                     return true;
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// Calcula la diferencia en minutos entre una hora dada y la hora actual
+        /// Por fines prácticos de la evaluación un segundo de la vida real será equivalente a un minuto del ciber.
+        /// </summary>
+        /// <param name="horaInicio"></param>
+        /// <returns>Diferencia en minutos</returns>
+        private static int CalcularDiferenciaEnMinutos(DateTime horaInicio)
+        {
+            TimeSpan diferencia = DateTime.Now - horaInicio;
+            return (int)diferencia.TotalSeconds;
         }
 
         /// <summary>
@@ -190,34 +205,95 @@ namespace Biblioteca
             return true;
         }
 
-        public static string MostrarHistorial()
+        /// <summary>
+        /// Muestra puestos ordenados de forma descendente por minutos de uso, según el tipo pasado por parámetro
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns>string con la lista de puestos ordenado por minutos de uso en forma descendente</returns>
+        public static string MostrarPuestosPorMinutosDeUso(Puesto.ETipo tipo)
         {
             StringBuilder sb = new StringBuilder();
+            List<Puesto> puestos = new List<Puesto>();
 
-            foreach (Puesto p in ListaPuestosDisponibles)
+            foreach (Puesto p in ListaPuestos)
             {
-                foreach (Servicio s in p.ListaServicios)
+                if (tipo == Puesto.ETipo.Cabina && p is Cabina)
                 {
-                    if (s is Llamada)
-                    {
-                        sb.AppendLine(((Llamada)s).ToString());
-                    }
+                    puestos.Add(p);
                 }
+                else if (tipo == Puesto.ETipo.Computadora && p is Computadora)
+                {
+                    puestos.Add(p);
+                }
+            }
+            puestos.Sort(CompararPuestosPorUso);
+
+            foreach (Puesto p in puestos)
+            {
+                sb.AppendLine(p.ToString());
+                sb.AppendLine("_________________________\n");
             }
             return sb.ToString();
         }
 
         /// <summary>
-        /// Calcula la diferencia en minutos entre una hora dada y la hora actual
-        /// Por fines prácticos de la evaluación un segundo de la vida real será equivalente a un minuto del ciber.
+        /// Compara dos puestos segun sus minutos de uso
         /// </summary>
-        /// <param name="horaInicio"></param>
-        /// <returns>Diferencia en minutos</returns>
-        private static int CalcularDiferenciaEnMinutos(DateTime horaInicio)
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns>1 si p1 es mayor o igual a p2, 0 si es menor, -1 si ha ocurrido algun error</returns>
+        public static int CompararPuestosPorUso(Puesto p1, Puesto p2)
         {
-            TimeSpan diferencia = DateTime.Now - horaInicio;
-            return (int)diferencia.TotalSeconds;
+            if (p1 is not null && p2 is not null)
+            {
+                if (p1.MinutosDeUso >= p2.MinutosDeUso)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            return -1;
         }
+
+        /// <summary>
+        /// Calcula las ganancias totales y clasificadas por servicio (teléfono/computadora).
+        /// </summary>
+        /// <returns>Cadena con la informacion de ganancias</returns>
+        public static string CalcularGananciasTotales()
+        {
+            StringBuilder sb = new StringBuilder();
+            float gananciasTelefono = 0;
+            float gananciasPC = 0;
+
+            foreach (Puesto p in ListaPuestos)
+            {
+                if(p.ListaServicios.Count > 0)
+                {
+                    foreach(Servicio s in p.ListaServicios)
+                    {
+                        if(s is Sesion)
+                        {
+                            gananciasPC += s.Costo;
+                        }
+                        else
+                        {
+                            gananciasTelefono += s.Costo;
+                        }
+                    }
+                }
+            }
+
+            sb.AppendLine("*****GANANCIAS*****\n");
+            sb.AppendLine($"Ganancias por cabinas: ${gananciasTelefono:N2}");
+            sb.AppendLine($"Ganancias por computadoras: ${gananciasPC:N2}\n");
+            sb.AppendLine($"GANANCIAS TOTALES: ${(gananciasTelefono+gananciasPC):N2}");
+
+            return sb.ToString();
+        }
+
         #endregion
     }
 }

@@ -50,6 +50,7 @@
             this.lblCab2 = new System.Windows.Forms.Label();
             this.lblCab1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.pnlBarraInfo.SuspendLayout();
             this.gpbPuestos.SuspendLayout();
             this.SuspendLayout();
@@ -99,12 +100,12 @@
             this.btnEstadisticas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEstadisticas.BackColor = System.Drawing.Color.CadetBlue;
             this.btnEstadisticas.Font = new System.Drawing.Font("Tw Cen MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEstadisticas.Location = new System.Drawing.Point(549, 521);
+            this.btnEstadisticas.Location = new System.Drawing.Point(549, 457);
             this.btnEstadisticas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnEstadisticas.Size = new System.Drawing.Size(171, 56);
-            this.btnEstadisticas.TabIndex = 38;
+            this.btnEstadisticas.TabIndex = 2;
             this.btnEstadisticas.Text = "ESTADISTICAS";
             this.btnEstadisticas.UseVisualStyleBackColor = false;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
@@ -119,7 +120,7 @@
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAsignar.Size = new System.Drawing.Size(171, 54);
-            this.btnAsignar.TabIndex = 39;
+            this.btnAsignar.TabIndex = 1;
             this.btnAsignar.Text = "ASIGNAR PUESTO";
             this.btnAsignar.UseVisualStyleBackColor = false;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
@@ -432,6 +433,21 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSalir.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnSalir.Font = new System.Drawing.Font("Tw Cen MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSalir.Location = new System.Drawing.Point(549, 521);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnSalir.Size = new System.Drawing.Size(171, 56);
+            this.btnSalir.TabIndex = 3;
+            this.btnSalir.Text = "SALIR";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FormCibercafe
             // 
             this.AllowDrop = true;
@@ -441,6 +457,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1237, 653);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAsignar);
             this.Controls.Add(this.btnEstadisticas);
             this.Controls.Add(this.gpbPuestos);
@@ -459,6 +476,7 @@
             this.Controls.SetChildIndex(this.gpbPuestos, 0);
             this.Controls.SetChildIndex(this.btnEstadisticas, 0);
             this.Controls.SetChildIndex(this.btnAsignar, 0);
+            this.Controls.SetChildIndex(this.btnSalir, 0);
             this.pnlBarraInfo.ResumeLayout(false);
             this.pnlBarraInfo.PerformLayout();
             this.gpbPuestos.ResumeLayout(false);
@@ -491,5 +509,6 @@
         private System.Windows.Forms.Label lblCab3;
         private System.Windows.Forms.Label lblCab2;
         private System.Windows.Forms.Label lblCab1;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
