@@ -123,9 +123,22 @@ namespace Biblioteca
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Tipo de Servicio: {GetType()}");
             sb.AppendLine($"Hora Inicio: {HoraInicio}");
             sb.AppendLine($"Duración del Servicio: {DuracionServicio} minutos");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Muestra el costo por servicio.
+        /// </summary>
+        /// <returns></returns>
+        public virtual string CobrarPorServicio()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Saldo bruto: ${Costo:N2}");
+            sb.AppendLine("_____________________________________");
+            sb.AppendLine($"SALDO A PAGAR CON IVA: ${AgregarIVA():N2}");
             return sb.ToString();
         }
 

@@ -76,6 +76,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Close();
         }
 
+        /// <summary>
+        /// Abre formilario modal para ingresar el número de copias solicitadas por el usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             FormImpresiones frm = new FormImpresiones(puesto);

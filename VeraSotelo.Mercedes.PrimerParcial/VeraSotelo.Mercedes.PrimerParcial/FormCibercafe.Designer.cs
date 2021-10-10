@@ -54,6 +54,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblOperador = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.gpbPuestos.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +65,7 @@
             this.lblClientes.AutoSize = true;
             this.lblClientes.Font = new System.Drawing.Font("Tw Cen MT", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblClientes.Location = new System.Drawing.Point(996, 9);
+            this.lblClientes.Location = new System.Drawing.Point(1002, 83);
             this.lblClientes.Name = "lblClientes";
             this.lblClientes.Size = new System.Drawing.Size(236, 25);
             this.lblClientes.TabIndex = 21;
@@ -76,27 +77,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstCliente.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lstCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lstCliente.Cursor = System.Windows.Forms.Cursors.Default;
             this.lstCliente.Font = new System.Drawing.Font("Tw Cen MT Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lstCliente.FormattingEnabled = true;
             this.lstCliente.ItemHeight = 35;
-            this.lstCliente.Location = new System.Drawing.Point(741, 48);
+            this.lstCliente.Location = new System.Drawing.Point(741, 118);
             this.lstCliente.Margin = new System.Windows.Forms.Padding(0);
             this.lstCliente.Name = "lstCliente";
-            this.lstCliente.Size = new System.Drawing.Size(499, 564);
-            this.lstCliente.TabIndex = 0;
+            this.lstCliente.Size = new System.Drawing.Size(499, 529);
+            this.lstCliente.TabIndex = 4;
             // 
             // btnEstadisticas
             // 
             this.btnEstadisticas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEstadisticas.BackColor = System.Drawing.Color.CadetBlue;
             this.btnEstadisticas.Font = new System.Drawing.Font("Tw Cen MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEstadisticas.Location = new System.Drawing.Point(549, 504);
+            this.btnEstadisticas.Location = new System.Drawing.Point(549, 527);
             this.btnEstadisticas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnEstadisticas.Size = new System.Drawing.Size(171, 56);
-            this.btnEstadisticas.TabIndex = 2;
+            this.btnEstadisticas.TabIndex = 1;
             this.btnEstadisticas.Text = "📈 ESTADISTICAS";
             this.btnEstadisticas.UseVisualStyleBackColor = false;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
@@ -105,12 +106,12 @@
             // 
             this.btnAsignar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnAsignar.Font = new System.Drawing.Font("Tw Cen MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAsignar.Location = new System.Drawing.Point(549, 48);
+            this.btnAsignar.Location = new System.Drawing.Point(549, 118);
             this.btnAsignar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAsignar.Size = new System.Drawing.Size(171, 54);
-            this.btnAsignar.TabIndex = 1;
+            this.btnAsignar.TabIndex = 0;
             this.btnAsignar.Text = "ASIGNAR PUESTO";
             this.btnAsignar.UseVisualStyleBackColor = false;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
@@ -301,11 +302,11 @@
             this.gpbPuestos.Controls.Add(this.lblC02);
             this.gpbPuestos.Controls.Add(this.lblC01);
             this.gpbPuestos.Controls.Add(this.lblComputadoras);
-            this.gpbPuestos.Location = new System.Drawing.Point(11, 13);
+            this.gpbPuestos.Location = new System.Drawing.Point(11, 57);
             this.gpbPuestos.Margin = new System.Windows.Forms.Padding(0);
             this.gpbPuestos.Name = "gpbPuestos";
             this.gpbPuestos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gpbPuestos.Size = new System.Drawing.Size(517, 627);
+            this.gpbPuestos.Size = new System.Drawing.Size(517, 590);
             this.gpbPuestos.TabIndex = 36;
             this.gpbPuestos.TabStop = false;
             this.gpbPuestos.Text = "groupBox2";
@@ -428,12 +429,12 @@
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSalir.BackColor = System.Drawing.Color.CadetBlue;
             this.btnSalir.Font = new System.Drawing.Font("Tw Cen MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSalir.Location = new System.Drawing.Point(549, 568);
+            this.btnSalir.Location = new System.Drawing.Point(549, 591);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnSalir.Size = new System.Drawing.Size(171, 56);
-            this.btnSalir.TabIndex = 3;
+            this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -474,6 +475,21 @@
             this.lblOperador.Text = "Mercedes Vera Sotelo";
             this.lblOperador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnHelp.Font = new System.Drawing.Font("Tw Cen MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHelp.Location = new System.Drawing.Point(1192, 13);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnHelp.Size = new System.Drawing.Size(46, 46);
+            this.btnHelp.TabIndex = 3;
+            this.btnHelp.Text = "❓";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // FormCibercafe
             // 
             this.AllowDrop = true;
@@ -482,6 +498,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1250, 700);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAsignar);
@@ -489,6 +506,7 @@
             this.Controls.Add(this.gpbPuestos);
             this.Controls.Add(this.lstCliente);
             this.Controls.Add(this.lblClientes);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1250, 700);
             this.Name = "FormCibercafe";
@@ -534,5 +552,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblOperador;
+        private System.Windows.Forms.Button btnHelp;
     }
 }

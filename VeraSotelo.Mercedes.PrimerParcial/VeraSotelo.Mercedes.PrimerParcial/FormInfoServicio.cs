@@ -27,19 +27,22 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.servicio = servicio;
         }
 
+        /// <summary>
+        /// Muestra información del servicio y el monto a pagar por conceptos y total con IVA.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormInfoServicio_Load(object sender, EventArgs e)
         {
             rctInfoServicio.Text = $"{servicio}";
-            if(servicio is Sesion && ((Sesion)servicio).NumeroCopias>0)
-            {
-                lblCopias.Visible = true;
-                lblCopias.Text = $"{((Sesion)servicio).NumeroCopias} copias (${((Sesion)servicio).CalcularCostoCopias():N2})";
-            }
-            lblTiempoUso.Text = $"{servicio.DuracionServicio} minutos de uso";
-            lblSaldoBruto.Text += $" ${(servicio.Costo):N2}";
-            lblSaldoIVA.Text += $" ${(servicio.AgregarIVA()):N2}";
+            lblFactura.Text = $"{servicio.CobrarPorServicio()}";
         }
 
+        /// <summary>
+        /// Sale del formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.Close();

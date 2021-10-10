@@ -26,6 +26,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         {
         }
 
+        /// <summary>
+        /// Asigna numero de copias ingresado a la sesion actual
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOk_Click(object sender, EventArgs e)
         {
             Sesion sesion = (Sesion)puesto.ListaServicios.Last();

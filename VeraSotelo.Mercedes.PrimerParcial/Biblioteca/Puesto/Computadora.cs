@@ -87,7 +87,7 @@ namespace Biblioteca
 
         #endregion
 
-        #region Metodos
+        #region Métodos
 
         /// <summary>
         /// Chequea que un software este instalado en una PC

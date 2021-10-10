@@ -16,11 +16,13 @@ También me obligó a investigar mucho en internet y ver varios videos para reso
 ## Resumen
 
 La aplicación sirve para administrar un cibercafé que tiene computadoras y cabinas de los años 2000.
-Hay una lista de clientes en espera que tienen algún servicio solicitado, y cuando le toca su turno el usuario de la aplicación (que es la persona que atiende el negocio) le debe asignar un puesto.
+Cuenta con una barra de información de la aplicación donde figura el nombre del operador conectado y la fecha actual.
 El estado de los puestos es visible todo el tiempo por el usuario y está identificado con rojo para ocupados y verde para disponibles. 
-Al momento de asignar el puesto, el programa sólo da opción de seleccionar los puestos que están libres, y también los filtra dependiendo del servicio elegido y, en el caso de las PC, de las necesidades que tiene el cliente tanto de hardware como de software y juegos.
+Además, hay una lista de clientes en espera que tienen algún servicio solicitado y están ordenados por orden de llegada. En la lista se puede ver el dni, nombre, apellido y la edad del cliente. 
+El usuario de la aplicación (que es la persona que atiende el negocio) le puede asignar un puesto al próximo en la lista. En esta instancia se puede visualizar qué software, hardware o juego necesita el cliente, cuya elección debe es simulada al iniciar el programa.
+Al momento de asignar el puesto, el programa sólo da opción de seleccionar los puestos no estén en uso, y también los filtra dependiendo del servicio elegido y, en el caso de las PC, de las necesidades que tiene el cliente tanto de hardware como de software y juegos.
 Sino existe un puesto compatible con la necesidad del cliente, este es asignado al final de la fila, para esperar a que se libere algun puesto. 
-Cuando el cliente ha finalizado, el operador puede entrar al puesto utilizado y liberarlo, lo que genera automáticamente la información del servicio, tiempo de uso y el costo a pagar por el cliente, bruto y gravado con el IVA.
+Cuando el cliente ha finalizado, el operador puede entrar al puesto utilizado y liberarlo, lo que genera automáticamente la información del servicio, tiempo de uso y el costo a pagar por el cliente, bruto y gravado con el IVA. No se puede marcar como finalizado algo que no está en uso.
 Tambien se cuenta con una sección de estadisticas, donde se visualiza información histórica del cibercafé, por ejemplo, lista de puestos ordenados por su uso, ganancias o qué requerimiento fue el más solicitado, lo que ayuda a tomar decisiones de negocios.
 
 ## Diagrama de clases
@@ -118,3 +120,7 @@ Llamada y Sesión son clases selladas. No se debe poder heredar de ellas, ya que
 **Instalación y uso de un paquete Nuget: Fluent Validation**
 Se instaló y utilizó el paquete Fluent Validation. Con él, se valida que el código país, prefijo y número de teléfono ingresados por el usuario en los TextBox sean válidos.
 Los datos deben ser numéricos, por lo que se utiliza la RegEx __^[0-9]*$__. También se valida la cantidad de caracteres y que el campo no sea null.
+
+
+**Feature imprimir**
+Para todas las máquinas que tengan impresora disponible se deben poder solicitar impresiones en algún momento de la sesión, las cuales se suman a la factura al momento de cobrar por el servicio.

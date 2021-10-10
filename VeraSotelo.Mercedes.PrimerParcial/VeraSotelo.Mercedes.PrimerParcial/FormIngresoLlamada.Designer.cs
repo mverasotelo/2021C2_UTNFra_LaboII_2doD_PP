@@ -38,11 +38,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(55, 449);
+            this.btnCancelar.Location = new System.Drawing.Point(55, 423);
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(392, 449);
+            this.btnIngresar.Location = new System.Drawing.Point(412, 423);
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // cmbPuestosDisponibles
@@ -50,7 +50,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.cmbPuestosDisponibles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbPuestosDisponibles.Location = new System.Drawing.Point(55, 367);
-            this.cmbPuestosDisponibles.Size = new System.Drawing.Size(552, 31);
+            this.cmbPuestosDisponibles.Size = new System.Drawing.Size(572, 31);
             // 
             // txtCodigoPais
             // 
@@ -68,14 +68,14 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.txtPrefijo.Location = new System.Drawing.Point(204, 250);
             this.txtPrefijo.Name = "txtPrefijo";
             this.txtPrefijo.PlaceholderText = "Prefijo";
-            this.txtPrefijo.Size = new System.Drawing.Size(136, 29);
+            this.txtPrefijo.Size = new System.Drawing.Size(156, 29);
             this.txtPrefijo.TabIndex = 6;
             this.txtPrefijo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNumero
             // 
             this.txtNumero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNumero.Location = new System.Drawing.Point(368, 250);
+            this.txtNumero.Location = new System.Drawing.Point(388, 250);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.PlaceholderText = "Número";
             this.txtNumero.Size = new System.Drawing.Size(239, 29);
@@ -108,7 +108,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 525);
+            this.ClientSize = new System.Drawing.Size(672, 653);
             this.Controls.Add(this.lblPuestosDisponibles);
             this.Controls.Add(this.lblNumeroDestino);
             this.Controls.Add(this.txtNumero);
@@ -116,9 +116,9 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Controls.Add(this.txtCodigoPais);
             this.MinimumSize = new System.Drawing.Size(403, 400);
             this.Name = "FormIngresoLlamada";
-            this.ShowIcon = false;
             this.Text = "Ingresar llamada";
             this.Load += new System.EventHandler(this.IngresoLlamada_Load);
+            this.Controls.SetChildIndex(this.btnHelp, 0);
             this.Controls.SetChildIndex(this.txtCodigoPais, 0);
             this.Controls.SetChildIndex(this.txtPrefijo, 0);
             this.Controls.SetChildIndex(this.txtNumero, 0);

@@ -47,7 +47,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.rctEstadisticas.Location = new System.Drawing.Point(12, 116);
             this.rctEstadisticas.Name = "rctEstadisticas";
             this.rctEstadisticas.ReadOnly = true;
-            this.rctEstadisticas.Size = new System.Drawing.Size(1158, 449);
+            this.rctEstadisticas.Size = new System.Drawing.Size(1105, 449);
             this.rctEstadisticas.TabIndex = 1;
             this.rctEstadisticas.Text = "";
             // 
@@ -57,7 +57,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.btnSalir.BackColor = System.Drawing.Color.CadetBlue;
             this.btnSalir.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSalir.Location = new System.Drawing.Point(1000, 587);
+            this.btnSalir.Location = new System.Drawing.Point(947, 587);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(170, 44);
             this.btnSalir.TabIndex = 2;
@@ -82,7 +82,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             "El juego más pedido por los clientes"});
             this.cmbEstadisticas.Location = new System.Drawing.Point(12, 63);
             this.cmbEstadisticas.Name = "cmbEstadisticas";
-            this.cmbEstadisticas.Size = new System.Drawing.Size(905, 35);
+            this.cmbEstadisticas.Size = new System.Drawing.Size(852, 35);
             this.cmbEstadisticas.TabIndex = 4;
             // 
             // btnVisualizar
@@ -91,7 +91,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.btnVisualizar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnVisualizar.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnVisualizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnVisualizar.Location = new System.Drawing.Point(932, 63);
+            this.btnVisualizar.Location = new System.Drawing.Point(879, 63);
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(238, 36);
             this.btnVisualizar.TabIndex = 5;
@@ -114,7 +114,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.ClientSize = new System.Drawing.Size(1129, 653);
             this.Controls.Add(this.lblEstadisticas);
             this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.cmbEstadisticas);
@@ -122,7 +122,9 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Controls.Add(this.rctEstadisticas);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.HelpButton = true;
+            this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "FormEstadisticas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estadisticas";
             this.Load += new System.EventHandler(this.FormEstadisticas_Load);
             this.ResumeLayout(false);

@@ -74,7 +74,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.btnOk.Location = new System.Drawing.Point(200, 153);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(106, 39);
-            this.btnOk.TabIndex = 2;
+            this.btnOk.TabIndex = 5;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -89,6 +89,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Controls.Add(this.numImpresiones);
             this.Controls.Add(this.lblImpresiones);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MinimumSize = new System.Drawing.Size(340, 260);
             this.Name = "FormImpresiones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Impresiones";

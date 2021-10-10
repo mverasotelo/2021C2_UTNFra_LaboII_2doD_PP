@@ -240,7 +240,8 @@ namespace Biblioteca
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"Llamada {TipoLlamada}\n");
-            sb.AppendLine($"Nro Destino: +{codigoPais} ({prefijoLocalidad}) {numero}\n");
+            sb.AppendLine($"{base.ToString()}");
+            sb.AppendLine($"Nro Destino: +{codigoPais} ({prefijoLocalidad}) {numero}");
             return sb.ToString();
         }
 

@@ -12,7 +12,7 @@ namespace Biblioteca
         private static List<Puesto> puestos;
         private static Queue<Cliente> clientesEnEspera;
 
-        #endregion
+    #endregion
 
         #region Constructor estático
 
@@ -59,7 +59,7 @@ namespace Biblioteca
         /// Agrega un cliente a la lista, si ya no se encuentra en la misma 
         /// </summary>
         /// <param name="cliente"></param>
-        /// <returns>true si se agrega, false sino se pudo agregar o ya estaba en la lista</returns>
+        /// <returns>True si se agrega, / False sino se pudo agregar o ya estaba en la lista</returns>
         public static bool IngresarCliente(Cliente cliente)
         {
             foreach (Cliente c in ClientesEnEspera)
@@ -77,7 +77,7 @@ namespace Biblioteca
         /// Agrega un puesto al cibercafe. 
         /// </summary>
         /// <param name="puesto"></param>
-        /// <returns>True si se pudo cargar / false si ya existia el servicio con ese identificador</returns>
+        /// <returns>True si se pudo cargar / False si ya existia el servicio con ese identificador</returns>
         public static bool AgregarPuesto(Puesto puesto)
         {
             foreach (Puesto p in ListaPuestos)
@@ -94,7 +94,7 @@ namespace Biblioteca
         /// <summary>
         /// Lista los puestos compatibles con el servicio solicitado por el cliente
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista con los puestos compatibles</returns>
         public static List<Puesto> ListarPuestosCompatibles()
         {
             List<Puesto> puestos = new List<Puesto>();
@@ -114,10 +114,9 @@ namespace Biblioteca
         /// Agrega el servicio del próximo cliente a un determinado puesto pasado por parametro y elimina al cliente de la cola
         /// </summary>
         /// <param name="puesto"></param>
-        /// <returns>true si sale todo bien</returns>
-        public static bool AsignarPuesto(Puesto puesto)
+        /// <returns>True si sale todo bien, False sino hay un puesto compatible</returns>
+        public static bool AsignarPuesto(Puesto puesto, Servicio servicio)
         {
-            Servicio servicio = clientesEnEspera.Peek().Servicio;
             if(servicio.EsCompatible(puesto))
             {
                 puesto.Estado = Puesto.EEstado.Ocupado;
@@ -133,7 +132,7 @@ namespace Biblioteca
         /// Finaliza un servicio, establece su duracion en minutos y libera el puesto
         /// </summary>
         /// <param name="puesto"></param>
-        /// <returns>true si sale todo bien, false si el puesto estaba disponible o no tenia cargado ningun servicio</returns>
+        /// <returns>True si sale todo bien, false si el puesto estaba disponible o no tenia cargado ningun servicio</returns>
         public static bool LiberarPuesto(Puesto puesto)
         {
             if (puesto.Estado == Puesto.EEstado.Ocupado)
@@ -155,19 +154,15 @@ namespace Biblioteca
         /// <summary>
         /// Envia al cliente al final de la fila, sino encuentra puesto disponible.
         /// </summary>
-        /// <returns></returns>
-        public static bool EnviarClienteAlFinalDeLaFila()
+        /// <returns>True si sale todo bien</returns>
+        public static void EnviarClienteAlFinalDeLaFila()
         {
-            if(clientesEnEspera.Count > 0)
+            Cliente cliente = clientesEnEspera.Peek();
+            if (ListarPuestosCompatibles().Count == 0)
             {
-                Cliente cliente = clientesEnEspera.Peek();
-                if (ListarPuestosCompatibles().Count == 0)
-                {
-                    clientesEnEspera.Enqueue(cliente);
-                    clientesEnEspera.Dequeue();
-                }
+                clientesEnEspera.Enqueue(cliente);
+                clientesEnEspera.Dequeue();
             }
-            return false;
         }
 
 
@@ -177,7 +172,7 @@ namespace Biblioteca
         /// Muestra puestos ordenados de forma descendente por minutos de uso, según el tipo pasado por parámetro
         /// </summary>
         /// <param name="tipo"></param>
-        /// <returns>string con la lista de puestos ordenado por minutos de uso en forma descendente</returns>
+        /// <returns>String con la lista de puestos ordenado por minutos de uso en forma descendente</returns>
         public static string MostrarPuestosPorMinutosDeUso(Puesto.ETipo tipo)
         {
             List<Puesto> puestos = ListarPuestosPorTipo(tipo);
@@ -195,7 +190,7 @@ namespace Biblioteca
         /// <summary>
         /// Calcula las ganancias totales y clasificadas por servicio (teléfono/computadora).
         /// </summary>
-        /// <returns>Cadena con la informacion de ganancias</returns>
+        /// <returns>String con la informacion de ganancias</returns>
         public static string CalcularGananciasTotales()
         {
             StringBuilder sb = new StringBuilder();

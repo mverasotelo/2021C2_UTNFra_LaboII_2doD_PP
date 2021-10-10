@@ -17,6 +17,7 @@ namespace Biblioteca
         protected EEstado estado;
         protected ETipo tipo;
         protected List<Servicio> listaServicios;
+        protected int minutosDeUso;
 
         #endregion
 
@@ -80,13 +81,17 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Solo lectura
+        /// Propiedad lectura/escritura de la duración.
         /// </summary>
         public int MinutosDeUso
         {
             get
             {
                 return CalcularMinutosDeUso();
+            }
+            set
+            {
+                minutosDeUso = value;
             }
         }
 

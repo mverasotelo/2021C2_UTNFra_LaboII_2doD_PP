@@ -206,10 +206,7 @@ namespace Biblioteca
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"Sesión {tipoSesion}\n");
-            if(tipoSesion != ETipoSesion.Libre)
-            {
-                sb.AppendLine($"Minutos solicitados: {DuracionServicio}");
-            }
+            sb.AppendLine($"{base.ToString()}");
             if(numeroCopias > 0)
             {
                 sb.AppendLine($"Numero de copias: {numeroCopias}\n");
@@ -243,6 +240,23 @@ namespace Biblioteca
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Sobrescribe el metodo string y Muestra el costo por una sesion
+        /// </summary>
+        /// <returns></returns>
+        public override string CobrarPorServicio()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Servicio internet x {DuracionServicio} min: ${(Costo - CalcularCostoCopias()):N2}");
+            if (NumeroCopias > 0)
+            {
+                sb.AppendLine($"Servicio impresión x {NumeroCopias}: ${CalcularCostoCopias():N2}");
+            }
+            sb.AppendLine("");
+            sb.AppendLine(base.CobrarPorServicio());
+            return sb.ToString();
+        }
         #endregion
     }
 }

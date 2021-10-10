@@ -56,5 +56,15 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         {
             this.Close();
         }
+
+        /// <summary>
+        /// Muestra un MessageBox explicando la funcionalidad del formulario. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ingresar los datos del servicio solicitado y asignar un puesto compatible", "Ayuda");
+        }
     }
 }

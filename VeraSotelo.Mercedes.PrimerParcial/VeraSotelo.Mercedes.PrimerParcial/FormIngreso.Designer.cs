@@ -33,6 +33,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblDatosCliente = new System.Windows.Forms.Label();
             this.cmbPuestosDisponibles = new System.Windows.Forms.ComboBox();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -85,6 +86,20 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.cmbPuestosDisponibles.Size = new System.Drawing.Size(552, 31);
             this.cmbPuestosDisponibles.TabIndex = 4;
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnHelp.Font = new System.Drawing.Font("Tw Cen MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHelp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnHelp.Location = new System.Drawing.Point(625, 3);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(44, 44);
+            this.btnHelp.TabIndex = 5;
+            this.btnHelp.Text = "❓";
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // FormIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -94,10 +109,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Controls.Add(this.cmbPuestosDisponibles);
             this.Controls.Add(this.lblDatosCliente);
             this.Controls.Add(this.btnIngresar);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnCancelar);
             this.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MinimumSize = new System.Drawing.Size(360, 726);
+            this.MinimumSize = new System.Drawing.Size(600, 726);
             this.Name = "FormIngreso";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -114,5 +130,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         protected System.Windows.Forms.Button btnIngresar;
         protected System.Windows.Forms.Label lblDatosCliente;
         protected System.Windows.Forms.ComboBox cmbPuestosDisponibles;
+        protected System.Windows.Forms.Button btnHelp;
     }
 }

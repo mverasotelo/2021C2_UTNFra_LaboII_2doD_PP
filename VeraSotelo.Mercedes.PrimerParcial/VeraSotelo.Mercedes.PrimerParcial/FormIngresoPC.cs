@@ -91,7 +91,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                     {
                         if (puesto.Id == (string)cmbPuestosDisponibles.SelectedItem)
                         {
-                            if (Cibercafe.AsignarPuesto(puesto))
+                            if (Cibercafe.AsignarPuesto(puesto, Cibercafe.ClientesEnEspera.Peek().Servicio))
                             {
                                 this.Close();
                             }

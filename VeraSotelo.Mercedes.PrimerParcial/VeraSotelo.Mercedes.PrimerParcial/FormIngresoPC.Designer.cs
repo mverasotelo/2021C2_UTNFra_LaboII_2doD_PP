@@ -175,11 +175,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Controls.Add(this.rctRequerimientos);
             this.Controls.Add(this.gpbTipoSesion);
             this.Controls.Add(this.lblPuestosDisponibles);
-            this.MinimumSize = new System.Drawing.Size(360, 600);
+            this.MinimumSize = new System.Drawing.Size(690, 726);
             this.Name = "FormIngresoPC";
-            this.ShowIcon = false;
             this.Text = "Ingresar sesión";
             this.Load += new System.EventHandler(this.FormIngresoPC_Load);
+            this.Controls.SetChildIndex(this.btnHelp, 0);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
             this.Controls.SetChildIndex(this.btnIngresar, 0);
             this.Controls.SetChildIndex(this.lblDatosCliente, 0);
