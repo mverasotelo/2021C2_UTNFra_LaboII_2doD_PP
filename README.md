@@ -62,7 +62,6 @@ El proyecto está diseñado bajo el paradigma de la Programación Orientada a Ob
 - Polimorfismo: Se utiliza el poliformismo en el método MostrarPuestosPorMinutosDeUso(). Si bien solo manejamos variables de tipo Puesto, cuando en tiempo de ejecución el tipo del objeto sea Cabina, se van a mostrar las cabinas con su correspondiente implementación del método ToString(), y cuando se trate de Computadoras, se va a llamar al implementación de ToString() de esa clase. 
 
 
-
 ### Clase 4 - Sobrecarga
 
 - **Sobrecarga de métodos**:Se aplica la sobrecarga del método EstaDisponible() de la clase Computadora. Así se puede le puede pasar por parámetro tanto un juego, un software o un periferico, y devuelve un booleano indicando si está disponible en esa instancia o no.
@@ -129,10 +128,12 @@ Llamada y Sesión son clases selladas. No se debe poder heredar de ellas, ya que
 
 ## Propuesta de valor agregado
 
-###Instalación y uso de un paquete Nuget: Fluent Validation
+### Instalación y uso de un paquete Nuget: Fluent Validation
+
 Se instaló y utilizó el paquete Fluent Validation. Con él, se valida que el código país, prefijo y número de teléfono ingresados por el usuario en los TextBox sean válidos.
 Los datos deben ser numéricos, por lo que se utiliza la RegEx __^[0-9]*$__. También se valida la cantidad de caracteres y que el campo no sea null.
 
 
-###Feature imprimir
+### Feature Imprimir
+
 Para todas las máquinas que tengan impresora disponible se deben poder solicitar impresiones en algún momento de la sesión, las cuales se suman a la factura al momento de cobrar por el servicio.

@@ -28,7 +28,7 @@ namespace Biblioteca
         /// <summary>
         /// Solo lectura = Devuelve el costo del servicio
         /// </summary>
-        public float Costo
+        public virtual float Costo
         {
             get
             {

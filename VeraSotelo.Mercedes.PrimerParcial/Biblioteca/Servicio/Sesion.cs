@@ -9,7 +9,7 @@ namespace Biblioteca
         #region Enumerados
         public enum ETipoSesion
         {
-            Libre, Fija        
+            Libre, Fija
         }
         #endregion
 
@@ -46,9 +46,9 @@ namespace Biblioteca
         /// <param name="perifericosRequeridos"></param>
         /// <param name="juegosRequeridos"></param>
         public Sesion(List<Enumerados.ESoftware> softwareRequerido,
-            List<Enumerados.EPerifericos> perifericosRequeridos, 
+            List<Enumerados.EPerifericos> perifericosRequeridos,
             List<Enumerados.EJuegos> juegosRequeridos)
-            :this()
+            : this()
         {
             this.softwareRequerido = softwareRequerido;
             this.perifericosRequeridos = perifericosRequeridos;
@@ -137,6 +137,17 @@ namespace Biblioteca
             }
         }
 
+        /// <summary>
+        /// Sobreescribe la propiedad Costo para sumarle el costo en concepto de copias.
+        /// </summary>
+        public override float Costo
+        {
+            get
+            {
+                return base.Costo + CalcularCostoCopias();
+            }
+        }
+
         #endregion
 
         #region Metodos
@@ -147,7 +158,7 @@ namespace Biblioteca
         /// <returns></returns>
         protected override float CalcularCosto()
         {
-            return ((float)Math.Ceiling(DuracionServicio / 30F) * COSTO_BLOQUE_30MIN) + CalcularCostoCopias();
+            return ((float)Math.Ceiling(DuracionServicio / 30F) * COSTO_BLOQUE_30MIN);
         }
 
         /// <summary>
