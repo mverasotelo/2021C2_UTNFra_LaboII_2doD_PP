@@ -14,7 +14,7 @@
 
         public enum EJuegos
         {
-            Ninguno, CounterStrike, DiabloII, MuOnline, LineageII, WarcraftIII, AgeOfEmpiresII, TheSims
+            CounterStrike, DiabloII, MuOnline, LineageII, WarcraftIII, AgeOfEmpiresII, TheSims
         }
     }
 }
