@@ -9,20 +9,31 @@ Cibercafé "El Vicio"
 ## Sobre mí
 
 Mi nombre es Mercedes Vera Sotelo, tengo 32 años y vivo en Congreso, CABA.
+
 Hace varios años me recibí de Lic. en Relaciones Internacionales. El año pasado, al principio de la cuarentena, me anoté a un curso de programación que estaba gratis en EDX, porque me parecía muy interesante y desde ese momento seguí haciendo cursos relacionados, así que en febrero decidí anotarme en esta tecnicatura.
+
 El trabajo fue un gran desafío. Más allá de conocer las herramientas y aplicar los conocimientos aprendidos, lo que más me costó fue pensar la lógica de negocios, planificar las entidades y sus relaciones.
+
 También me obligó a investigar mucho en internet y ver varios videos para resolver algunas necesidades, por lo que termine aprendiendo muchas cosas nuevas.
 
 ## Resumen
 
 La aplicación sirve para administrar un cibercafé que tiene computadoras y cabinas de los años 2000.
+
 Cuenta con una barra de información de la aplicación donde figura el nombre del operador conectado y la fecha actual.
+
 El estado de los puestos es visible todo el tiempo por el usuario y está identificado con rojo para ocupados y verde para disponibles. 
+
 Además, hay una lista de clientes en espera que tienen algún servicio solicitado y están ordenados por orden de llegada. En la lista se puede ver el dni, nombre, apellido y la edad del cliente. 
+
 El usuario de la aplicación (que es la persona que atiende el negocio) le puede asignar un puesto al próximo en la lista. En esta instancia se puede visualizar qué software, hardware o juego necesita el cliente, cuya elección debe es simulada al iniciar el programa.
+
 Al momento de asignar el puesto, el programa sólo da opción de seleccionar los puestos no estén en uso, y también los filtra dependiendo del servicio elegido y, en el caso de las PC, de las necesidades que tiene el cliente tanto de hardware como de software y juegos.
+
 Sino existe un puesto compatible con la necesidad del cliente, este es asignado al final de la fila, para esperar a que se libere algun puesto. 
+
 Cuando el cliente ha finalizado, el operador puede entrar al puesto utilizado y liberarlo, lo que genera automáticamente la información del servicio, tiempo de uso y el costo a pagar por el cliente, bruto y gravado con el IVA. No se puede marcar como finalizado algo que no está en uso.
+
 Tambien se cuenta con una sección de estadisticas, donde se visualiza información histórica del cibercafé, por ejemplo, lista de puestos ordenados por su uso, ganancias o qué requerimiento fue el más solicitado, lo que ayuda a tomar decisiones de negocios.
 
 ## Diagrama de clases
@@ -48,7 +59,8 @@ El proyecto está diseñado bajo el paradigma de la Programación Orientada a Ob
 - Abstracción: Se identicaron entidades en base a las necesidades del cliente, se seleccionaron sus características más relevantes y se descartaron  características no relevantes para la lógica de negocios.
 - Encapsulamiento: Se ocultaron los detalles de la implementación, pudiendo acceder a los atributos solamente a traves de propiedades o métodos.
 - Herencia: Se buscaron características y comportaminetos en común y se crearon clases más especializadas a partir de clases más generales.
-- Polimorfismo: 
+- Polimorfismo: Se utiliza el poliformismo en el método MostrarPuestosPorMinutosDeUso(). Si bien solo manejamos variables de tipo Puesto, cuando en tiempo de ejecución el tipo del objeto sea Cabina, se van a mostrar las cabinas con su correspondiente implementación del método ToString(), y cuando se trate de Computadoras, se va a llamar al implementación de ToString() de esa clase. 
+
 
 
 ### Clase 4 - Sobrecarga
@@ -84,7 +96,6 @@ Los atributos se encuentran ocultos (con modificador de visibilidad private o pr
 Tambien se oculta la implementación de algunos métodos que son de uso interno de la clase.
 
 - **Enumerados**: Se utilizan diversos enumerados para definir los valores que le podemos dar a un atributo, algunos que son propios de una clase y otros que se utilizan en varias (EPerifericos, EJuegos y ESoftware), los cuales están declarados en una clase aparte Enumerados.cs.
-- **Indexadores**: 
 
 
 ### Clase 8 - Herencia
@@ -104,7 +115,8 @@ Para listar los puestos (computadoras o cabinas) del cibercafé, se utiliza una 
 
 ### Clase 9 - Polimorfismo y clases abstractas
 
-** Poliformismo**
+
+**Poliformismo**
 Se utiliza el poliformismo en el método MostrarPuestosPorMinutosDeUso(). Si bien solo manejamos variables de tipo Puesto, cuando en tiempo de ejecución el tipo del objeto sea Cabina, se van a mostrar las cabinas con su correspondiente implementación del método ToString(), y cuando se trate de Computadoras, se va a llamar al implementación de ToString() de esa clase. 
 
 **Clases abstractas**
@@ -117,10 +129,10 @@ Llamada y Sesión son clases selladas. No se debe poder heredar de ellas, ya que
 
 ## Propuesta de valor agregado
 
-**Instalación y uso de un paquete Nuget: Fluent Validation**
+###Instalación y uso de un paquete Nuget: Fluent Validation
 Se instaló y utilizó el paquete Fluent Validation. Con él, se valida que el código país, prefijo y número de teléfono ingresados por el usuario en los TextBox sean válidos.
 Los datos deben ser numéricos, por lo que se utiliza la RegEx __^[0-9]*$__. También se valida la cantidad de caracteres y que el campo no sea null.
 
 
-**Feature imprimir**
+###Feature imprimir
 Para todas las máquinas que tengan impresora disponible se deben poder solicitar impresiones en algún momento de la sesión, las cuales se suman a la factura al momento de cobrar por el servicio.
