@@ -16,6 +16,9 @@ namespace VeraSotelo.Mercedes.PrimerParcial
     {
         private Llamada llamada;
 
+        /// <summary>
+        /// Constructor del FormIngresoLlamada.
+        /// </summary>
         public FormIngresoLlamada()
         {
             InitializeComponent();
@@ -23,6 +26,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             llamada = (Llamada)cliente.Servicio;
         }
 
+        /// <summary>
+        /// Evento load. Muestra puestos disponibles y los datos del cliente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void IngresoLlamada_Load(object sender, EventArgs e)
         {
             MostrarPuestosCompatibles();
@@ -33,7 +41,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// Asigna la llamada a la cabina seleccionada, la marca como ocupado y quita al cliente de la cola
         /// </summary>
         /// <param name="sender"></param>
-        ///// <param name="e"></param>
+        /// <param name="e"></param>
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             llamada.CodigoPais = txtCodigoPais.Text;
@@ -54,7 +62,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             }
             else
             {
-                foreach (Puesto puesto in Cibercafe.ListarPuestosCompatibles(cliente))
+                foreach (Puesto puesto in Cibercafe.ListarPuestosCompatibles())
                 {
                     if (puesto.Id == (string)cmbPuestosDisponibles.SelectedItem)
                     {

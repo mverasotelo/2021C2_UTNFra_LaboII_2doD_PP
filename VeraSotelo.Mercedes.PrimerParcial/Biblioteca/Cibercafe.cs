@@ -41,17 +41,6 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Propiedad solo lectura de puestos disponibles
-        /// </summary>
-        public static List<Puesto> ListaPuestosDisponibles
-        {
-            get
-            {
-                return ListarPuestosDisponibles();
-            }
-        }
-
-        /// <summary>
         /// Propiedad solo lectura de lista de clientes en espera
         /// </summary>
         public static Queue<Cliente> ClientesEnEspera
@@ -65,24 +54,6 @@ namespace Biblioteca
         #endregion
 
         #region Métodos públicos
-
-        /// <summary>
-        /// Agrega un puesto al cibercafe. 
-        /// </summary>
-        /// <param name="puesto"></param>
-        /// <returns>True si se pudo cargar / false si ya existia el servicio con ese identificador</returns>
-        public static bool AgregarPuesto(Puesto puesto)
-        {
-            foreach (Puesto p in ListaPuestos)
-            {
-                if (p == puesto)
-                {
-                    return false;
-                }
-            }
-            puestos.Add(puesto);
-            return true;
-        }
 
         /// <summary>
         /// Agrega un cliente a la lista, si ya no se encuentra en la misma 
@@ -103,48 +74,80 @@ namespace Biblioteca
         }
 
         /// <summary>
+        /// Agrega un puesto al cibercafe. 
+        /// </summary>
+        /// <param name="puesto"></param>
+        /// <returns>True si se pudo cargar / false si ya existia el servicio con ese identificador</returns>
+        public static bool AgregarPuesto(Puesto puesto)
+        {
+            foreach (Puesto p in ListaPuestos)
+            {
+                if (p == puesto)
+                {
+                    return false;
+                }
+            }
+            puestos.Add(puesto);
+            return true;
+        }
+
+        /// <summary>
         /// Lista los puestos compatibles con el servicio solicitado por el cliente
         /// </summary>
-        /// <param name="cliente"></param>
         /// <returns></returns>
-        public static List<Puesto> ListarPuestosCompatibles(Cliente cliente)
+        public static List<Puesto> ListarPuestosCompatibles()
         {
             List<Puesto> puestos = new List<Puesto>();
-            Servicio servicio = cliente.Servicio;
+            Servicio servicio = clientesEnEspera.Peek().Servicio;
 
-            foreach (Puesto puesto in ListarPuestosDisponibles())
+            foreach (Puesto puesto in ListaPuestos)
             {
-                if (puesto is Cabina && servicio is Llamada)
+                if (servicio.EsCompatible(puesto))
                 {
                     puestos.Add(puesto);
-                }
-                else if(puesto is Computadora && servicio is Sesion)
-                {
-                    if (ChequearRequisitosPC((Sesion)servicio, (Computadora)puesto))
-                    {
-                        puestos.Add(puesto);
-                    }
                 }
             }
             return puestos;
         }
 
         /// <summary>
-        /// Agrega un servicio a un determinado puesto pasado por parametro y elimina el cliente de la cola
+        /// Agrega el servicio del próximo cliente a un determinado puesto pasado por parametro y elimina al cliente de la cola
         /// </summary>
         /// <param name="puesto"></param>
-        /// <param name="servicio"></param>
         /// <returns>true si sale todo bien</returns>
         public static bool AsignarPuesto(Puesto puesto)
         {
             Servicio servicio = clientesEnEspera.Peek().Servicio;
-            if(puesto.Estado == Puesto.EEstado.Disponible)
+            if(servicio.EsCompatible(puesto))
             {
                 puesto.Estado = Puesto.EEstado.Ocupado;
                 servicio.HoraInicio = DateTime.Now;
                 puesto.ListaServicios.Add(servicio);
                 clientesEnEspera.Dequeue();
                 return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Finaliza un servicio, establece su duracion en minutos y libera el puesto
+        /// </summary>
+        /// <param name="puesto"></param>
+        /// <returns>true si sale todo bien, false si el puesto estaba disponible o no tenia cargado ningun servicio</returns>
+        public static bool LiberarPuesto(Puesto puesto)
+        {
+            if (puesto.Estado == Puesto.EEstado.Ocupado)
+            {
+                if (puesto.ListaServicios.Count > 0)
+                {
+                    Servicio servicioActivo = puesto.ListaServicios.Last();
+                    if (servicioActivo is Llamada || (servicioActivo is Sesion && ((Sesion)servicioActivo).TipoSesion == Sesion.ETipoSesion.Libre))
+                    {
+                        servicioActivo.DuracionServicio = CalcularDiferenciaEnMinutos(servicioActivo.HoraInicio);
+                    }
+                    puesto.Estado = Puesto.EEstado.Disponible;
+                    return true;
+                }
             }
             return false;
         }
@@ -158,7 +161,7 @@ namespace Biblioteca
             if(clientesEnEspera.Count > 0)
             {
                 Cliente cliente = clientesEnEspera.Peek();
-                if (ListarPuestosCompatibles(cliente).Count == 0)
+                if (ListarPuestosCompatibles().Count == 0)
                 {
                     clientesEnEspera.Enqueue(cliente);
                     clientesEnEspera.Dequeue();
@@ -167,29 +170,6 @@ namespace Biblioteca
             return false;
         }
 
-        /// <summary>
-        /// Finaliza un servicio, establece su duracion en minutos y libera el puesto
-        /// </summary>
-        /// <param name="puesto"></param>
-        /// <param name="servicio"></param>
-        /// <returns>true si sale todo bien, false si algo sale mal o el puesto estaba disponible</returns>
-        public static bool LiberarPuesto(Puesto puesto)
-        {
-            if(puesto.Estado == Puesto.EEstado.Ocupado)
-            {
-                if (puesto.ListaServicios.Count > 0)
-                {
-                    Servicio servicioActivo = puesto.ListaServicios.Last();
-                    if(servicioActivo is Llamada || (servicioActivo is Sesion && ((Sesion)servicioActivo).TipoSesion == Sesion.ETipoSesion.Libre))
-                    {
-                        servicioActivo.DuracionServicio = CalcularDiferenciaEnMinutos(servicioActivo.HoraInicio);
-                    }
-                    puesto.Estado = Puesto.EEstado.Disponible;
-                    return true;
-                }
-            }
-            return false;
-        }
 
         //METODOS DE ESTADISTICAS HISTORICAS
 
@@ -440,23 +420,6 @@ namespace Biblioteca
         #region Métodos privados
 
         /// <summary>
-        /// Chequea los puestos disponibles
-        /// </summary>
-        /// <returns>Devuelve una lista de los puestos disponibles</returns>
-        private static List<Puesto> ListarPuestosDisponibles()
-        {
-            List<Puesto> puestosDisponibles = new List<Puesto>();
-            foreach (Puesto p in ListaPuestos)
-            {
-                if (p.Estado == Puesto.EEstado.Disponible)
-                {
-                    puestosDisponibles.Add(p);
-                }
-            }
-            return puestosDisponibles;
-        }
-
-        /// <summary>
         /// Lista los puestos por tipo
         /// </summary>
         /// <returns>Devuelve una lista de los puestos disponibles</returns>
@@ -508,37 +471,6 @@ namespace Biblioteca
             return (int)diferencia.TotalSeconds;
         }
 
-        /// <summary>
-        /// Chequea que los requisitos solicitado en una sesion esten disponibles en una PC pasada por parametro
-        /// </summary>
-        /// <param name="sesion"></param>
-        /// <param name="computadora"></param>
-        /// <returns>True si todo se cumple, False si algo no se cumple</returns>
-        private static bool ChequearRequisitosPC(Sesion sesion, Computadora computadora)
-        {
-            foreach (Enumerados.ESoftware software in sesion.SoftwareRequerido)
-            {
-                if (!computadora.EstaDisponible(software))
-                {
-                    return false;
-                }
-            }
-            foreach (Enumerados.EJuegos juego in sesion.JuegosRequeridos)
-            {
-                if (!computadora.EstaDisponible(juego))
-                {
-                    return false;
-                }
-            }
-            foreach (Enumerados.EPerifericos periferico in sesion.PerifericosRequeridos)
-            {
-                if (!computadora.EstaDisponible(periferico))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
 
         #endregion
 

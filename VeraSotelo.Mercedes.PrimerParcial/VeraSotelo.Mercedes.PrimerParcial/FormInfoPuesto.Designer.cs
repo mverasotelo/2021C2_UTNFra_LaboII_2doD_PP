@@ -74,7 +74,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.btnLiberar.Name = "btnLiberar";
             this.btnLiberar.Size = new System.Drawing.Size(208, 49);
             this.btnLiberar.TabIndex = 3;
-            this.btnLiberar.Text = "LIBERAR";
+            this.btnLiberar.Text = "➡️ LIBERAR";
             this.btnLiberar.UseVisualStyleBackColor = false;
             this.btnLiberar.Visible = false;
             this.btnLiberar.Click += new System.EventHandler(this.btnLiberar_Click);
@@ -90,7 +90,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(208, 49);
             this.btnImprimir.TabIndex = 4;
-            this.btnImprimir.Text = "IMPRIMIR";
+            this.btnImprimir.Text = "🖨️ IMPRIMIR";
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Visible = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);

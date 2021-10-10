@@ -32,9 +32,9 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         protected void MostrarPuestosCompatibles()
         {
 
-            if (Cibercafe.ListarPuestosCompatibles(cliente).Count > 0)
+            if (Cibercafe.ListarPuestosCompatibles().Count > 0)
             {
-                foreach (Puesto p in Cibercafe.ListarPuestosCompatibles(cliente))
+                foreach (Puesto p in Cibercafe.ListarPuestosCompatibles())
                 {
                     cmbPuestosDisponibles.Items.Add(p.Id);
                 }
@@ -56,6 +56,5 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         {
             this.Close();
         }
-
     }
 }

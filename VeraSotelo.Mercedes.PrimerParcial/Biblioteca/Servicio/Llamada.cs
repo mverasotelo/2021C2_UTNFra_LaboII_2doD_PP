@@ -165,6 +165,23 @@ namespace Biblioteca
             return (DuracionServicio * (int) TipoLlamada)/100;
         }
 
+        /// <summary>
+        /// Sobrescribe el metodo EsCompatible para adecuarlo a una Llamada 
+        /// (ademas de estar libre, debe ser una cabina)
+        /// </summary>
+        /// <param name="puesto"></param>
+        /// <returns></returns>
+        public override bool EsCompatible(Puesto puesto)
+        {
+            Cabina cabina = puesto as Cabina;
+
+            if (cabina is not null && base.EsCompatible(cabina))
+            {
+                return true;
+            }
+            return false;
+        }
+
         #endregion
 
         #region Sobrecargas

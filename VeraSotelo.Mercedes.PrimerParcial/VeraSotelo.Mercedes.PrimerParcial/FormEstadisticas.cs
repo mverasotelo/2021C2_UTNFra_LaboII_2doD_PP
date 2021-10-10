@@ -15,6 +15,11 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         {
         }
 
+        /// <summary>
+        /// Muestra la información seleccionada en el combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
             switch (cmbEstadisticas.SelectedIndex)
@@ -35,14 +40,19 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                     rctEstadisticas.Text = Cibercafe.MostrarSoftwareMasPedido();
                     break;
                 case 5:
-                    rctEstadisticas.Text = Cibercafe.MostrarJuegoMasPedido();
+                    rctEstadisticas.Text = Cibercafe.MostrarPerifericoMasPedido();  
                     break;
                 case 6:
-                    rctEstadisticas.Text = Cibercafe.MostrarPerifericoMasPedido();
+                    rctEstadisticas.Text = Cibercafe.MostrarJuegoMasPedido();
                     break;
             }
         }
 
+        /// <summary>
+        /// Sale de la sección de estadísticas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();

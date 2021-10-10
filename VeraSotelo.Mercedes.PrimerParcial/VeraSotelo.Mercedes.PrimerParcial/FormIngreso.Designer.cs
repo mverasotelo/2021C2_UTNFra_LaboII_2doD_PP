@@ -37,6 +37,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancelar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCancelar.Location = new System.Drawing.Point(60, 591);
@@ -49,6 +50,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             // btnIngresar
             // 
+            this.btnIngresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIngresar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnIngresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnIngresar.Location = new System.Drawing.Point(397, 591);
@@ -60,6 +62,8 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             // lblDatosCliente
             // 
+            this.lblDatosCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDatosCliente.AutoSize = true;
             this.lblDatosCliente.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDatosCliente.Location = new System.Drawing.Point(227, 54);
@@ -71,6 +75,8 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             // cmbPuestosDisponibles
             // 
+            this.cmbPuestosDisponibles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbPuestosDisponibles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPuestosDisponibles.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmbPuestosDisponibles.FormattingEnabled = true;
@@ -93,6 +99,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.MinimumSize = new System.Drawing.Size(360, 726);
             this.Name = "FormIngreso";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignar puesto";
             this.Load += new System.EventHandler(this.FormIngreso_Load);

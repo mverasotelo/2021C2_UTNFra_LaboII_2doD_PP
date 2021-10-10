@@ -160,6 +160,44 @@ namespace Biblioteca
         }
 
         /// <summary>
+        /// Sobrescribe el metodo EsCompatible para adecuarlo a una Sesion 
+        /// (ademas de estar libre, la PC debe cumplir los requerimientos de software, juegos y perifericos)
+        /// </summary>
+        /// <param name="puesto"></param>
+        /// <returns></returns>
+        public override bool EsCompatible(Puesto puesto)
+        {
+            Computadora pc = puesto as Computadora;
+
+            if(pc is not null && base.EsCompatible(pc))
+            {
+                foreach (Enumerados.ESoftware software in SoftwareRequerido)
+                {
+                    if (!pc.EstaDisponible(software))
+                    {
+                        return false;
+                    }
+                }
+                foreach (Enumerados.EJuegos juego in JuegosRequeridos)
+                {
+                    if (!pc.EstaDisponible(juego))
+                    {
+                        return false;
+                    }
+                }
+                foreach (Enumerados.EPerifericos periferico in PerifericosRequeridos)
+                {
+                    if (!pc.EstaDisponible(periferico))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Sobrescribe el metodo ToString()
         /// </summary>
         /// <returns></returns>

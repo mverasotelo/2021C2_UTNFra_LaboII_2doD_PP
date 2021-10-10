@@ -33,23 +33,23 @@
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnAsignar = new System.Windows.Forms.Button();
             this.lblComputadoras = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblC02 = new System.Windows.Forms.Label();
+            this.lblC04 = new System.Windows.Forms.Label();
+            this.lblC07 = new System.Windows.Forms.Label();
+            this.lblC03 = new System.Windows.Forms.Label();
+            this.lblC09 = new System.Windows.Forms.Label();
+            this.lblC05 = new System.Windows.Forms.Label();
+            this.lblC08 = new System.Windows.Forms.Label();
+            this.lblC10 = new System.Windows.Forms.Label();
+            this.lblC06 = new System.Windows.Forms.Label();
             this.gpbPuestos = new System.Windows.Forms.GroupBox();
-            this.lblCab5 = new System.Windows.Forms.Label();
-            this.lblCab4 = new System.Windows.Forms.Label();
+            this.lblT05 = new System.Windows.Forms.Label();
+            this.lblT04 = new System.Windows.Forms.Label();
             this.lblCabinas = new System.Windows.Forms.Label();
-            this.lblCab3 = new System.Windows.Forms.Label();
-            this.lblCab2 = new System.Windows.Forms.Label();
-            this.lblCab1 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblT03 = new System.Windows.Forms.Label();
+            this.lblT02 = new System.Windows.Forms.Label();
+            this.lblT01 = new System.Windows.Forms.Label();
+            this.lblC01 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblFecha = new System.Windows.Forms.Label();
@@ -64,11 +64,11 @@
             this.lblClientes.AutoSize = true;
             this.lblClientes.Font = new System.Drawing.Font("Tw Cen MT", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblClientes.Location = new System.Drawing.Point(1011, 9);
+            this.lblClientes.Location = new System.Drawing.Point(996, 9);
             this.lblClientes.Name = "lblClientes";
-            this.lblClientes.Size = new System.Drawing.Size(208, 25);
+            this.lblClientes.Size = new System.Drawing.Size(236, 25);
             this.lblClientes.TabIndex = 21;
-            this.lblClientes.Text = "CLIENTES EN ESPERA";
+            this.lblClientes.Text = "👤 CLIENTES EN ESPERA";
             // 
             // lstCliente
             // 
@@ -83,7 +83,7 @@
             this.lstCliente.Location = new System.Drawing.Point(741, 48);
             this.lstCliente.Margin = new System.Windows.Forms.Padding(0);
             this.lstCliente.Name = "lstCliente";
-            this.lstCliente.Size = new System.Drawing.Size(486, 529);
+            this.lstCliente.Size = new System.Drawing.Size(499, 564);
             this.lstCliente.TabIndex = 0;
             // 
             // btnEstadisticas
@@ -91,13 +91,13 @@
             this.btnEstadisticas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEstadisticas.BackColor = System.Drawing.Color.CadetBlue;
             this.btnEstadisticas.Font = new System.Drawing.Font("Tw Cen MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEstadisticas.Location = new System.Drawing.Point(549, 457);
+            this.btnEstadisticas.Location = new System.Drawing.Point(549, 504);
             this.btnEstadisticas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnEstadisticas.Size = new System.Drawing.Size(171, 56);
             this.btnEstadisticas.TabIndex = 2;
-            this.btnEstadisticas.Text = "ESTADISTICAS";
+            this.btnEstadisticas.Text = "📈 ESTADISTICAS";
             this.btnEstadisticas.UseVisualStyleBackColor = false;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
@@ -126,223 +126,223 @@
             this.lblComputadoras.TabIndex = 6;
             this.lblComputadoras.Text = "💻";
             // 
-            // label5
+            // lblC02
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(14, 188);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label5.Size = new System.Drawing.Size(141, 83);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "C02";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC02.AutoSize = true;
+            this.lblC02.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC02.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC02.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC02.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC02.Location = new System.Drawing.Point(14, 188);
+            this.lblC02.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC02.Name = "lblC02";
+            this.lblC02.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC02.Size = new System.Drawing.Size(141, 83);
+            this.lblC02.TabIndex = 42;
+            this.lblC02.Text = "C02";
+            this.lblC02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC02.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // label4
+            // lblC04
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label4.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(14, 378);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label4.Size = new System.Drawing.Size(141, 83);
-            this.label4.TabIndex = 42;
-            this.label4.Text = "C04";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC04.AutoSize = true;
+            this.lblC04.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC04.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC04.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC04.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC04.Location = new System.Drawing.Point(14, 378);
+            this.lblC04.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC04.Name = "lblC04";
+            this.lblC04.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC04.Size = new System.Drawing.Size(141, 83);
+            this.lblC04.TabIndex = 42;
+            this.lblC04.Text = "C04";
+            this.lblC04.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC04.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // label10
+            // lblC07
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label10.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(167, 188);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label10.Size = new System.Drawing.Size(141, 83);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "C07";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label10.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC07.AutoSize = true;
+            this.lblC07.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC07.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC07.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC07.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC07.Location = new System.Drawing.Point(167, 188);
+            this.lblC07.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC07.Name = "lblC07";
+            this.lblC07.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC07.Size = new System.Drawing.Size(141, 83);
+            this.lblC07.TabIndex = 42;
+            this.lblC07.Text = "C07";
+            this.lblC07.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC07.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // label3
+            // lblC03
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(14, 283);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label3.Size = new System.Drawing.Size(141, 83);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "C03";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC03.AutoSize = true;
+            this.lblC03.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC03.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC03.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC03.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC03.Location = new System.Drawing.Point(14, 283);
+            this.lblC03.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC03.Name = "lblC03";
+            this.lblC03.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC03.Size = new System.Drawing.Size(141, 83);
+            this.lblC03.TabIndex = 42;
+            this.lblC03.Text = "C03";
+            this.lblC03.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC03.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // label9
+            // lblC09
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label9.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(167, 378);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label9.Size = new System.Drawing.Size(141, 83);
-            this.label9.TabIndex = 42;
-            this.label9.Text = "C09";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label9.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC09.AutoSize = true;
+            this.lblC09.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC09.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC09.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC09.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC09.Location = new System.Drawing.Point(167, 378);
+            this.lblC09.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC09.Name = "lblC09";
+            this.lblC09.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC09.Size = new System.Drawing.Size(141, 83);
+            this.lblC09.TabIndex = 42;
+            this.lblC09.Text = "C09";
+            this.lblC09.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC09.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // label2
+            // lblC05
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(14, 473);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label2.Size = new System.Drawing.Size(141, 83);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "C05";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC05.AutoSize = true;
+            this.lblC05.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC05.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC05.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC05.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC05.Location = new System.Drawing.Point(14, 473);
+            this.lblC05.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC05.Name = "lblC05";
+            this.lblC05.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC05.Size = new System.Drawing.Size(141, 83);
+            this.lblC05.TabIndex = 42;
+            this.lblC05.Text = "C05";
+            this.lblC05.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC05.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // label8
+            // lblC08
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label8.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(167, 283);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label8.Size = new System.Drawing.Size(141, 83);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "C08";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label8.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC08.AutoSize = true;
+            this.lblC08.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC08.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC08.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC08.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC08.Location = new System.Drawing.Point(167, 283);
+            this.lblC08.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC08.Name = "lblC08";
+            this.lblC08.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC08.Size = new System.Drawing.Size(141, 83);
+            this.lblC08.TabIndex = 42;
+            this.lblC08.Text = "C08";
+            this.lblC08.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC08.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // label7
+            // lblC10
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(167, 473);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label7.Size = new System.Drawing.Size(141, 83);
-            this.label7.TabIndex = 42;
-            this.label7.Text = "C10";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label7.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC10.AutoSize = true;
+            this.lblC10.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC10.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC10.Location = new System.Drawing.Point(167, 473);
+            this.lblC10.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC10.Name = "lblC10";
+            this.lblC10.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC10.Size = new System.Drawing.Size(141, 83);
+            this.lblC10.TabIndex = 42;
+            this.lblC10.Text = "C10";
+            this.lblC10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC10.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // label6
+            // lblC06
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(167, 93);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label6.Size = new System.Drawing.Size(141, 83);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "C06";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label6.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC06.AutoSize = true;
+            this.lblC06.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC06.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC06.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC06.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC06.Location = new System.Drawing.Point(167, 93);
+            this.lblC06.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC06.Name = "lblC06";
+            this.lblC06.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC06.Size = new System.Drawing.Size(141, 83);
+            this.lblC06.TabIndex = 42;
+            this.lblC06.Text = "C06";
+            this.lblC06.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC06.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
             // gpbPuestos
             // 
             this.gpbPuestos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gpbPuestos.AutoSize = true;
-            this.gpbPuestos.Controls.Add(this.lblCab5);
-            this.gpbPuestos.Controls.Add(this.label7);
-            this.gpbPuestos.Controls.Add(this.label9);
-            this.gpbPuestos.Controls.Add(this.lblCab4);
-            this.gpbPuestos.Controls.Add(this.label8);
+            this.gpbPuestos.Controls.Add(this.lblT05);
+            this.gpbPuestos.Controls.Add(this.lblC10);
+            this.gpbPuestos.Controls.Add(this.lblC09);
+            this.gpbPuestos.Controls.Add(this.lblT04);
+            this.gpbPuestos.Controls.Add(this.lblC08);
             this.gpbPuestos.Controls.Add(this.lblCabinas);
-            this.gpbPuestos.Controls.Add(this.lblCab3);
-            this.gpbPuestos.Controls.Add(this.label10);
-            this.gpbPuestos.Controls.Add(this.lblCab2);
-            this.gpbPuestos.Controls.Add(this.label6);
-            this.gpbPuestos.Controls.Add(this.label2);
-            this.gpbPuestos.Controls.Add(this.lblCab1);
-            this.gpbPuestos.Controls.Add(this.label4);
-            this.gpbPuestos.Controls.Add(this.label3);
-            this.gpbPuestos.Controls.Add(this.label5);
-            this.gpbPuestos.Controls.Add(this.label1);
+            this.gpbPuestos.Controls.Add(this.lblT03);
+            this.gpbPuestos.Controls.Add(this.lblC07);
+            this.gpbPuestos.Controls.Add(this.lblT02);
+            this.gpbPuestos.Controls.Add(this.lblC06);
+            this.gpbPuestos.Controls.Add(this.lblC05);
+            this.gpbPuestos.Controls.Add(this.lblT01);
+            this.gpbPuestos.Controls.Add(this.lblC04);
+            this.gpbPuestos.Controls.Add(this.lblC03);
+            this.gpbPuestos.Controls.Add(this.lblC02);
+            this.gpbPuestos.Controls.Add(this.lblC01);
             this.gpbPuestos.Controls.Add(this.lblComputadoras);
             this.gpbPuestos.Location = new System.Drawing.Point(11, 13);
             this.gpbPuestos.Margin = new System.Windows.Forms.Padding(0);
             this.gpbPuestos.Name = "gpbPuestos";
             this.gpbPuestos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gpbPuestos.Size = new System.Drawing.Size(517, 580);
+            this.gpbPuestos.Size = new System.Drawing.Size(517, 627);
             this.gpbPuestos.TabIndex = 36;
             this.gpbPuestos.TabStop = false;
             this.gpbPuestos.Text = "groupBox2";
             // 
-            // lblCab5
+            // lblT05
             // 
-            this.lblCab5.AutoSize = true;
-            this.lblCab5.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.lblCab5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCab5.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCab5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCab5.Location = new System.Drawing.Point(352, 473);
-            this.lblCab5.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCab5.Name = "lblCab5";
-            this.lblCab5.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.lblCab5.Size = new System.Drawing.Size(137, 83);
-            this.lblCab5.TabIndex = 42;
-            this.lblCab5.Text = "T05";
-            this.lblCab5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCab5.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblT05.AutoSize = true;
+            this.lblT05.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblT05.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblT05.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblT05.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblT05.Location = new System.Drawing.Point(352, 473);
+            this.lblT05.Margin = new System.Windows.Forms.Padding(0);
+            this.lblT05.Name = "lblT05";
+            this.lblT05.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblT05.Size = new System.Drawing.Size(137, 83);
+            this.lblT05.TabIndex = 42;
+            this.lblT05.Text = "T05";
+            this.lblT05.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblT05.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // lblCab4
+            // lblT04
             // 
-            this.lblCab4.AutoSize = true;
-            this.lblCab4.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.lblCab4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCab4.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCab4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCab4.Location = new System.Drawing.Point(352, 378);
-            this.lblCab4.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCab4.Name = "lblCab4";
-            this.lblCab4.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.lblCab4.Size = new System.Drawing.Size(137, 83);
-            this.lblCab4.TabIndex = 42;
-            this.lblCab4.Text = "T04";
-            this.lblCab4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCab4.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblT04.AutoSize = true;
+            this.lblT04.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblT04.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblT04.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblT04.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblT04.Location = new System.Drawing.Point(352, 378);
+            this.lblT04.Margin = new System.Windows.Forms.Padding(0);
+            this.lblT04.Name = "lblT04";
+            this.lblT04.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblT04.Size = new System.Drawing.Size(137, 83);
+            this.lblT04.TabIndex = 42;
+            this.lblT04.Text = "T04";
+            this.lblT04.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblT04.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
             // lblCabinas
             // 
@@ -355,80 +355,80 @@
             this.lblCabinas.TabIndex = 5;
             this.lblCabinas.Text = "📞";
             // 
-            // lblCab3
+            // lblT03
             // 
-            this.lblCab3.AutoSize = true;
-            this.lblCab3.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.lblCab3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCab3.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCab3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCab3.Location = new System.Drawing.Point(352, 283);
-            this.lblCab3.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCab3.Name = "lblCab3";
-            this.lblCab3.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.lblCab3.Size = new System.Drawing.Size(137, 83);
-            this.lblCab3.TabIndex = 42;
-            this.lblCab3.Text = "T03";
-            this.lblCab3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCab3.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblT03.AutoSize = true;
+            this.lblT03.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblT03.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblT03.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblT03.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblT03.Location = new System.Drawing.Point(352, 283);
+            this.lblT03.Margin = new System.Windows.Forms.Padding(0);
+            this.lblT03.Name = "lblT03";
+            this.lblT03.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblT03.Size = new System.Drawing.Size(137, 83);
+            this.lblT03.TabIndex = 42;
+            this.lblT03.Text = "T03";
+            this.lblT03.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblT03.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // lblCab2
+            // lblT02
             // 
-            this.lblCab2.AutoSize = true;
-            this.lblCab2.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.lblCab2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCab2.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCab2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCab2.Location = new System.Drawing.Point(352, 188);
-            this.lblCab2.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCab2.Name = "lblCab2";
-            this.lblCab2.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.lblCab2.Size = new System.Drawing.Size(137, 83);
-            this.lblCab2.TabIndex = 42;
-            this.lblCab2.Text = "T02";
-            this.lblCab2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCab2.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblT02.AutoSize = true;
+            this.lblT02.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblT02.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblT02.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblT02.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblT02.Location = new System.Drawing.Point(352, 188);
+            this.lblT02.Margin = new System.Windows.Forms.Padding(0);
+            this.lblT02.Name = "lblT02";
+            this.lblT02.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblT02.Size = new System.Drawing.Size(137, 83);
+            this.lblT02.TabIndex = 42;
+            this.lblT02.Text = "T02";
+            this.lblT02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblT02.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // lblCab1
+            // lblT01
             // 
-            this.lblCab1.AutoSize = true;
-            this.lblCab1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.lblCab1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCab1.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCab1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCab1.Location = new System.Drawing.Point(352, 93);
-            this.lblCab1.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCab1.Name = "lblCab1";
-            this.lblCab1.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.lblCab1.Size = new System.Drawing.Size(137, 83);
-            this.lblCab1.TabIndex = 42;
-            this.lblCab1.Text = "T01";
-            this.lblCab1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCab1.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblT01.AutoSize = true;
+            this.lblT01.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblT01.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblT01.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblT01.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblT01.Location = new System.Drawing.Point(352, 93);
+            this.lblT01.Margin = new System.Windows.Forms.Padding(0);
+            this.lblT01.Name = "lblT01";
+            this.lblT01.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblT01.Size = new System.Drawing.Size(137, 83);
+            this.lblT01.TabIndex = 42;
+            this.lblT01.Text = "T01";
+            this.lblT01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblT01.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
-            // label1
+            // lblC01
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(14, 93);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label1.Size = new System.Drawing.Size(141, 83);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "C01";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.lblPuesto_Click);
+            this.lblC01.AutoSize = true;
+            this.lblC01.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblC01.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblC01.Font = new System.Drawing.Font("Tw Cen MT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblC01.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblC01.Location = new System.Drawing.Point(14, 93);
+            this.lblC01.Margin = new System.Windows.Forms.Padding(0);
+            this.lblC01.Name = "lblC01";
+            this.lblC01.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
+            this.lblC01.Size = new System.Drawing.Size(141, 83);
+            this.lblC01.TabIndex = 42;
+            this.lblC01.Text = "C01";
+            this.lblC01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblC01.Click += new System.EventHandler(this.lblPuesto_Click);
             // 
             // btnSalir
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSalir.BackColor = System.Drawing.Color.CadetBlue;
             this.btnSalir.Font = new System.Drawing.Font("Tw Cen MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSalir.Location = new System.Drawing.Point(549, 521);
+            this.btnSalir.Location = new System.Drawing.Point(549, 568);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -445,9 +445,9 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Controls.Add(this.lblFecha);
             this.panel1.Controls.Add(this.lblOperador);
-            this.panel1.Location = new System.Drawing.Point(0, 609);
+            this.panel1.Location = new System.Drawing.Point(0, 656);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1237, 44);
+            this.panel1.Size = new System.Drawing.Size(1250, 44);
             this.panel1.TabIndex = 37;
             // 
             // lblFecha
@@ -455,7 +455,7 @@
             this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Tw Cen MT", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFecha.Location = new System.Drawing.Point(1081, 8);
+            this.lblFecha.Location = new System.Drawing.Point(1094, 8);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(146, 27);
             this.lblFecha.TabIndex = 1;
@@ -481,7 +481,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1237, 653);
+            this.ClientSize = new System.Drawing.Size(1250, 700);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAsignar);
@@ -489,11 +489,12 @@
             this.Controls.Add(this.gpbPuestos);
             this.Controls.Add(this.lstCliente);
             this.Controls.Add(this.lblClientes);
-            this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1250, 700);
             this.Name = "FormCibercafe";
-            this.Text = "Cbercafé \"El Vicio\"";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cibercafé \"El Vicio\"";
             this.Activated += new System.EventHandler(this.FormCibercafe_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCibercafe_FormClosing);
             this.Load += new System.EventHandler(this.FormCibercafe_Load);
@@ -512,23 +513,23 @@
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.Button btnAsignar;
         private System.Windows.Forms.Label lblComputadoras;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblC02;
+        private System.Windows.Forms.Label lblC04;
+        private System.Windows.Forms.Label lblC07;
+        private System.Windows.Forms.Label lblC03;
+        private System.Windows.Forms.Label lblC09;
+        private System.Windows.Forms.Label lblC05;
+        private System.Windows.Forms.Label lblC08;
+        private System.Windows.Forms.Label lblC10;
+        private System.Windows.Forms.Label lblC06;
         private System.Windows.Forms.GroupBox gpbPuestos;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblCab5;
-        private System.Windows.Forms.Label lblCab4;
+        private System.Windows.Forms.Label lblC01;
+        private System.Windows.Forms.Label lblT05;
+        private System.Windows.Forms.Label lblT04;
         private System.Windows.Forms.Label lblCabinas;
-        private System.Windows.Forms.Label lblCab3;
-        private System.Windows.Forms.Label lblCab2;
-        private System.Windows.Forms.Label lblCab1;
+        private System.Windows.Forms.Label lblT03;
+        private System.Windows.Forms.Label lblT02;
+        private System.Windows.Forms.Label lblT01;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblFecha;

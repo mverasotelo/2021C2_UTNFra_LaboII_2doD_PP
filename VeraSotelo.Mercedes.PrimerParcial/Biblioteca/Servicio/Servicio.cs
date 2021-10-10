@@ -67,6 +67,21 @@ namespace Biblioteca
         #region Métodos 
 
         /// <summary>
+        /// Evalua si un puesto pasado por parametro es compatible.
+        /// </summary>
+        /// <param name="puesto"></param>
+        /// <returns>True si el puesto esta libre, false si esta ocupado.</returns>
+        public virtual bool EsCompatible(Puesto puesto)
+        {
+            if (puesto.Estado == Puesto.EEstado.Disponible)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        /// <summary>
         /// Calcula el costo de un servicio
         /// </summary>
         /// <returns></returns>

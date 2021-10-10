@@ -137,9 +137,9 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             //Simular ingreso de clientes
             for (int i = 0; i < 3; i++)
             {
-                if (Cibercafe.ListarPuestosCompatibles(listaClientes[i]).Count > 0)
+                if (Cibercafe.ListarPuestosCompatibles().Count > 0)
                 {
-                    Cibercafe.AsignarPuesto((Cibercafe.ListarPuestosCompatibles(listaClientes[i]))[0]);
+                    Cibercafe.AsignarPuesto((Cibercafe.ListarPuestosCompatibles())[0]);
                 }
                 else
                 {
@@ -228,7 +228,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         }
 
         /// <summary>
-        /// Cierra el programa
+        /// Cierra el programa, pidiendo confirmación.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

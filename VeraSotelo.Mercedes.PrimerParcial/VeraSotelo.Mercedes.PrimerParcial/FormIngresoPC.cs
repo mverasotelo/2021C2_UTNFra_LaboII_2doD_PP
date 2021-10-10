@@ -87,7 +87,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                         sesion.TipoSesion = Sesion.ETipoSesion.Fija;
                     }
 
-                    foreach (Puesto puesto in Cibercafe.ListarPuestosCompatibles(cliente))
+                    foreach (Puesto puesto in Cibercafe.ListarPuestosCompatibles())
                     {
                         if (puesto.Id == (string)cmbPuestosDisponibles.SelectedItem)
                         {

@@ -103,11 +103,11 @@ Para listar los puestos (computadoras o cabinas) del cibercafé, se utiliza una 
 ### Clase 9 - Polimorfismo y clases abstractas
 
 ** Poliformismo**
-
+Se utiliza el poliformismo en el método MostrarPuestosPorMinutosDeUso(). Si bien solo manejamos variables de tipo Puesto, cuando en tiempo de ejecución el tipo del objeto sea Cabina, se van a mostrar las cabinas con su correspondiente implementación del método ToString(), y cuando se trate de Computadoras, se va a llamar al implementación de ToString() de esa clase. 
 
 **Clases abstractas**
 Se utilizan dos clases abstractas: Puesto y Servicio. Estas clases no tienen utilidad sin las características que se asignan en sus clases derivadas, por lo que no deben poder instanciarse. Son clases incompletas.
-Contienen tanto métodos abstractos como métodos que son implementados por las clases derivada y métodos no abstractos, que son utilizados por estas.
+Contienen tanto métodos abstractos como métodos que son implementados por las clases derivadas y métodos no abstractos, que son utilizados por estas.
 
 **Clases selladas**
 Llamada y Sesión son clases selladas. No se debe poder heredar de ellas, ya que contienen toda la información e implementación necesaria para su funcionamiento.
