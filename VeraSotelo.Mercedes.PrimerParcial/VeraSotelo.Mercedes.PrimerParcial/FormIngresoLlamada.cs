@@ -25,36 +25,8 @@ namespace VeraSotelo.Mercedes.PrimerParcial
 
         private void IngresoLlamada_Load(object sender, EventArgs e)
         {
-            MostrarCabinasDisponibles();
-        }
-
-        protected void MostrarCabinasDisponibles()
-        {
-            List<string> cabinasDisponibles = new();
-
-            foreach (Puesto p in Cibercafe.ListaPuestosDisponibles)
-            {
-                if (p is Cabina)
-                {
-                    if (p.Estado == Puesto.EEstado.Disponible)
-                    {
-                        cabinasDisponibles.Add(p.Id);
-                    }
-                }
-            }
-
-            if (cabinasDisponibles.Count > 0)
-            {
-                cmbPuestosDisponibles.DataSource = cabinasDisponibles;
-
-            }
-            else
-            {
-                cmbPuestosDisponibles.Items.Add("No hay cabinas disponibles");
-                cmbPuestosDisponibles.SelectedIndex = 0;
-                btnIngresar.Enabled = false;
-                btnIngresar.BackColor = Color.Gray;
-            }
+            MostrarPuestosCompatibles();
+            lblDatosCliente.Text = cliente.ToString();
         }
 
         /// <summary>
@@ -82,17 +54,16 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             }
             else
             {
-                foreach (Puesto puesto in Cibercafe.ListaPuestosDisponibles)
+                foreach (Puesto puesto in Cibercafe.ListarPuestosCompatibles(cliente))
                 {
                     if (puesto.Id == (string)cmbPuestosDisponibles.SelectedItem)
                     {
-                        if (Cibercafe.AgregarServicio(puesto, llamada))
+                        if (Cibercafe.AsignarPuesto(puesto))
                         {
-                            Cibercafe.ClientesEnEspera.Dequeue();
+                            this.Close();
                         }
                     }
                 }
-                this.Close();
             }
         }
     }

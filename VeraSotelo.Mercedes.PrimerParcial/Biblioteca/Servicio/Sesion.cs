@@ -15,11 +15,13 @@ namespace Biblioteca
 
         #region Atributos
 
-        private const float COSTO = 0.5F;
+        private const float COSTO_BLOQUE_30MIN = 0.5F;
+        private const float COSTO_IMPRESION = 0.05F;
         private ETipoSesion tipoSesion;
         private List<Enumerados.ESoftware> softwareRequerido;
         private List<Enumerados.EPerifericos> perifericosRequeridos;
         private List<Enumerados.EJuegos> juegosRequeridos;
+        private int numeroCopias;
 
         #endregion
 
@@ -30,6 +32,7 @@ namespace Biblioteca
         /// </summary>
         private Sesion()
         {
+            tipoServicio = ETipoServicio.Sesion;
             softwareRequerido = new List<Enumerados.ESoftware>();
             perifericosRequeridos = new List<Enumerados.EPerifericos>();
             juegosRequeridos = new List<Enumerados.EJuegos>();
@@ -68,6 +71,21 @@ namespace Biblioteca
             set
             {
                 this.tipoSesion = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad lectura-escritura numeroCopias
+        /// </summary>
+        public int NumeroCopias
+        {
+            get
+            {
+                return numeroCopias;
+            }
+            set
+            {
+                this.numeroCopias = value;
             }
         }
 
@@ -124,12 +142,21 @@ namespace Biblioteca
         #region Metodos
 
         /// <summary>
-        /// Sobreescribe el metodo y calcula el costo de una sesion segun su duracion y el costo
+        /// Sobreescribe el metodo y calcula el costo de una sesion segun su duracion mas el costo en concepto de copias
         /// </summary>
         /// <returns></returns>
         protected override float CalcularCosto()
-        {   
-            return (float) Math.Ceiling(DuracionServicio / 30F) * COSTO;
+        {
+            return ((float)Math.Ceiling(DuracionServicio / 30F) * COSTO_BLOQUE_30MIN) + CalcularCostoCopias();
+        }
+
+        /// <summary>
+        /// Calcula el costo en concepto de copias
+        /// </summary>
+        /// <returns></returns>
+        public float CalcularCostoCopias()
+        {
+            return numeroCopias * COSTO_IMPRESION;
         }
 
         /// <summary>
@@ -143,7 +170,11 @@ namespace Biblioteca
             sb.AppendLine($"Sesión {tipoSesion}\n");
             if(tipoSesion != ETipoSesion.Libre)
             {
-                sb.AppendLine($"Minutos solicitados: {DuracionServicio}\n");
+                sb.AppendLine($"Minutos solicitados: {DuracionServicio}");
+            }
+            if(numeroCopias > 0)
+            {
+                sb.AppendLine($"Numero de copias: {numeroCopias}\n");
             }
             sb.AppendLine(MostrarRequerimientosCliente());
             return sb.ToString();

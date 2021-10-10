@@ -51,20 +51,12 @@
             this.lblCab1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.pnlBarraInfo.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblOperador = new System.Windows.Forms.Label();
             this.gpbPuestos.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlBarraInfo
-            // 
-            this.pnlBarraInfo.Location = new System.Drawing.Point(0, 610);
-            this.pnlBarraInfo.Size = new System.Drawing.Size(1241, 43);
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.Location = new System.Drawing.Point(1079, 6);
-            this.lblFecha.Size = new System.Drawing.Size(124, 28);
-            this.lblFecha.Text = "01-10-2021";
             // 
             // lblClientes
             // 
@@ -93,7 +85,6 @@
             this.lstCliente.Name = "lstCliente";
             this.lstCliente.Size = new System.Drawing.Size(486, 529);
             this.lstCliente.TabIndex = 0;
-            this.lstCliente.DoubleClick += new System.EventHandler(this.lstCliente_DoubleClick);
             // 
             // btnEstadisticas
             // 
@@ -112,7 +103,6 @@
             // 
             // btnAsignar
             // 
-            this.btnAsignar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAsignar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnAsignar.Font = new System.Drawing.Font("Tw Cen MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAsignar.Location = new System.Drawing.Point(549, 48);
@@ -448,39 +438,69 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Controls.Add(this.lblFecha);
+            this.panel1.Controls.Add(this.lblOperador);
+            this.panel1.Location = new System.Drawing.Point(0, 609);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1237, 44);
+            this.panel1.TabIndex = 37;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Tw Cen MT", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFecha.Location = new System.Drawing.Point(1081, 8);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(146, 27);
+            this.lblFecha.TabIndex = 1;
+            this.lblFecha.Text = "XX-XX-XXXX";
+            this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblOperador
+            // 
+            this.lblOperador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblOperador.AutoSize = true;
+            this.lblOperador.Font = new System.Drawing.Font("Tw Cen MT", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblOperador.Location = new System.Drawing.Point(11, 8);
+            this.lblOperador.Name = "lblOperador";
+            this.lblOperador.Size = new System.Drawing.Size(216, 27);
+            this.lblOperador.TabIndex = 0;
+            this.lblOperador.Text = "Mercedes Vera Sotelo";
+            this.lblOperador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FormCibercafe
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1237, 653);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAsignar);
             this.Controls.Add(this.btnEstadisticas);
             this.Controls.Add(this.gpbPuestos);
             this.Controls.Add(this.lstCliente);
             this.Controls.Add(this.lblClientes);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1250, 700);
             this.Name = "FormCibercafe";
+            this.Text = "Cbercafé \"El Vicio\"";
             this.Activated += new System.EventHandler(this.FormCibercafe_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCibercafe_FormClosing);
             this.Load += new System.EventHandler(this.FormCibercafe_Load);
-            this.Controls.SetChildIndex(this.pnlBarraInfo, 0);
-            this.Controls.SetChildIndex(this.lblClientes, 0);
-            this.Controls.SetChildIndex(this.lstCliente, 0);
-            this.Controls.SetChildIndex(this.gpbPuestos, 0);
-            this.Controls.SetChildIndex(this.btnEstadisticas, 0);
-            this.Controls.SetChildIndex(this.btnAsignar, 0);
-            this.Controls.SetChildIndex(this.btnSalir, 0);
-            this.pnlBarraInfo.ResumeLayout(false);
-            this.pnlBarraInfo.PerformLayout();
             this.gpbPuestos.ResumeLayout(false);
             this.gpbPuestos.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,5 +530,8 @@
         private System.Windows.Forms.Label lblCab2;
         private System.Windows.Forms.Label lblCab1;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblOperador;
     }
 }

@@ -34,19 +34,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.cmbEstadisticas = new System.Windows.Forms.ComboBox();
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.lblEstadisticas = new System.Windows.Forms.Label();
-            this.pnlBarraInfo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlBarraInfo
-            // 
-            this.pnlBarraInfo.Location = new System.Drawing.Point(0, 699);
-            this.pnlBarraInfo.Size = new System.Drawing.Size(1318, 44);
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.Location = new System.Drawing.Point(1151, 6);
-            this.lblFecha.Size = new System.Drawing.Size(124, 28);
-            this.lblFecha.Text = "02-10-2021";
             // 
             // rctEstadisticas
             // 
@@ -58,6 +46,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.rctEstadisticas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.rctEstadisticas.Location = new System.Drawing.Point(12, 116);
             this.rctEstadisticas.Name = "rctEstadisticas";
+            this.rctEstadisticas.ReadOnly = true;
             this.rctEstadisticas.Size = new System.Drawing.Size(1158, 449);
             this.rctEstadisticas.TabIndex = 1;
             this.rctEstadisticas.Text = "";
@@ -132,17 +121,10 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.rctEstadisticas);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.HelpButton = true;
             this.Name = "FormEstadisticas";
             this.Text = "Estadisticas";
             this.Load += new System.EventHandler(this.FormEstadisticas_Load);
-            this.Controls.SetChildIndex(this.pnlBarraInfo, 0);
-            this.Controls.SetChildIndex(this.rctEstadisticas, 0);
-            this.Controls.SetChildIndex(this.btnSalir, 0);
-            this.Controls.SetChildIndex(this.cmbEstadisticas, 0);
-            this.Controls.SetChildIndex(this.btnVisualizar, 0);
-            this.Controls.SetChildIndex(this.lblEstadisticas, 0);
-            this.pnlBarraInfo.ResumeLayout(false);
-            this.pnlBarraInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

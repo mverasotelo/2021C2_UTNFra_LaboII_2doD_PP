@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Biblioteca;
+﻿using Biblioteca;
+using System;
+using System.Windows.Forms;
 
 namespace VeraSotelo.Mercedes.PrimerParcial
 {
-    public partial class FormEstadisticas : Base
+    public partial class FormEstadisticas : Form
     {
         public FormEstadisticas()
         {
@@ -35,13 +29,16 @@ namespace VeraSotelo.Mercedes.PrimerParcial
                     rctEstadisticas.Text = Cibercafe.CalcularGananciasTotales();
                     break;
                 case 3:
-                    rctEstadisticas.Text = ""; //falta
+                    rctEstadisticas.Text = Cibercafe.TiempoYRecaudacionLlamadas();
                     break;
                 case 4:
-                    rctEstadisticas.Text = ""; //falta
+                    rctEstadisticas.Text = Cibercafe.MostrarSoftwareMasPedido();
                     break;
                 case 5:
-                    rctEstadisticas.Text = ""; //falta
+                    rctEstadisticas.Text = Cibercafe.MostrarJuegoMasPedido();
+                    break;
+                case 6:
+                    rctEstadisticas.Text = Cibercafe.MostrarPerifericoMasPedido();
                     break;
             }
         }

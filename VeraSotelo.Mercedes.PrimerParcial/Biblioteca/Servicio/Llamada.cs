@@ -19,6 +19,32 @@ namespace Biblioteca
 
         #endregion
 
+        #region Constructores
+
+        /// <summary>
+        /// Constructor publico de llamada
+        /// </summary>
+        public Llamada()
+        {
+            tipoServicio = ETipoServicio.Llamada;
+        }
+
+        /// <summary>
+        /// Sobrecarga del constructor de llamada
+        /// </summary>
+        /// <param name="codigoPais"></param>
+        /// <param name="prefijoLocalidad"></param>
+        /// <param name="numero"></param>
+        public Llamada(string codigoPais, string prefijoLocalidad, string numero)
+            :this()
+        {
+            this.codigoPais = codigoPais;
+            this.prefijoLocalidad = prefijoLocalidad;
+            this.numero = numero;
+        }
+
+        #endregion
+
         #region Propiedades
 
         /// <summary>

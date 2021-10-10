@@ -9,12 +9,12 @@
 
         public enum EPerifericos
         {
-            Camara, Auriculares, Microfono, Joystick
+            Camara, Auriculares, Microfono, Joystick, Impresora
         }
 
         public enum EJuegos
         {
-            CounterStrike, DiabloII, MuOnline, LineageII, WarcraftIII, AgeOfEmpiresII, TheSims
+            Ninguno, CounterStrike, DiabloII, MuOnline, LineageII, WarcraftIII, AgeOfEmpiresII, TheSims
         }
     }
 }

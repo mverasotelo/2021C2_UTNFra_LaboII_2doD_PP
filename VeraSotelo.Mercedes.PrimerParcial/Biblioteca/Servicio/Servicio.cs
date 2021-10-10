@@ -5,10 +5,16 @@ namespace Biblioteca
 {
     public abstract class Servicio
     {
+
+        #region Enumerados
+        public enum ETipoServicio { Sesion, Llamada, Todos };
+        #endregion
+
         #region Atributos
 
         protected DateTime horaInicio;
         protected int duracionEnMinutos;
+        protected ETipoServicio tipoServicio;
 
         #endregion
 
@@ -30,6 +36,20 @@ namespace Biblioteca
             }
         }
 
+        /// <summary>
+        /// Solo lectura = Devuelve el tipo del servicio
+        /// </summary>
+        public ETipoServicio TipoServicio
+        {
+            get
+            {
+                return tipoServicio;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad lectura-escritura de horaInicio
+        /// </summary>
         public DateTime HoraInicio
         {
             get

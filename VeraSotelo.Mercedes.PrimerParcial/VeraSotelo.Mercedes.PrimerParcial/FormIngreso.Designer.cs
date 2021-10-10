@@ -42,7 +42,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.btnCancelar.Location = new System.Drawing.Point(60, 591);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(221, 44);
-            this.btnCancelar.TabIndex = 0;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -54,7 +54,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.btnIngresar.Location = new System.Drawing.Point(397, 591);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(215, 44);
-            this.btnIngresar.TabIndex = 1;
+            this.btnIngresar.TabIndex = 0;
             this.btnIngresar.Text = "ASIGNAR";
             this.btnIngresar.UseVisualStyleBackColor = false;
             // 
@@ -66,7 +66,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.lblDatosCliente.Name = "lblDatosCliente";
             this.lblDatosCliente.Size = new System.Drawing.Size(204, 96);
             this.lblDatosCliente.TabIndex = 2;
-            this.lblDatosCliente.Text = "Nombre y Apellido\r\nDIN XXXXXXXX\r\n(XX años)\r\n";
+            this.lblDatosCliente.Text = "Nombre y Apellido\r\nDNI XXXXXXXX\r\n(XX años)\r\n";
             this.lblDatosCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmbPuestosDisponibles

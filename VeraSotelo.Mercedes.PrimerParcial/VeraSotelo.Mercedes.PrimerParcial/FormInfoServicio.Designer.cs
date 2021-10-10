@@ -35,6 +35,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.lblSaldoIVA = new System.Windows.Forms.Label();
             this.lblTiempoUso = new System.Windows.Forms.Label();
             this.lblInfoServicio = new System.Windows.Forms.Label();
+            this.lblCopias = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnOk
@@ -67,7 +68,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             this.lblSaldoBruto.AutoSize = true;
             this.lblSaldoBruto.Font = new System.Drawing.Font("Tw Cen MT", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSaldoBruto.Location = new System.Drawing.Point(34, 378);
+            this.lblSaldoBruto.Location = new System.Drawing.Point(34, 414);
             this.lblSaldoBruto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSaldoBruto.Name = "lblSaldoBruto";
             this.lblSaldoBruto.Size = new System.Drawing.Size(132, 27);
@@ -78,7 +79,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             this.lblSaldoIVA.AutoSize = true;
             this.lblSaldoIVA.Font = new System.Drawing.Font("Tw Cen MT", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSaldoIVA.Location = new System.Drawing.Point(34, 419);
+            this.lblSaldoIVA.Location = new System.Drawing.Point(34, 455);
             this.lblSaldoIVA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSaldoIVA.Name = "lblSaldoIVA";
             this.lblSaldoIVA.Size = new System.Drawing.Size(232, 27);
@@ -89,12 +90,12 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // 
             this.lblTiempoUso.AutoSize = true;
             this.lblTiempoUso.Font = new System.Drawing.Font("Tw Cen MT", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTiempoUso.Location = new System.Drawing.Point(34, 340);
+            this.lblTiempoUso.Location = new System.Drawing.Point(34, 376);
             this.lblTiempoUso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTiempoUso.Name = "lblTiempoUso";
-            this.lblTiempoUso.Size = new System.Drawing.Size(157, 27);
+            this.lblTiempoUso.Size = new System.Drawing.Size(151, 27);
             this.lblTiempoUso.TabIndex = 4;
-            this.lblTiempoUso.Text = "Tiempo de uso:";
+            this.lblTiempoUso.Text = "Tiempo de uso";
             // 
             // lblInfoServicio
             // 
@@ -107,12 +108,25 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             this.lblInfoServicio.TabIndex = 5;
             this.lblInfoServicio.Text = "Información del servicio:";
             // 
+            // lblCopias
+            // 
+            this.lblCopias.AutoSize = true;
+            this.lblCopias.Font = new System.Drawing.Font("Tw Cen MT", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCopias.Location = new System.Drawing.Point(34, 338);
+            this.lblCopias.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCopias.Name = "lblCopias";
+            this.lblCopias.Size = new System.Drawing.Size(77, 27);
+            this.lblCopias.TabIndex = 6;
+            this.lblCopias.Text = "Copias";
+            this.lblCopias.Visible = false;
+            // 
             // FormInfoServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(759, 537);
+            this.Controls.Add(this.lblCopias);
             this.Controls.Add(this.lblInfoServicio);
             this.Controls.Add(this.lblTiempoUso);
             this.Controls.Add(this.lblSaldoIVA);
@@ -139,5 +153,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         private System.Windows.Forms.Label lblSaldoIVA;
         private System.Windows.Forms.Label lblTiempoUso;
         private System.Windows.Forms.Label lblInfoServicio;
+        private System.Windows.Forms.Label lblCopias;
     }
 }

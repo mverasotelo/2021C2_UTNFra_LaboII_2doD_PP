@@ -54,7 +54,6 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             // lblDatosCliente
             // 
             this.lblDatosCliente.Location = new System.Drawing.Point(252, 26);
-            this.lblDatosCliente.Text = "Nombre y Apellido\r\nDNI XXXXXXXX\r\n(XX años)\r\n";
             // 
             // cmbPuestosDisponibles
             // 
@@ -115,7 +114,7 @@ namespace VeraSotelo.Mercedes.PrimerParcial
             0,
             0,
             0});
-            this.numTiempo.Location = new System.Drawing.Point(550, 309);
+            this.numTiempo.Location = new System.Drawing.Point(550, 307);
             this.numTiempo.Maximum = new decimal(new int[] {
             240,
             0,

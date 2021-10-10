@@ -1,7 +1,5 @@
 ﻿using Biblioteca;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace VeraSotelo.Mercedes.PrimerParcial
@@ -26,6 +24,27 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         /// <param name="e"></param>
         private void FormIngreso_Load(object sender, EventArgs e)
         {
+        }
+
+        /// <summary>
+        /// Muestra las puestos disponibles que cumplen con los requerimientos del cliente
+        /// </summary>
+        protected void MostrarPuestosCompatibles()
+        {
+
+            if (Cibercafe.ListarPuestosCompatibles(cliente).Count > 0)
+            {
+                foreach (Puesto p in Cibercafe.ListarPuestosCompatibles(cliente))
+                {
+                    cmbPuestosDisponibles.Items.Add(p.Id);
+                }
+            }
+            else
+            {
+                cmbPuestosDisponibles.Items.Add("No hay puestos disponibles");
+                btnIngresar.Text = "ENVIAR AL FINAL";
+            }
+            cmbPuestosDisponibles.SelectedIndex = 0;
         }
 
         /// <summary>

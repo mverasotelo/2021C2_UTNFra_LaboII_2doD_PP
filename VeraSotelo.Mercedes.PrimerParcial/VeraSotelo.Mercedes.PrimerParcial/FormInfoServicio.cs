@@ -30,9 +30,14 @@ namespace VeraSotelo.Mercedes.PrimerParcial
         private void FormInfoServicio_Load(object sender, EventArgs e)
         {
             rctInfoServicio.Text = $"{servicio}";
-            lblTiempoUso.Text = $"Tiempo de uso: {servicio.DuracionServicio} minutos";
-            lblSaldoBruto.Text = $"Saldo bruto: ${servicio.Costo}";
-            lblSaldoIVA.Text = $"Saldo con IVA: ${servicio.AgregarIVA()}";
+            if(servicio is Sesion && ((Sesion)servicio).NumeroCopias>0)
+            {
+                lblCopias.Visible = true;
+                lblCopias.Text = $"{((Sesion)servicio).NumeroCopias} copias (${((Sesion)servicio).CalcularCostoCopias():N2})";
+            }
+            lblTiempoUso.Text = $"{servicio.DuracionServicio} minutos de uso";
+            lblSaldoBruto.Text += $" ${(servicio.Costo):N2}";
+            lblSaldoIVA.Text += $" ${(servicio.AgregarIVA()):N2}";
         }
 
         private void btnOk_Click(object sender, EventArgs e)

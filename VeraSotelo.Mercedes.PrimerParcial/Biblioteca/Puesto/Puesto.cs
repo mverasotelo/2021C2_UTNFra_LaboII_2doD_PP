@@ -7,7 +7,7 @@ namespace Biblioteca
     public abstract class Puesto
     {
         #region Enumerados
-        public enum ETipo { Cabina, Computadora };
+        public enum ETipo { Cabina, Computadora, Todos };
         public enum EEstado { Disponible, Ocupado };
         #endregion
 
@@ -169,6 +169,18 @@ namespace Biblioteca
 
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Compara dos puestos segun sus minutos de uso
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns>1 si p1 es mayor a p2, 0 si son iguales, -1 si es menor</returns>
+        internal static int CompararPuestosPorUso(Puesto p1, Puesto p2)
+        {
+            return p2.MinutosDeUso.CompareTo(p1.MinutosDeUso);
+        }
+        
         #endregion
     }
 }
