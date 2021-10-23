@@ -9,7 +9,7 @@ namespace Biblioteca
         private List<Enumerados.ESoftware> softwareInstalado;
         private List<Enumerados.EPerifericos> perifericosDisponibles;
         private List<Enumerados.EJuegos> juegosDisponibles;
-        private Dictionary<string, string> especificacionesHardware;
+        private Dictionary<Enumerados.EEspecificacionesHardware, string> especificacionesHardware;
 
         /// <summary>
         /// Constructor privado de Computadora que crea las listas de software, juegos y perifericos y el diccionario de especificaciones de hardware.
@@ -20,11 +20,11 @@ namespace Biblioteca
             softwareInstalado = new List<Enumerados.ESoftware>();
             perifericosDisponibles = new List<Enumerados.EPerifericos>();
             juegosDisponibles = new List<Enumerados.EJuegos>();
-            especificacionesHardware = new Dictionary<string, string>();
+            especificacionesHardware = new Dictionary<Enumerados.EEspecificacionesHardware, string>();
         }
 
         /// <summary>
-        /// Constructor publico de Computadora, recibe identificados, listas de software, juegos y perifericos y el diccionario de especificaciones de hardware.
+        /// Constructor publico de Computadora, recibe identificador, listas de software, juegos y perifericos y el diccionario de especificaciones de hardware.
         /// </summary>
         /// <param name="identificador"></param>
         /// <param name="softwareInstalado"></param>
@@ -33,7 +33,7 @@ namespace Biblioteca
         /// <param name="especificacionesHardware"></param>
         public Computadora(string identificador, List<Enumerados.ESoftware> softwareInstalado,
         List<Enumerados.EPerifericos> perifericosDisponibles, List<Enumerados.EJuegos> juegosDisponibles,
-        Dictionary<string, string> especificacionesHardware)
+        Dictionary<Enumerados.EEspecificacionesHardware, string> especificacionesHardware)
             : this(identificador)
         {
             this.identificador = identificador;
@@ -77,6 +77,18 @@ namespace Biblioteca
             }
         }
 
+        /// <summary>
+        /// Indexador para las especificaciones de hardware.
+        /// </summary>
+        /// <param name="especificacion"></param>
+        /// <returns>Valor de la especificacion indicada</returns>
+        public string this[Enumerados.EEspecificacionesHardware especificacion]
+        {
+            get
+            {
+                return especificacionesHardware[especificacion];
+            }
+        }
 
         #region Métodos y sobrecargas
 
@@ -151,10 +163,9 @@ namespace Biblioteca
             sb.AppendLine(base.ToString());
 
             sb.AppendLine($"Especificaciones de Hardware:");
-            foreach (KeyValuePair<string, string> e in especificacionesHardware)
-            {
-                sb.AppendLine($"- {e.Key}: {e.Value}");
-            }
+            sb.AppendLine($"RAM: {this[Enumerados.EEspecificacionesHardware.RAM]}");
+            sb.AppendLine($"Placa de video: {this[Enumerados.EEspecificacionesHardware.PlacaVideo]}");
+            sb.AppendLine($"Procesador: {this[Enumerados.EEspecificacionesHardware.Procesador]}");
 
             sb.AppendLine($"\nSoftware Instalado:");
             foreach (Enumerados.ESoftware software in softwareInstalado)

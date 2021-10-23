@@ -16,5 +16,10 @@
         {
             CounterStrike, DiabloII, MuOnline, LineageII, WarcraftIII, AgeOfEmpiresII, TheSims
         }
+
+        public enum EEspecificacionesHardware
+        {
+            RAM, Procesador, PlacaVideo
+        }
     }
 }
