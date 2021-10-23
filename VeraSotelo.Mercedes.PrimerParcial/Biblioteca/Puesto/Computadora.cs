@@ -5,19 +5,14 @@ namespace Biblioteca
 {
     public sealed class Computadora : Puesto
     {
-        #region Atributos
 
         private List<Enumerados.ESoftware> softwareInstalado;
         private List<Enumerados.EPerifericos> perifericosDisponibles;
         private List<Enumerados.EJuegos> juegosDisponibles;
         private Dictionary<string, string> especificacionesHardware;
 
-        #endregion
-
-        #region Constructores
-
         /// <summary>
-        /// Constructor privado de Computadora
+        /// Constructor privado de Computadora que crea las listas de software, juegos y perifericos y el diccionario de especificaciones de hardware.
         /// </summary>
         private Computadora(string identificador)
             : base(identificador)
@@ -29,7 +24,7 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Constructor publico de Computadora
+        /// Constructor publico de Computadora, recibe identificados, listas de software, juegos y perifericos y el diccionario de especificaciones de hardware.
         /// </summary>
         /// <param name="identificador"></param>
         /// <param name="softwareInstalado"></param>
@@ -48,12 +43,9 @@ namespace Biblioteca
             this.juegosDisponibles = juegosDisponibles;
             this.especificacionesHardware = especificacionesHardware;
         }
-        #endregion
-
-        #region Propiedades
 
         /// <summary>
-        /// Solo lectura
+        /// Propiedad solo lectura de software instalado
         /// </summary>
         public List<Enumerados.ESoftware> SoftwareInstalado
         {
@@ -64,7 +56,7 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Solo lectura
+        /// Propiedad solo lectura de perofericos disponibles
         /// </summary>
         public List<Enumerados.EPerifericos> PerifericosDisponibles
         {
@@ -75,7 +67,7 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Solo lectura
+        /// Propiedad solo lectura de juegos instalados
         /// </summary>
         public List<Enumerados.EJuegos> JuegosDisponibles
         {
@@ -85,9 +77,8 @@ namespace Biblioteca
             }
         }
 
-        #endregion
 
-        #region Métodos
+        #region Métodos y sobrecargas
 
         /// <summary>
         /// Chequea que un software este instalado en una PC
@@ -150,7 +141,7 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobrescribe el metodo ToString()
+        /// Sobrescribe el metodo ToString(), reutilizando la versiond de la clase y agregando informacion sobre la computadora
         /// </summary>
         /// <returns>Información de la computadora</returns>
         public override string ToString()
@@ -185,24 +176,52 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobreescribe Equals() usando el método de la clase base Puesto
+        /// Sobrecarga del operador ==. Compara que el Hash code de ambas sesiones sean iguales.
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns>Devuelve true si los hash code son iguales, false si son distintos</returns>
+        public static bool operator ==(Computadora c1, Computadora c2)
+        {
+            if (c1 is not null && c2 is not null)
+            {
+                return c1.GetHashCode() == c2.GetHashCode();
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador !=. Compara que el Hash code de ambas sesiones sean iguales.
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns>Devuelve true si los hash code son distintos, false si son iguales</returns>
+        public static bool operator !=(Computadora c1, Computadora c2)
+        {
+            return !(c1 == c2);
+        }
+
+        /// <summary>
+        /// Sobreescribe Equals(), reutilizando la sobrecarga del operador == de Computadora. 
+        /// Compara que el Hash code de ambas sesiones sean iguales.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>True si los identificadores son iguales, false si no</returns>
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Computadora computadora = obj as Computadora;
+            return computadora != null && this == computadora;
         }
 
         /// <summary>
-        /// Sobreescribe GetHashCode() usando el de la clase base Puesto
+        /// Sobreescribe GetHashCode() usando el de la clase base Puesto y comparando tambien segun las especificaciones del hardware.
         /// </summary>
-        /// <returns>HashCode generado a partir del identificador</returns>
+        /// <returns>nuevo hash code</returns>
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return base.GetHashCode() + especificacionesHardware.GetHashCode();
         }
-
+        
         #endregion
     }
 }

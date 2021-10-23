@@ -7,14 +7,8 @@ namespace Biblioteca
 {
     public static class Cibercafe
     {
-        #region Atributos estáticos
-
         private static List<Puesto> puestos;
         private static Queue<Cliente> clientesEnEspera;
-
-    #endregion
-
-        #region Constructor estático
 
         /// <summary>
         /// Constructor estatico de la clase Cibercafe
@@ -24,10 +18,6 @@ namespace Biblioteca
             puestos = new List<Puesto>();
             clientesEnEspera = new Queue<Cliente>();
         }
-
-        #endregion
-
-        #region Propiedades
 
         /// <summary>
         /// Propiedad solo lectura de lista de puestos
@@ -51,7 +41,6 @@ namespace Biblioteca
             }
         }
 
-        #endregion
 
         #region Métodos públicos
 

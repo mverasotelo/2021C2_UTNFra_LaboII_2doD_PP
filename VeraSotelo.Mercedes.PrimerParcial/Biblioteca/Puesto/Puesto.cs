@@ -11,26 +11,17 @@ namespace Biblioteca
         public enum EEstado { Disponible, Ocupado };
         #endregion
 
-        #region Atributos
-
         protected string identificador;
         protected EEstado estado;
         protected ETipo tipo;
         protected List<Servicio> listaServicios;
         protected int minutosDeUso;
-
-        #endregion
-
-        #region Constructores
         protected Puesto(string identificador)
         {
             this.identificador = identificador;
             this.listaServicios = new List<Servicio>();
             this.estado = EEstado.Disponible;
         }
-        #endregion
-
-        #region Propiedades
 
         /// <summary>
         /// Propiedad solo lectura del ID.
@@ -95,9 +86,7 @@ namespace Biblioteca
             }
         }
 
-        #endregion
-
-        #region Metodos 
+        #region Metodos y sobrecargas
 
         /// <summary>
         /// Calcula los minutos de uso del puesto sumando la duración de los servicios 
@@ -116,11 +105,23 @@ namespace Biblioteca
         }
 
         /// <summary>
+        /// Compara dos puestos segun sus minutos de uso
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns>1 si p1 es mayor a p2, 0 si son iguales, -1 si es menor</returns>
+        internal static int CompararPuestosPorUso(Puesto p1, Puesto p2)
+        {
+            return p2.MinutosDeUso.CompareTo(p1.MinutosDeUso);
+        }
+
+
+        /// <summary>
         /// Sobrecarga del operador ==, comparando por identificador
         /// </summary>
         /// <param name="p1"></param>
         /// <param name="p2"></param>
-        /// <returns>True si tienen el mismo identificador, false si no</returns>
+        /// <returns>Devuelve true si los identificadores son iguales, false si son distintos</returns>
         public static bool operator ==(Puesto p1, Puesto p2)
         {
             if (p1 is not null && p2 is not null)
@@ -135,16 +136,16 @@ namespace Biblioteca
         /// </summary>
         /// <param name="p1"></param>
         /// <param name="p2"></param>
-        /// <returns>False si tienen el mismo identificador, true si no</returns>
+        /// <returns>Devuelve true si los identificadores son distintos, false si son iguales</returns>
         public static bool operator !=(Puesto p1, Puesto p2)
         {
             return !(p1 == p2);
         }
 
         /// <summary>
-        /// Sobrescribe el metodo Equals(), comparando por identificador
+        /// Sobrescribe el metodo Equals(), comparando por identificador, reutilizando la sobrecarga del operador == de Puesto.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve true si los identificadores son iguales, false si son distintos</returns>
         public override bool Equals(Object obj)
         {
             Puesto puesto = obj as Puesto;
@@ -152,18 +153,18 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobrecarga del metodo GetHashCode()
+        /// Sobrecarga del metodo GetHashCode(), devolviendo el hash code del identificador.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Nuevo hash code</returns>
         public override int GetHashCode()
         {
             return identificador.GetHashCode();
         }
 
         /// <summary>
-        /// Sobrescribe el metodo ToString()
+        /// Sobrescribe el metodo ToString(), devolviendo informacion del puesto
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve in string con info del puesto</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -175,17 +176,6 @@ namespace Biblioteca
             return sb.ToString();
         }
 
-        /// <summary>
-        /// Compara dos puestos segun sus minutos de uso
-        /// </summary>
-        /// <param name="p1"></param>
-        /// <param name="p2"></param>
-        /// <returns>1 si p1 es mayor a p2, 0 si son iguales, -1 si es menor</returns>
-        internal static int CompararPuestosPorUso(Puesto p1, Puesto p2)
-        {
-            return p2.MinutosDeUso.CompareTo(p1.MinutosDeUso);
-        }
-        
         #endregion
     }
 }

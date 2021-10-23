@@ -5,20 +5,14 @@ namespace Biblioteca
 {
     public class Cliente
     {
-        #region Atributos
-
         private int dni;
         private string nombre;
         private string apellido;
         private short edad;
         private Servicio servicio;
 
-        #endregion
-
-        #region Constructor
-
         /// <summary>
-        /// Constructor de la clase Cliente
+        /// Constructor de la clase Cliente, recibe dni, nombre, apellido, edad y servicio solicitado.
         /// </summary>
         /// <param name="dni"></param>
         /// <param name="nombre"></param>
@@ -34,12 +28,8 @@ namespace Biblioteca
             this.servicio = servicio;
         }
 
-        #endregion
-
-        #region Propiedades
-
         /// <summary>
-        /// Propiedad solo lectura Servicio
+        /// Propiedad solo lectura de servicio
         /// </summary>
         public Servicio Servicio
         {
@@ -49,30 +39,14 @@ namespace Biblioteca
             }
         }
 
-        #endregion
-
-        #region Sobrecargas
-
-        public static Cliente operator +(Cliente cliente, Servicio servicio)
-        {
-            if (servicio is Llamada)
-            {
-                cliente.servicio = (Llamada)servicio;
-            }
-            else
-            {
-                cliente.servicio = (Sesion)servicio;
-
-            }
-            return cliente;
-        }
+        #region Metodos y sobrecargas
 
         /// <summary>
-        /// Sobrecarga del operador ==
+        /// Sobrecarga del operador ==. Compara 2 clientes segun su numero de DNI
         /// </summary>
         /// <param name="c1"></param>
         /// <param name="c2"></param>
-        /// <returns></returns>
+        /// <returns>Devuelve true si los DNI son iguales, false si son distintos</returns>
         public static bool operator ==(Cliente c1, Cliente c2)
         {
             if (c1 is not null && c2 is not null)
@@ -83,18 +57,18 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobrecarga del operador !=
+        /// Sobrecarga del operador !=. Compara 2 clientes segun su numero de DNI reutilizando la sobrecarga del operador ==.
         /// </summary>
         /// <param name="c1"></param>
         /// <param name="c2"></param>
-        /// <returns></returns>
+        /// <returns>Devuelve falsse si los DNI son iguales, true si son distintos</returns>
         public static bool operator !=(Cliente c1, Cliente c2)
         {
             return !(c1 == c2);
         }
 
         /// <summary>
-        /// Sobrescribe el metodo Equals()
+        /// Sobrescribe el metodo Equals().Compara 2 clientes segun su numero de DNI reutilizando la sobrecarga del operador ==.
         /// </summary>
         /// <returns></returns>
         public override bool Equals(Object obj)
@@ -106,16 +80,16 @@ namespace Biblioteca
         /// <summary>
         /// Sobrecarga del metodo GetHashCode()
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve true si los DNI son iguales, false si son distintos</returns>
         public override int GetHashCode()
         {
             return dni.GetHashCode();
         }
 
         /// <summary>
-        /// Sobrescribe el metodo ToString()
+        /// Sobrescribe el metodo ToString(), mostrando informacion del cliente.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve string con informacion del cliente.</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

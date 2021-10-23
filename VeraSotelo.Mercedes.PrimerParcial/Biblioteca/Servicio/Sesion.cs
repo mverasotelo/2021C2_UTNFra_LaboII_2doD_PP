@@ -13,8 +13,6 @@ namespace Biblioteca
         }
         #endregion
 
-        #region Atributos
-
         private const float COSTO_BLOQUE_30MIN = 0.5F;
         private const float COSTO_IMPRESION = 0.05F;
         private ETipoSesion tipoSesion;
@@ -22,10 +20,6 @@ namespace Biblioteca
         private List<Enumerados.EPerifericos> perifericosRequeridos;
         private List<Enumerados.EJuegos> juegosRequeridos;
         private int numeroCopias;
-
-        #endregion
-
-        #region Constructores
 
         /// <summary>
         /// Constructor privado de sesion para crear listas e inicializar tipoServicio en Sesion.
@@ -39,9 +33,8 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Constructor de la clase Sesion
+        /// Constructor de la clase Sesion, que recibe requerimientos de software, perifericos y juegos.
         /// </summary>
-        /// <param name="tipoSesion"></param>
         /// <param name="softwareRequerido"></param>
         /// <param name="perifericosRequeridos"></param>
         /// <param name="juegosRequeridos"></param>
@@ -54,10 +47,6 @@ namespace Biblioteca
             this.perifericosRequeridos = perifericosRequeridos;
             this.juegosRequeridos = juegosRequeridos;
         }
-
-        #endregion
-
-        #region Propiedades
 
         /// <summary>
         /// Propiedad lectura-escritura tipo sesion
@@ -148,9 +137,8 @@ namespace Biblioteca
             }
         }
 
-        #endregion
 
-        #region Metodos
+        #region Metodos y sobrecargas
 
         /// <summary>
         /// Sobreescribe el metodo y calcula el costo de una sesion segun su duracion mas el costo en concepto de copias
@@ -180,7 +168,7 @@ namespace Biblioteca
         {
             Computadora pc = puesto as Computadora;
 
-            if(pc is not null && base.EsCompatible(pc))
+            if (pc is not null && base.EsCompatible(pc))
             {
                 foreach (Enumerados.ESoftware software in SoftwareRequerido)
                 {
@@ -209,27 +197,9 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobrescribe el metodo ToString()
+        /// Muestra los requerimientos de la PC, tanto de software, como de juegos y perifericos.
         /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine($"Sesión {tipoSesion}\n");
-            sb.AppendLine($"{base.ToString()}");
-            if(numeroCopias > 0)
-            {
-                sb.AppendLine($"Numero de copias: {numeroCopias}\n");
-            }
-            sb.AppendLine(MostrarRequerimientosCliente());
-            return sb.ToString();
-        }
-
-        /// <summary>
-        /// Muestra los requerimientos de la PC
-        /// </summary>
-        /// <returns></returns>
+        /// <returns>String con info de requerimientos de clientes</returns>
         public string MostrarRequerimientosCliente()
         {
             StringBuilder sb = new StringBuilder();
@@ -252,9 +222,9 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobrescribe el metodo string y Muestra el costo por una sesion
+        /// Muestra el costo por una sesion, detallando lo gastado en concepto de internet, asi como de copias y el costo final con IVA.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>String con info del costo</returns>
         public override string CobrarPorServicio()
         {
             StringBuilder sb = new StringBuilder();
@@ -268,6 +238,71 @@ namespace Biblioteca
             sb.AppendLine(base.CobrarPorServicio());
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Sobrescribe el metodo ToString(), llamando a la sobrescritura de la base, y agregando numero de copias (de existir) y requerimientos del cliente
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Sesión {tipoSesion}\n");
+            sb.AppendLine($"{base.ToString()}");
+            if (numeroCopias > 0)
+            {
+                sb.AppendLine($"Numero de copias: {numeroCopias}\n");
+            }
+            sb.AppendLine(MostrarRequerimientosCliente());
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador ==. Compara que el Hash code de ambas sesiones sean iguales.
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns>Devuelve true si los hash code son iguales, false si son distintos</returns>
+        public static bool operator ==(Sesion s1, Sesion s2)
+        {
+            if (s1 is not null && s2 is not null)
+            {
+                return s1.GetHashCode() == s2.GetHashCode();
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador !=. Compara que el Hash code de ambas sesiones sean iguales.
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns>Devuelve true si los hash code son distintos, false si son iguales</returns>
+        public static bool operator !=(Sesion s1, Sesion s2)
+        {
+            return !(s1 == s2);
+        }
+
+        /// <summary>
+        /// Sobrescribe el metodo Equals(). Utiliza la sobrecarga del operador == de Sesion.
+        /// </summary>
+        /// <returns>Devuelve true si los hash code son iguales, false si son distintos</returns>
+        public override bool Equals(Object obj)
+        {
+            Servicio sesion = obj as Sesion;
+            return sesion != null && this == sesion;
+        }
+
+        /// <summary>
+        /// Sobrecarga del metodo GetHashCode(), reutilizando el método de la base. 
+        /// Suma los hash code de la hora inicio, tipo del servicio, duración y tipo de sesion.
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode() + tipoSesion.GetHashCode();
+        }
+
         #endregion
     }
 }

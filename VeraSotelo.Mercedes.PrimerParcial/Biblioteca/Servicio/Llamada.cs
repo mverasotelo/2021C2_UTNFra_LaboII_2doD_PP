@@ -11,15 +11,9 @@ namespace Biblioteca
         }
         #endregion
 
-        #region Atributos
-
         private string codigoPais;
         private string prefijoLocalidad;
         private string numero;
-
-        #endregion
-
-        #region Constructores
 
         /// <summary>
         /// Constructor publico de llamada
@@ -30,22 +24,18 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobrecarga del constructor de llamada
+        /// Sobrecarga del constructor de llamada que recibe codigo pais, prefijo localidad y numero.
         /// </summary>
         /// <param name="codigoPais"></param>
         /// <param name="prefijoLocalidad"></param>
         /// <param name="numero"></param>
         public Llamada(string codigoPais, string prefijoLocalidad, string numero)
-            :this()
+            : this()
         {
             this.codigoPais = codigoPais;
             this.prefijoLocalidad = prefijoLocalidad;
             this.numero = numero;
         }
-
-        #endregion
-
-        #region Propiedades
 
         /// <summary>
         /// Solo lectura = Devuelve el numero de destino
@@ -129,14 +119,16 @@ namespace Biblioteca
             }
         }
 
-        #endregion
 
-        #region Métodos
+        #region Métodos y sobrecargas
 
         /// <summary>
-        /// Analiza el número de la llamada a fin de determinar si es local, larga distancia o internacional
+        /// Analiza el número de la llamada a fin de determinar si es local, larga distancia o internacional.
+        /// Se reconoce a una llamada como de larga distancia cuando el código de país es distinto de '54'.
+        /// Se reconoce a una llamada como de larga distancia cuando el prefijo contiene un número distinto de '11' o '011' luego del código de país (54 - #### - #### - ####).
+        /// Se reconoce a una llamada como local cuando el prefijo contiene un '11' o '011' luego del código de país (54 - 11 - #### - ####).
         /// </summary>
-        /// <returns>Tipo de llamada</returns>
+        /// <returns>Devuelve tipo de llamada</returns>
         private ETipoLlamada IdentificarTipoLlamada()
         {
             if(codigoPais != "54")
@@ -157,9 +149,12 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobreescribe el metodo y calcula el costo de una llamada segun su duracion y el valor del minuto
+        /// Sobreescribe el metodo y calcula el costo de una llamada segun su duracion y el valor del minuto.
+        /// Local: $1.00 por minuto.
+        /// Larga distancia: $2.50 por minuto.
+        /// Internacional: $5.00 por minuto. 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve costo de la llamada</returns>
         protected override float CalcularCosto()
         {
             return (DuracionServicio * (int) TipoLlamada)/100;
@@ -170,7 +165,7 @@ namespace Biblioteca
         /// (ademas de estar libre, debe ser una cabina)
         /// </summary>
         /// <param name="puesto"></param>
-        /// <returns></returns>
+        /// <returns>Si recibe una cabina libre devuelve true, sino devuelve false</returns>
         public override bool EsCompatible(Puesto puesto)
         {
             Cabina cabina = puesto as Cabina;
@@ -182,16 +177,12 @@ namespace Biblioteca
             return false;
         }
 
-        #endregion
-
-        #region Sobrecargas
-
         /// <summary>
-        /// Sobrecarga del operador ==
+        /// Sobrecarga del operador ==. Compara que el Hash code de ambas llamadas sean iguales.
         /// </summary>
         /// <param name="c1"></param>
         /// <param name="c2"></param>
-        /// <returns></returns>
+        /// <returns>Devuelve true si los hash code son iguales, false si son distintos</returns>
         public static bool operator ==(Llamada ll1, Llamada ll2)
         {
             if (ll1 is not null && ll2 is not null)
@@ -202,20 +193,20 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobrecarga del operador !=
+        /// Sobrecarga del operador != que reutiliza la sobrecarga del operador ==, comparando llamadas segun el hash code.
         /// </summary>
         /// <param name="ll1"></param>
         /// <param name="ll2"></param>
-        /// <returns></returns>
+        /// <returns>Devuelve true si los hash code son iguales, false si son distintos</returns>
         public static bool operator !=(Llamada ll1, Llamada ll2)
         {
             return !(ll1 == ll2);
         }
 
         /// <summary>
-        /// Sobrescribe el metodo Equals()
+        /// Sobrescribe el metodo Equals(). Utiliza la sobrecarga del == de Llamada.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve true si los hash code son iguales, false si son distintos</returns>
         public override bool Equals(Object obj)
         {
             Llamada llamada = obj as Llamada;
@@ -223,18 +214,19 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Sobrecarga del metodo GetHashCode()
+        /// Sobrecarga del metodo GetHashCode(), reutilizando el método de la base. 
+        /// Suma los hash code de la hora inicio, tipo del servicio, duración y numero de destino.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve el hash code</returns>
         public override int GetHashCode()
         {
             return base.GetHashCode() + NroDestino.GetHashCode();
         }
 
         /// <summary>
-        /// Sobrescribe el metodo ToString()
+        /// Sobrescribe el metodo ToString(), brindando informacion sobre la llamada.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>String con informacion de la llamada</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
