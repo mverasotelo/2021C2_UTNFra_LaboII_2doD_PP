@@ -31,7 +31,7 @@ namespace Biblioteca
         }
 
         /// <summary>
-        /// Propiedad solo lectura de lista de clientes en espera
+        /// Propiedad solo lectura de lista de clientes a la espera de ser atendidos
         /// </summary>
         public static Queue<Cliente> ClientesEnEspera
         {
